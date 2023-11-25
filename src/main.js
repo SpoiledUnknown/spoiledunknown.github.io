@@ -6,9 +6,12 @@ import '../styles/components/about.css'
 import '../styles/components/projects.css'
 import '../styles/components/contact.css'
 import '../styles/components/footer.css'
+import '../styles/components/mobile-navigation.css'
 import '../styles/utils.css'
 
 import footerText from './utils/footer'
+import MobileNavigation from './utils/mobile-navigation'
 
 
 footerText()
+MobileNavigation()

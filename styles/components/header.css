@@ -64,8 +64,6 @@
     
     .header__ThemeBtn {
         display: block;
-        background: none;
-        border: none;
         color: var(--clr-indigo);
         width: var(--size-base);
         height: var(--size-base);
