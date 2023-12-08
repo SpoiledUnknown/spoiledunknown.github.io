@@ -9,9 +9,13 @@ import '../styles/components/footer.css'
 import '../styles/components/mobile-navigation.css'
 import '../styles/utils.css'
 
-import footerText from './utils/footer'
+import FooterText from './utils/footer'
 import MobileNavigation from './utils/mobile-navigation'
+import TurnLightModeOn from './utils/light-mode'
+import HandleImageLoading from './utils/lazy-loading'
 
 
-footerText()
+FooterText()
 MobileNavigation()
+TurnLightModeOn()
+HandleImageLoading()
