@@ -2,14 +2,15 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-top: 2rem;
+    padding-top: 1rem;
     padding-bottom: 1rem;
     position: fixed;
-    top: 0;
+    top: 0.5rem;
     left: 0;
     right: 0;
     z-index: 9999;
-    background-color: var(--clr-dark);
+    border-radius: 20px;
+    background-color: var(--clr-header);
 }
 
 .header__menu {
