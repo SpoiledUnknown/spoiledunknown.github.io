@@ -2,7 +2,13 @@
     text-align: center;
 }
 
+.placeholder {
+    color: var(--clr-dark);
+    cursor: default;
+}
+
 .projects__title {
+    margin-top: 5rem;
     font-size: var(--size-2xl);
     color: var(--clr-light);
 }
