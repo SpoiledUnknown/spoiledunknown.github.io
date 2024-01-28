@@ -39,7 +39,7 @@
     flex-direction: column;
     gap: 1em;
     padding-left: 1em;
-    list-style-type: '\1F4BB';
+    list-style-type: '';
     flex: 1;
 }
 
