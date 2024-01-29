@@ -1,7 +1,6 @@
 .mobile-nav {
     transition: opacity 0.5s;
     position: fixed;
-    border: 1px solid green;
     top: 0;
     left: 0;
     z-index: 999;
