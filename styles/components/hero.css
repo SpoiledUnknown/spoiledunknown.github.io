@@ -27,6 +27,10 @@
     font-size: var(--size-4xl);
     letter-spacing: -0.05em;
     line-height: 0.9;
+
+    animation: fade linear both;
+    animation-timeline: view();
+    animation-range: entry 50% cover 50%;
 }
 
 .hero__yt {
@@ -37,20 +41,38 @@
     max-height: 60ch;
     font-size: var(--size-sm);
     color: var(--clr-slate600);
+
+    animation: fade linear both;
+    animation-timeline: view();
+    animation-range: entry 50% cover 50%;
 }
 
 .hero__btn {
     text-transform: capitalize;
     font-size: var(--size-sm);
+
+    animation: fade linear both;
+    animation-timeline: view();
+    animation-range: entry 50% cover 50%;
 }
 
-.hero__bg {
-    border-radius: 1rem;
-    width: 16rem;
-    height: 9rem;
-    transition: width 0.5s, height 0.5s;
+.hero__placeholder {
+    opacity: 0%;
 }
 
+.hero__scroll {
+    text-decoration: none;
+    color: var(--clr-rose);
+}
+
+@keyframes fade {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
 
 
 /* xs */
@@ -79,11 +101,6 @@
     .hero__btn {
         font-size: var(--size-base);
     }
-    
-    .hero__bg {
-        width: 24rem;
-        height: 13.5rem;
-    }
 }
 
 /* sm */
@@ -97,11 +114,6 @@
     .hero__pfp {
         width: 8rem;
         height: 8rem;
-    }
-
-    .hero__pfp:hover {
-        width: 10rem;
-        height: 10rem;
     }
     
     .hero__subtitle {
@@ -119,16 +131,6 @@
     .hero__btn {
         font-size: var(--size-lg);
     }
-    
-    .hero__bg {
-        width: 24rem;
-        height: 13.5rem;
-    }
-
-    .hero__bg:hover {
-        width: calc(16rem * 1.75);
-        height: calc(9rem * 1.75);
-    }
 }
 
 /* xl */
@@ -140,11 +142,6 @@
     .hero__pfp {
         width: 10rem;
         height: 10rem;
-    }
-
-    .hero__pfp:hover {
-        width: 12rem;
-        height: 12rem;
     }
     
     .hero__subtitle {
@@ -161,16 +158,6 @@
     
     .hero__btn {
         font-size: var(--size-xl);
-    }
-    
-    .hero__bg {
-        width: 32rem;
-        height: 18rem;
-    }
-
-    .hero__bg:hover {
-        width: calc(24rem * 1.5);
-        height: calc(13.5rem * 1.5);
     }
 }
 

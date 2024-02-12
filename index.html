@@ -6,7 +6,7 @@
   <link rel="icon" type="image/x-icon" href="/spoiledunknown.ico" />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@600,401,400,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
-  <title>Portfolio</title>
+  <title>Spoiled Unknown</title>
 </head>
 <body>
   <header class="header container">
@@ -78,8 +78,9 @@
     <!-- Hero Section -->
     <section class="hero container section">
       <img class="hero__pfp" src="/pfp.png" alt="My Profile Picture" />
-      <h2 class="hero__subtitle" >नमस्ते 🙏, I am Spoiled Unknown!</h2>
-      <h1 class="hero__title" >Student,<br />Programmer,<br />and Full-Stack Web Developer.</h1>
+      <h2 class="hero__subtitle" >नमस्ते 🙏, I am Spoiled Unknown! <a class="hero__scroll" href="#title"><i class="ri-arrow-down-double-fill"></i></a></h2>
+      <h2 class="hero__placeholder" id="title">placeholdertext</h2>
+      <h1 class="hero__title">Student,<br />Programmer,<br />and Full-Stack Web Developer.</h1>
       <p class="hero__description">A passionate <strong>Game Developer</strong>, <strong>Webdev</strong>, <strong>Programmer</strong> and a <strong class="hero__yt">Youtuber</strong> specialized in making stunning pixel perfect websites, highly optimised games and much more.</p>
       <a class="hero__btn btn" href="#contact">Wanna talk to me?</a>
     </section>
@@ -131,7 +132,7 @@
         <div class="projects__container swiper">
           <div class="card__content">
             <div class="swiper-wrapper">
-              <!-- arcitle 1 -->
+              <!-- arcitle 1 miss noty -->
               <article class="card__article swiper-slide">
                 <div class="card__image">
                   <img class="card__img" src="/missnoty.png" alt="Miss Noty's Profile Pic">
@@ -140,14 +141,13 @@
                   <h3 class="card__name">Miss Noty (Discord Bot)</h3>
                   <p class="card__description">An epic bot for your server.
                     Having Giveaway, Economy, Music, many more Commands.</p>
-
                   <p class="card__description">Made using <strong>Node.js</strong> and <strong>HTML, CSS, JS</strong></p>
                   <a target="_blank" href="https://spoiledunknown.github.io/MissNotyBot/" class="btn">Website</a>
                   <a target="_blank" href="https://discord.com/oauth2/authorize?client_id=774225512373551115&permissions=272100390&scope=bot%20applications.commands" class="btn">Invite</a>
                 </div>
               </article>
 
-              <!-- arcitle 2 -->
+              <!-- arcitle 2 newtya -->
               <article class="card__article swiper-slide">
                 <div class="card__image">
                   <img class="card__img" src="/newtya.png" alt="Newtya's Promo Poster">
@@ -156,11 +156,24 @@
                   <h3 class="card__name">Newtya - The Newton Parody</h3>
                   <p class="card__description">Its a sarcastic game made for fun with the genre of hypercasual crude humour. Available on Google Play Store</p>
                   <p class="card__description">Made using <strong>Unity (C#)</strong></p>
-                  <a target="_blank" href="https://play.google.com/store/apps/details?id=com.nds.newtya&pcampaignid=web_share" class="btn">Download Now!!</a>
+                  <a target="_blank" href="https://play.google.com/store/apps/details?id=com.nds.newtya&pcampaignid=web_share" class="btn">Visit Play Store Page</a>
                 </div>
               </article>
 
-              <!-- arcitle 3 -->
+              <!-- arcitle 3 xtremefps -->
+              <article class="card__article swiper-slide">
+                <div class="card__image">
+                  <img class="card__img" src="/XtremeFPS.png" alt="Newtya's Promo Poster">
+                </div>
+                <div class="card__data">
+                  <h3 class="card__name">XtremeFPS Controller</h3>
+                  <p class="card__description">A very customisable easy to setup first-person player controller, that can be modified into anything that your game needs.</p>
+                  <p class="card__description">Made for <strong>Unity (C#)</strong></p>
+                  <a target="_blank" href="" class="btn">Visit Unity Asset Store</a>
+                </div>
+              </article>
+
+              <!-- arcitle 4 richcord -->
               <article class="card__article swiper-slide">
                 <div class="card__image">
                   <img class="card__img" src="/Richcord.png" alt="Richcord Presence Icon">
@@ -218,7 +231,7 @@
   </main>
 
   <footer class="footer container section">
-    <h3 class="footer__title"></h3>
+    <h4 class="footer__title"></h4>
   </footer>
 
   <script type="module" src="./src/main.js"></script>
