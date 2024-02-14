@@ -61,10 +61,6 @@ svg {
     max-width: 100%;
     -webkit-user-select: none;
     user-select: none;
-
-    /* animation: fade linear both;
-    animation-timeline: view();
-    animation-range: entry 50% cover 50%; */
 }
 
 button {
@@ -74,18 +70,10 @@ button {
     background: none;
     cursor: pointer;
     color: inherit;
-/* 
-    animation: fade linear both;
-    animation-timeline: view();
-    animation-range: entry 50% cover 50%; */
 }
 
 a {
     color: var(--clr-indigo);
-
-    /* animation: fade linear both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 10%; */
 }
 
 strong {
@@ -103,13 +91,4 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background-color: var(--clr-indigo);
     outline: 1px solid var(--clr-indigo);
-}
-
-@keyframes fade {
-    from {
-        opacity: 0%;
-    }
-    to {
-        opacity: 100%;
-    }
 }
