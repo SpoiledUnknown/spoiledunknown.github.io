@@ -9,6 +9,35 @@
   <title>Spoiled Unknown</title>
 </head>
 <body>
+    <div class="preloader">
+        <h1 class="preloader__title">Spoiled Unknown</h1>
+        <svg class="ip" viewBox="0 0 256 128" width="256px" height="128px" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#5ebd3e" />
+                    <stop offset="33%" stop-color="#ffb900" />
+                    <stop offset="67%" stop-color="#f78200" />
+                    <stop offset="100%" stop-color="#e23838" />
+                </linearGradient>
+                <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="0">
+                    <stop offset="0%" stop-color="#e23838" />
+                    <stop offset="33%" stop-color="#973999" />
+                    <stop offset="67%" stop-color="#009cdf" />
+                    <stop offset="100%" stop-color="#5ebd3e" />
+                </linearGradient>
+            </defs>
+            <g fill="none" stroke-linecap="round" stroke-width="16">
+                <g class="ip__track" stroke="#ddd">
+                    <path d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
+                    <path d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
+                </g>
+                <g stroke-dasharray="180 656">
+                    <path class="ip__worm1" stroke="url(#grad1)" stroke-dashoffset="0" d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
+                    <path class="ip__worm2" stroke="url(#grad2)" stroke-dashoffset="358" d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
+                </g>
+            </g>
+        </svg>
+    </div>
   <header class="header container">
     <p class="header__name">Spoiled Unknown</p>
     <nav>
@@ -77,49 +106,49 @@
   <main>
     <!-- Hero Section -->
     <section class="hero container section">
-      <img class="hero__pfp" src="/pfp.png" alt="My Profile Picture" />
+      <img class="hero__pfp" src="/mypic.jpg" alt="My Profile Picture" />
       <h2 class="hero__subtitle" >नमस्ते 🙏, I am Spoiled Unknown! <a class="hero__scroll" href="#title"><i class="ri-arrow-down-double-fill"></i></a></h2>
       <h2 class="hero__placeholder" id="title">placeholdertext</h2>
-      <h1 class="hero__title">Student,<br />Programmer,<br />and Full-Stack Web Developer.</h1>
-      <p class="hero__description">A passionate <strong>Game Developer</strong>, <strong>Webdev</strong>, <strong>Programmer</strong> and a <strong class="hero__yt">Youtuber</strong> specialized in making stunning pixel perfect websites, highly optimised games and much more.</p>
+      <h1 class="hero__title">Student <br /> Programmer<br />Web Developer</h1>
+      <p class="hero__description">A passionate <strong>Game Developer</strong>, <strong>Webdev</strong>, and a <strong>Programmer</strong> specialized in making stunning pixel perfect websites, highly optimised games and much more.</p>
       <a class="hero__btn btn" href="#contact">Wanna talk to me?</a>
     </section>
     <!-- About Section -->
     <section class="about container" id="about">
       <div class="about__content section">
         <h2 class="about__title">About Me</h2>
-        <p class="about__description">Heyo👋! This is me <a>Spoiled Unknown</a> also known as <a>Shashank Raj</a>, I'm a passionate <strong>Front-End</strong> web, <strong>Game</strong> developer and a <strong>Programmer</strong> originating from India, who also likes to edit/make videos for fun. </p>
-        <p class="about__description">I like watching rom-com animes and any comedy movies, but my favourite hobby is making simple yet stunning website and fun to play games that not only resides in internet but also in the hearts of people.</p>
-        <p class="about__description">I also have a youtube channel "<a>Spoiled Unknown</a>" show casing my game/web dev journey and some casuall gaming/other contents.</p>
+        <p class="about__description">Heyo👋! This is me <a>Spoiled Unknown</a> also known as <a>Shashank Raj</a>, I'm a passionate <strong>Front-End</strong> web, <strong>Game</strong> developer and a <strong>Programmer</strong> originating from India, who also likes to edit videos/pictures for fun.</p>
+        <p class="about__description">I like watching animes, but my favourite hobby is making simple yet stunning website and fun to play games that not only resides in internet but also in the hearts of people.</p>
+        <p class="about__description">I have a youtube channel showcasing my journey and projects, which you could check out on <strong><a href="https://www.youtube.com/c/SpoiledUnknown" target="_blank">Spoiled Unknown</a></strong>.</p>
+        <p class="about__description">I not only like to talk to people but I also am very prfound in talking to computers through multiple programming languages. And I am activiely trying to upskill and make myself better by learning new things <strong><a>everyday!</a></strong></p>
         <hr class="about__hr" />
-        <h3 class="about__subtitle">My Skills</h3>
-        <div class="about__ul-container">
-          <ul class="about__ul">
-            <li class="about__li"><i class="ri-pages-fill"></i> Web Development</li>
-            <li class="about__li"><i class="ri-gamepad-fill"></i> Game Development</li>
-          </ul>
-          <ul class="about__ul">
-            <li class="about__li"><i class="ri-discord-fill"></i> Discord Bot Development</li>
-            <li class="about__li"><i class="ri-movie-2-fill"></i> Video/Photo Editing</li>
-          </ul>
-        </div>
-        <hr class="about__hr" />
-        <h3 class="about__subtitle">Languages That I Know</h3>
-        <div class="about__ul-container">
-          <ul class="about__ul">
-            <li class="about__li"><i class="ri-html5-fill"></i> HTML</li>
-            <li class="about__li"><i class="ri-javascript-fill"></i> JS/TS</li>
-            <li class="about__li"><i class="ri-css3-fill"></i> CSS</li>
-          </ul>
-          <ul class="about__ul">
-            <li class="about__li"><i class="ri-code-box-fill"></i> C#</li>
-            <li class="about__li"><i class="ri-code-box-fill"></i> C/C++</li>
-            <li class="about__li"><i class="ri-code-box-fill"></i> Python</li>
-          </ul>
-        </div>
       </div>
       <div class="about__img-wrapper">
-        <img class="about__img lazy loading" src="https://fakeimg.pl/3000" data-src="/mypic.jpg" alt="My Real Life Photo">
+        <img class="about__img lazy loading" src="https://fakeimg.pl/3000" data-src="/pfp.png" alt="My Real Life Photo">
+      </div>
+    </section>
+    <section class="container section">
+      <div>
+        <div class="wrapper">
+          <div class="itemLeft" style="--n:1"><li class="about__li"><i class="ri-pages-fill"></i> Front-End Web Dev</li></div>
+          <div class="itemLeft" style="--n:2"><li class="about__li"><i class="ri-pages-fill"></i> Front-End Web Dev</li></div>
+          <div class="itemLeft" style="--n:3"><li class="about__li"><i class="ri-pages-fill"></i> Front-End Web Dev</li></div>
+          <div class="itemLeft" style="--n:4"><li class="about__li"><i class="ri-pages-fill"></i> Front-End Web Dev</li></div>
+          <div class="itemLeft" style="--n:5"><li class="about__li"><i class="ri-pages-fill"></i> Front-End Web Dev</li></div>
+          <div class="itemLeft" style="--n:6"><li class="about__li"><i class="ri-pages-fill"></i> Front-End Web Dev</li></div>
+          <div class="itemLeft" style="--n:7"><li class="about__li"><i class="ri-pages-fill"></i> Front-End Web Dev</li></div>
+          <div class="itemLeft" style="--n:8"><li class="about__li"><i class="ri-pages-fill"></i> Front-End Web Dev</li></div>
+        </div>
+        <div class="wrapper">
+          <div class="itemRight" style="--n:1"></div>
+          <div class="itemRight" style="--n:2"></div>
+          <div class="itemRight" style="--n:3"></div>
+          <div class="itemRight" style="--n:4"></div>
+          <div class="itemRight" style="--n:5"></div>
+          <div class="itemRight" style="--n:6"></div>
+          <div class="itemRight" style="--n:7"></div>
+          <div class="itemRight" style="--n:8"></div>
+        </div>
       </div>
     </section>
     <!-- Projects Section -->
@@ -169,7 +198,7 @@
                   <h3 class="card__name">XtremeFPS Controller</h3>
                   <p class="card__description">A very customisable easy to setup first-person player controller, that can be modified into anything that your game needs.</p>
                   <p class="card__description">Made for <strong>Unity (C#)</strong></p>
-                  <a target="_blank" href="" class="btn">Visit Unity Asset Store</a>
+                  <a target="_blank" href="https://assetstore.unity.com/packages/slug/282203 " class="btn">Visit Unity Asset Store</a>
                 </div>
               </article>
 
@@ -225,7 +254,7 @@
         <a class="contact__btn btn" href="https://discord.gg/YykdmCjzmQ" target="_blank">Discord</a>
         <a class="contact__btn btn" href="https://instagram.com/spoiledunknown" target="_blank">Instagram</a>
         <a class="contact__btn btn" href="#contact" target="_blank">LinkedIn</a>
-        <a class="contact__btn btn" href="mailto:shanjusamsong254@gmail.com" target="_blank">Email</a>
+        <a class="contact__btn btn" href="mailto:spoiledunknowndev@gmail.com" target="_blank">Email</a>
       </div>
     </section>
   </main>

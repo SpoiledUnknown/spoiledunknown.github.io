@@ -33,10 +33,6 @@
     animation-range: entry 50% cover 50%;
 }
 
-.hero__yt {
-    color: var(--clr-indigo);
-}
-
 .hero__description {
     max-height: 60ch;
     font-size: var(--size-sm);

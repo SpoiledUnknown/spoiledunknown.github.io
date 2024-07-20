@@ -6,7 +6,7 @@ const swiper = new Swiper('.card__content', {
   modules: [Navigation, Pagination],
 
   loop: true,
-  spaceBetween: 32,
+  spaceBetween: 36,
   grabCursor: true,
 
   pagination: {
@@ -30,7 +30,7 @@ const swiper = new Swiper('.card__content', {
       },
 
       1280: {
-          slidesPerView: 3,
+          slidesPerView: 2,
       },
   }
 });

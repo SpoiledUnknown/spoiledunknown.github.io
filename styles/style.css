@@ -9,7 +9,6 @@
     --clr-blue: #1d4ed8;
     --clr-indigo: #4f46e5;
     --clr-voilet: #7909e2;
-  
     /* sizes */
     --size-xxs: 0.5rem;
     --size-xs: 0.75rem;
@@ -26,7 +25,13 @@
     --size-8xl: 6rem;
     --size-9xl: 8rem;
     --size-10xl: 10rem;
-  }
+
+    /*preloader*/
+    --hue: 223;
+    --bg: hsl(var(--hue),90%,95%);
+    --fg: hsl(var(--hue),90%,5%);
+    --trans-dur: 0.3s;
+}
 
 * {
     margin: 0;
@@ -74,6 +79,7 @@ button {
 
 a {
     color: var(--clr-indigo);
+    text-decoration: none;
 }
 
 strong {

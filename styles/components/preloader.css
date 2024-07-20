@@ -1,0 +1,119 @@
+﻿.preloader {
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.5s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.preloader__title {
+    position: absolute;
+    top: 25%;
+    color: var(--clr-slate400);
+    text-transform: uppercase;
+    font-size: var(--size-4xl);
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+}
+
+.ip {
+    position: absolute;
+    top: 50%;
+    width: 11rem;
+    height: 4rem;
+}
+
+.ip__track {
+    stroke: hsl(var(--clr-dark),90%,90%);
+    transition: stroke var(--trans-dur);
+}
+
+.ip__worm1,
+.ip__worm2 {
+    animation: worm1 1s linear infinite;
+}
+
+.ip__worm2 {
+    animation-name: worm2;
+}
+
+/* Animation */
+@keyframes worm1 {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        animation-timing-function: steps(1);
+        stroke-dashoffset: -358;
+    }
+
+    50.01% {
+        animation-timing-function: linear;
+        stroke-dashoffset: 358;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes worm2 {
+    from {
+        stroke-dashoffset: 358;
+    }
+
+    50% {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: -358;
+    }
+}
+
+/* xs */
+@media (min-width: 475px) {
+    .preloader__title {
+        font-size: var(--size-5xl);
+    }
+
+    .ip {
+        width: 13rem;
+        height: 5rem;
+    }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+    .preloader__title {
+        font-size: var(--size-7xl);
+    }
+
+    .ip {
+        width: 15rem;
+        height: 6rem;
+    }
+}
+
+/* xl */
+@media (min-width: 1280px) {
+    .preloader__title {
+        font-size: var(--size-9xl);
+    }
+
+    .ip {
+        width: 17rem;
+        height: 7rem;
+    }
+}
