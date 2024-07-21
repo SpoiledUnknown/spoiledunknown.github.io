@@ -159,3 +159,17 @@
 
 /* 2xl */
 /* @media (min-width: 1536px) {} */
+/* Reduced motion preference */
+@media (prefers-reduced-motion) {
+    .hero__title {
+        animation: none;
+    }
+
+    .hero__description {
+        animation: none;
+    }
+
+    .hero__btn {
+        animation: none;
+    }
+}

@@ -93,8 +93,11 @@
         <li class="mobile-nav__link-line"></li>
         <li>
           <button id="theme-toggle" class="mobile-nav__themeBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="header__sun">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="header__sun-m">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="header__moon-m">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
             </svg>
           </button>
         </li>
@@ -157,78 +160,85 @@
       <h2 class="projects__title">Projects</h2>
       <p class="projects__description">Welcome to my project gallery! 🌟 While the majority of my creations reside on GitHub, here are a few standout ventures that deserve a closer look:</p>
 
-      <div class="card__container">
-        <div class="projects__container swiper">
-          <div class="card__content">
-            <div class="swiper-wrapper">
-              <!-- arcitle 1 miss noty -->
-              <article class="card__article swiper-slide">
-                <div class="card__image">
-                  <img class="card__img" src="/missnoty.png" alt="Miss Noty's Profile Pic">
-                </div>
-                <div class="card__data">
-                  <h3 class="card__name">Miss Noty (Discord Bot)</h3>
-                  <p class="card__description">An epic bot for your server.
-                    Having Giveaway, Economy, Music, many more Commands.</p>
-                  <p class="card__description">Made using <strong>Node.js</strong> and <strong>HTML, CSS, JS</strong></p>
-                  <a target="_blank" href="https://spoiledunknown.github.io/MissNotyBot/" class="btn">Website</a>
-                  <a target="_blank" href="https://discord.com/oauth2/authorize?client_id=774225512373551115&permissions=272100390&scope=bot%20applications.commands" class="btn">Invite</a>
-                </div>
-              </article>
-
-              <!-- arcitle 2 newtya -->
-              <article class="card__article swiper-slide">
-                <div class="card__image">
-                  <img class="card__img" src="/newtya.png" alt="Newtya's Promo Poster">
-                </div>
-                <div class="card__data">
-                  <h3 class="card__name">Newtya - The Newton Parody</h3>
-                  <p class="card__description">Its a sarcastic game made for fun with the genre of hypercasual crude humour. Available on Google Play Store</p>
-                  <p class="card__description">Made using <strong>Unity (C#)</strong></p>
-                  <a target="_blank" href="https://play.google.com/store/apps/details?id=com.nds.newtya&pcampaignid=web_share" class="btn">Visit Play Store Page</a>
-                </div>
-              </article>
-
-              <!-- arcitle 3 xtremefps -->
-              <article class="card__article swiper-slide">
-                <div class="card__image">
-                  <img class="card__img" src="/XtremeFPS.png" alt="Newtya's Promo Poster">
-                </div>
-                <div class="card__data">
-                  <h3 class="card__name">XtremeFPS Controller</h3>
-                  <p class="card__description">A very customisable easy to setup first-person player controller, that can be modified into anything that your game needs.</p>
-                  <p class="card__description">Made for <strong>Unity (C#)</strong></p>
-                  <a target="_blank" href="https://assetstore.unity.com/packages/slug/282203 " class="btn">Visit Unity Asset Store</a>
-                </div>
-              </article>
-
-              <!-- arcitle 4 richcord -->
-              <article class="card__article swiper-slide">
-                <div class="card__image">
-                  <img class="card__img" src="/Richcord.png" alt="Richcord Presence Icon">
-                </div>
-                <div class="card__data">
-                  <h3 class="card__name">Richcord Presence</h3>
-                  <p class="card__description">An advance discord rich presence software that allows a lot of customisation and control in hand of user.</p>
-                  <p class="card__description">Made using <strong>Node.js</strong></p>
-                  <a target="_blank" href="https://github.com/SpoiledUnknown/Richcord-Presence" class="btn">Repository</a>
-                  <a target="_blank" href="https://github.com/SpoiledUnknown/Richcord-Presence/blob/main/README.md" class="btn">Docs.</a>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <!-- Navigation Buttons -->
-          <div class="swiper-button-prev">
-            <i class="ri-arrow-left-s-line"></i>
-          </div>
-          <div class="swiper-button-next">
-            <i class="ri-arrow-right-s-line"></i>
-          </div>
+      <div class="projects__container swiper">
+        <div class="card__content">
+          <div class="swiper-wrapper">
+            <!-- arcitle 1 miss noty -->
+            <article class="card__article swiper-slide">
+              <div class="card__data">
+                <h3 class="card__name">Miss Noty (Discord Bot)</h3>
+                <p class="card__description">An epic bot for your server.
+                  Having Giveaway, Economy, Music, many more Commands.</p>
+                <p class="card__description">Made using <strong>Node.js</strong> and <strong>HTML, CSS, JS</strong></p>
+                <a target="_blank" href="https://spoiledunknown.github.io/MissNotyBot/" class="btn">Website</a>
+                <a target="_blank"
+                  href="https://discord.com/oauth2/authorize?client_id=774225512373551115&permissions=272100390&scope=bot%20applications.commands"
+                  class="btn">Invite</a>
+              </div>
+              <div class="card__image">
+                <img class="card__img" src="/missnoty.png" alt="Miss Noty's Profile Pic">
+              </div>
+            </article>
         
-          <!-- Pagination -->
-          <div class="swiper-pagination"></div>
+            <!-- arcitle 2 newtya -->
+            <article class="card__article swiper-slide">
+              <div class="card__image">
+                <img class="card__img" src="/newtya.png" alt="Newtya's Promo Poster">
+              </div>
+              <div class="card__data">
+                <h3 class="card__name">Newtya - The Newton Parody</h3>
+                <p class="card__description">Its a sarcastic game made for fun with the genre of hypercasual crude humour.
+                  Available on Google Play Store</p>
+                <p class="card__description">Made using <strong>Unity (C#)</strong></p>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.nds.newtya&pcampaignid=web_share"
+                  class="btn">Visit Play Store Page</a>
+              </div>
+            </article>
+        
+            <!-- arcitle 3 xtremefps -->
+            <article class="card__article swiper-slide">
+              <div class="card__image">
+                <img class="card__img" src="/XtremeFPS.png" alt="Newtya's Promo Poster">
+              </div>
+              <div class="card__data">
+                <h3 class="card__name">XtremeFPS Controller</h3>
+                <p class="card__description">A very customisable easy to setup first-person player controller, that can be
+                  modified into anything that your game needs.</p>
+                <p class="card__description">Made for <strong>Unity (C#)</strong></p>
+                <a target="_blank" href="https://assetstore.unity.com/packages/slug/282203 " class="btn">Visit Unity Asset
+                  Store</a>
+              </div>
+            </article>
+        
+            <!-- arcitle 4 richcord -->
+            <article class="card__article swiper-slide">
+              <div class="card__image">
+                <img class="card__img" src="/Richcord.png" alt="Richcord Presence Icon">
+              </div>
+              <div class="card__data">
+                <h3 class="card__name">Richcord Presence</h3>
+                <p class="card__description">An advance discord rich presence software that allows a lot of customisation and
+                  control in hand of user.</p>
+                <p class="card__description">Made using <strong>Node.js</strong></p>
+                <a target="_blank" href="https://github.com/SpoiledUnknown/Richcord-Presence" class="btn">Repository</a>
+                <a target="_blank" href="https://github.com/SpoiledUnknown/Richcord-Presence/blob/main/README.md"
+                  class="btn">Docs.</a>
+              </div>
+            </article>
+          </div>
+          
         </div>
+        
+        <!-- Navigation Buttons -->
+        <div class="swiper-button-prev">
+          <i class="ri-arrow-left-s-line"></i>
+        </div>
+        <div class="swiper-button-next">
+          <i class="ri-arrow-right-s-line"></i>
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
       </div>
 
       <p class="projects__description">These noteworthy projects provide a glimpse into my passion for innovation and problem-solving. For a comprehensive overview, browse through my GitHub profile, where a treasure trove of collaborative endeavors awaits exploration.

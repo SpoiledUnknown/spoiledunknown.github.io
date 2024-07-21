@@ -154,5 +154,25 @@
     }
 }
 
-/* 2xl */
-/* @media (min-width: 1536px) {} */
+/* Reduced motion preference */
+@media (prefers-reduced-motion) {
+    .about__title {
+        animation: none;
+    }
+
+    .about__description {
+        animation: none;
+    }
+
+    .about__hr {
+        animation: none;
+    }
+
+    .about__subtitle {
+        animation: none;
+    }
+
+    .about__img {
+        animation: none;
+    }
+}

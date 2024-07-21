@@ -20,17 +20,17 @@ const swiper = new Swiper('.card__content', {
     prevEl: '.swiper-button-prev',
   },
 
-  breakpoints: {
-      475: {
-          slidesPerView: 1,
-      },
+  // breakpoints: {
+  //     475: {
+  //         slidesPerView: 1,
+  //     },
 
-      768: {
-          slidesPerView: 2,
-      },
+  //     768: {
+  //         slidesPerView: 2,
+  //     },
 
-      1280: {
-          slidesPerView: 2,
-      },
-  }
+  //     1280: {
+  //         slidesPerView: 1,
+  //     },
+  // }
 });

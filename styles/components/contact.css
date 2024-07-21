@@ -7,7 +7,7 @@
     gap: 1rem;
 }
 
-contact__title {
+.contact__title {
     font-size: var(--size-2xl);
     color: var(--clr-light);
     text-transform: capitalize;
@@ -58,7 +58,7 @@ contact__title {
         gap: 1.5rem;
     }
     
-    contact__title {
+    .contact__title {
         font-size: var(--size-3xl);
     }
     
@@ -84,7 +84,7 @@ contact__title {
 
 /* lg */
 @media (min-width: 1024px) {  
-    contact__title {
+    .contact__title {
         font-size: var(--size-4xl);
     }
     
@@ -108,7 +108,7 @@ contact__title {
         gap: 2rem;
     }
     
-    contact__title {
+    .contact__title {
         font-size: var(--size-5xl);
     }
     
@@ -128,3 +128,18 @@ contact__title {
 
 /* 2xl */
 /* @media (min-width: 1536px) {} */
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion) {
+    .contact__title {
+        animation: none;
+    }
+
+    .contact__description {
+        animation: none;
+    }
+
+    .contact__btn {
+        animation: none;
+    }
+}
