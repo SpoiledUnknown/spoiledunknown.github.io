@@ -1,8 +1,5 @@
-import { version } from "../../package.json"
+const version = "0.1.0";
 
-function FooterText()
-{
-    document.querySelector('.footer__title').innerHTML = "Copyright © " + (new Date().getFullYear()) + " Spoiled Unknown. All rights reserved." + "<br /> This website is made using <strong>HTML, JS and CSS</strong> || <a>" + version +"</a>"
+export default function FooterText() {
+    document.querySelector('.footer__title').innerHTML = "Copyright © " + (new Date().getFullYear()) + " Spoiled Unknown. All rights reserved." + "<br /> This website is made using <strong>HTML, JS and CSS</strong> || <a>" + version + "</a>"
 }
-
-export default FooterText
