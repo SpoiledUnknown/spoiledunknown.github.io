@@ -48,7 +48,7 @@
 }
 
 .card__content {
-    height: 75vh;
+    height: 75%;
     margin-inline: 1rem;
     border-radius: 1.75rem;
     overflow: hidden;
@@ -69,7 +69,7 @@
 }
 
 .card__img {
-    width: 60%;
+    width: 68%;
     border-radius: 1.75rem;
     margin: auto;
 }
@@ -154,12 +154,20 @@
     .card__name {
         font-size: var(--size-lg);
     }
+
+    .car__img {
+        width: 60%;
+    }
 }
 
 /* sm */
 @media (min-width: 640px) {
     .card__content {
         margin-inline: 6rem;
+    }
+
+    .card__img {
+        width: 50%;
     }
 
     .swiper-button-prev,
@@ -170,9 +178,16 @@
 
 /* md */
 @media (min-width: 768px) {
-    
+
+    .projects__container {
+        height: 30rem;
+    }
+
+    .card__content {
+        height: 100%;
+    }
+
     .card__article {
-        height: 50vh;
         flex-direction: row;
         align-items: center;
         align-self: center;
@@ -187,8 +202,9 @@
     }
     
     .card__img {
-        border-radius: 1.75rem;
+        border-radius: 1.25rem;
         width: 50%;
+
         position: relative;
     }
 
@@ -224,7 +240,7 @@
     }
 
     .card__img {
-        width: 45% !important;
+        width: 45%;
     }
 }
 
@@ -241,6 +257,12 @@
 
     .card__article {
         height: 100vh;
+    }
+
+    .card__img {
+        border-top-right-radius: 1.25rem;
+        border-bottom-right-radius: 1.25rem;
+        width: 39%;
     }
 }
 
@@ -263,9 +285,7 @@
     }
 
     .card__img {
-        border-top-right-radius: 1.25rem;
-        border-bottom-right-radius: 1.25rem;
-        width: 50% !important;
+        width: 32%;
     }
  } 
 
