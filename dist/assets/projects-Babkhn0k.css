@@ -1,0 +1,1 @@
+.underconst{display:flex;justify-self:center;align-self:center;color:var(--clr-slate400);text-transform:uppercase;font-size:var(--size-2xl);letter-spacing:-.05em;line-height:.9}@media (min-width: 475px){.underconst{font-size:var(--size-3xl)}}@media (min-width: 1024px){.underconst{font-size:var(--size-4xl)}}@media (min-width: 1280px){.underconst{font-size:var(--size-5xl)}}
