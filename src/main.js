@@ -14,15 +14,17 @@ import "../styles/components/footer.css";
 import "../styles/components/mobile-navigation.css";
 import "../styles/utils.css";
 
+import HandlePreloading from "./utils/preloader";
 import FooterText from "./utils/footer";
 import MobileNavigation from "./utils/mobile-navigation";
 import TurnLightModeOn from "./utils/light-mode";
 import HandleImageLoading from "./utils/lazy-loading";
-import HandlePreloading from "./utils/preloader";
+import CheckCaptcha from "./utils/hCaptcha";
 import "../src/utils/Swiping-handler";
 
-FooterText();
 HandlePreloading();
+FooterText();
 MobileNavigation();
 TurnLightModeOn();
 HandleImageLoading();
+CheckCaptcha();

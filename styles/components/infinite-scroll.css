@@ -1,4 +1,4 @@
-.wrapper {
+.scroll__wrapper {
     border: red solid 10px 10px;
     margin-top: 2rem;
     width: 90%;
@@ -30,8 +30,8 @@
     }
 }
 
-.itemLeft,
-.itemRight {
+.scroll__itemLeft,
+.scroll__itemRight {
     width: 200px;
     height: 100px;
     background-color: #e11d48;
@@ -40,15 +40,15 @@
     animation-timing-function: linear;
     animation-duration: 30s;
     animation-iteration-count: infinite;
-    animation-delay: calc(30s / 8 * (8 - var(--n)) * -1);
+    animation-delay: calc(30s / 5 * (5 - var(--n)) * -1);
 }
 
-.itemLeft {
-    left: max(calc(200px * 8), 100%);
+.scroll__itemLeft {
+    left: max(calc(200px * 5), 100%);
     animation-name: scrollLeft;
 }
 
-.itemRight {
-    right: max(calc(200px * 8), calc(100% + 200px));
+.scroll__itemRight {
+    right: max(calc(200px * 5), calc(100% + 200px));
     animation-name: scrollRight;
 }

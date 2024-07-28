@@ -54,6 +54,10 @@
     opacity: 0.5;
 }
 
+.contact__botcheck {
+    display: none;
+}
+
 @keyframes border-spin {
     from {
         --angle: 0deg;
@@ -168,10 +172,6 @@
     .contact {
         gap: 1.5rem;
     }
-
-    .contact__links {
-        grid-template-columns: repeat(2, minmax(10rem, 1fr));
-    }
     
     .contact__title {
         font-size: var(--size-3xl);
@@ -224,6 +224,7 @@
     .contact__btn {
         margin-right: 0rem;
     }
+
  }
 
 /* lg */
@@ -239,6 +240,11 @@
     .contact__btn {
         margin-right:0rem;
         font-size: var(--size-lg);
+    }
+
+
+    .contact__links {
+        grid-template-columns: repeat(2, minmax(10rem, 1fr));
     }
 
     .contact__header {

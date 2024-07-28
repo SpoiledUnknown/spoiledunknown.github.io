@@ -47,3 +47,11 @@
     color: var(--clr-indigo);
     display: block;
 }
+
+.header__sun-m {
+    display: block;
+}
+
+.header__moon-m {
+    display: none;
+}

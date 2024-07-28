@@ -256,7 +256,8 @@
     }
 
     .card__article {
-        height: 100vh;
+        border-radius: 1.25rem;
+        height: 100%;
     }
 
     .card__img {

@@ -1,11 +1,17 @@
 import Swiper from "swiper";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 const swiper = new Swiper(".card__content", {
-    modules: [Navigation, Pagination],
+    modules: [Autoplay, Navigation, Pagination],
     loop: true,
-    spaceBetween: 36,
+    spaceBetween: 50,
     grabCursor: true,
+
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+    },
 
     pagination: {
         el: ".swiper-pagination",
