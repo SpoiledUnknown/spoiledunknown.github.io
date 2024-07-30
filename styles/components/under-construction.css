@@ -1,31 +1,31 @@
 ﻿.underconst {
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    color: var(--clr-slate400);
-    text-transform: uppercase;
-    font-size: var(--size-2xl);
-    letter-spacing: -0.05em;
-    line-height: 0.9;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  color: var(--clr-slate400);
+  text-transform: uppercase;
+  font-size: var(--size-2xl);
+  letter-spacing: -0.05em;
+  line-height: 0.9;
 }
 
 /* xs */
 @media (min-width: 475px) {
-    .underconst {
-        font-size: var(--size-3xl);
-    }
+  .underconst {
+    font-size: var(--size-3xl);
+  }
 }
 
 /* lg */
 @media (min-width: 1024px) {
-    .underconst {
-        font-size: var(--size-4xl);
-    }
+  .underconst {
+    font-size: var(--size-4xl);
+  }
 }
 
 /* xl */
 @media (min-width: 1280px) {
-    .underconst {
-        font-size: var(--size-5xl);
-    }
+  .underconst {
+    font-size: var(--size-5xl);
+  }
 }

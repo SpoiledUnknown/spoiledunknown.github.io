@@ -1,53 +1,49 @@
 .scroll__wrapper {
-    margin-top: 2rem;
-    width: 90%;
-    max-width: 1536px;
-    margin-inline: auto;
-    height: 100px;
-    position: relative;
-    overflow: hidden;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1536px;
+  margin-inline: auto;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
 
-    mask-image: linear-gradient(to right,
-            rgba(0, 0, 0, 0),
-            var(--clr-dark) 20%,
-            var(--clr-dark) 80%,
-            rgba(0, 0, 0, 0));
-    animation: fade linear both;
-    animation-timeline: view();
-    animation-range: entry 30% cover 30%;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    var(--clr-dark) 20%,
+    var(--clr-dark) 80%,
+    rgba(0, 0, 0, 0)
+  );
+  animation: fade linear both;
+  animation-timeline: view();
+  animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
 @keyframes scrollLeft {
-    to {
-        left: -200px;
-    }
+  to {
+    left: -200px;
+  }
 }
 
 @keyframes scrollRight {
-    to {
-        right: -200px;
-    }
-}
-
-.scroll__itemLeft,
-.scroll__itemRight {
-    width: 200px;
-    height: 100px;
-    background-color: var(--clr-indigo);
-    border-radius: 6px;
-    position: absolute;
-    animation-timing-function: linear;
-    animation-duration: 30s;
-    animation-iteration-count: infinite;
-    animation-delay: calc(30s / 5 * (5 - var(--n)) * -1);
+  to {
+    right: -200px;
+  }
 }
 
 .scroll__itemLeft {
-    left: max(calc(200px * 5), 100%);
-    animation-name: scrollLeft;
+  width: 200px;
+  height: 100px;
+  border-radius: var(--border-radius);
+  left: max(calc(200px * 6), 100%);
+  position: absolute;
+  animation-name: scrollLeft;
+  animation-timing-function: linear;
+  animation-duration: var(--animation-duration);
+  animation-iteration-count: infinite;
+  animation-delay: calc(var(--animation-duration) / 6 * (6 - var(--n)) * -1);
 }
 
-.scroll__itemRight {
-    right: max(calc(200px * 5), calc(100% + 200px));
-    animation-name: scrollRight;
+.scroll__wrapper:hover .scroll__itemLeft {
+  animation-play-state: paused !important;
 }
