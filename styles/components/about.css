@@ -153,18 +153,6 @@
   .about__subtitle {
     font-size: var(--size-xl);
   }
-
-  .about__img {
-    width: 75%;
-    left: 8rem;
-  }
-}
-
-@media (min-width: 1536px) {
-  .about__img {
-    width: 75%;
-    left: 13rem;
-  }
 }
 
 /* Reduced motion preference */
