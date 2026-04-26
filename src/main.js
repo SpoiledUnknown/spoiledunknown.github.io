@@ -1,5 +1,6 @@
 import "../styles/modern-normalise.css";
 import "../styles/style.css";
+import "../styles/components/success.css";
 import "../styles/components/header.css";
 import "../styles/components/preloader.css";
 import "../styles/components/hero.css";
@@ -21,8 +22,10 @@ import TurnLightModeOn from "./utils/light-mode";
 import HandleImageLoading from "./utils/lazy-loading";
 import CheckCaptcha from "./utils/hCaptcha";
 import "../src/utils/Swiping-handler";
+import FormSubmitButton from "./utils/FormSubmitButton.js";
 
 HandlePreloading();
+FormSubmitButton();
 FooterText();
 MobileNavigation();
 TurnLightModeOn();

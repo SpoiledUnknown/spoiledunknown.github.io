@@ -1,5 +1,5 @@
 export default function TurnLightModeOn() {
-    const themeToggleButtons = document.querySelectorAll("#theme-toggle");
+    const themeToggleButtons = document.querySelectorAll(".theme-toggle");
     const sunIcon = document.querySelector(".header__sun");
     const moonIcon = document.querySelector(".header__moon");
 

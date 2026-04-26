@@ -17,6 +17,7 @@
     <script src="https://web3forms.com/client/script.js" async defer></script>
   </head>
   <body>
+    <!-- Preloader for the webpage -->
     <div class="preloader">
       <h1 class="preloader__title">Spoiled Unknown</h1>
       <svg
@@ -62,8 +63,29 @@
         </g>
       </svg>
     </div>
+
+    <!-- Form submission confirmation page -->
+    <section class="submission">
+      <div class="submission__borderAnimation">
+        <div class="submission__content">
+          <div class="success-checkmark">
+            <div class="check-icon">
+              <span class="icon-line line-tip"></span>
+              <span class="icon-line line-long"></span>
+              <div class="icon-circle"></div>
+              <div class="icon-fix"></div>
+            </div>
+          </div>
+          <h2 class="submission__title">Form submitted successfully!</h2>
+          <p class="submission__description">Thank you! The form has been submitted successfully. <br />We will reply to you soon!</p>
+          <a class="submission__btn btn" href="../">Go Back</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Header Navigation -->
     <header class="header container">
-      <p class="header__name">Spoiled Unknown</p>
+      <div class="header__name"><p >Shashank Raj<br><p class="header__subname">( Spoiled Unknown )</p></P></div>
       <nav>
         <ul class="header__menu">
           <li>
@@ -80,7 +102,7 @@
           </li>
           <li class="header__line"></li>
           <li>
-            <button id="theme-toggle" class="header__ThemeBtn">
+            <button class="theme-toggle header__ThemeBtn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -148,7 +170,7 @@
           </li>
           <li class="mobile-nav__link-line"></li>
           <li>
-            <button id="theme-toggle" class="mobile-nav__themeBtn">
+            <button class="theme-toggle mobile-nav__themeBtn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -187,55 +209,50 @@
     <main>
       <!-- Hero Section -->
       <section class="hero container">
-        <img
-          class="hero__pfp section lazy loading"
-          src="https://fakeimg.pl/1024"
-          data-src="./pfp.webp"
-          alt="My Profile Picture"
-        />
-        <h2 class="hero__subtitle">
-          नमस्ते 🙏, I am Spoiled Unknown!
-          <a class="hero__scroll" href="#about"
-            ><i class="ri-arrow-down-double-fill"></i
-          ></a>
-        </h2>
-        <h2 class="hero__placeholder" id="title">placeholdertext</h2>
-        <h1 class="hero__title">
-          Student <br />
-          Programmer<br />Web Developer
-        </h1>
-        <p class="hero__description">
-          A passionate <strong>Front-End Web Developer</strong>,
-          <strong>Game Developer</strong> and <strong>Programmer</strong> from
-          <a>Bihar, India</a>.
-        </p>
-        <a class="hero__btn btn" href="#contact">Wanna talk to me?</a>
+        <div class="hero__img-wrapper">
+          <img
+                  class="hero__img lazy loading"
+                  src="https://fakeimg.pl/3000"
+                  data-src="./pfp.webp"
+                  alt="My Real Life Photo"
+          />
+        </div>
+        <div class="hero__content">
+          <h2 class="hero__subtitle">
+            नमस्ते 🙏, I am Shashank Raj
+
+          </h2>
+          <h1 class="hero__title">
+            Building Web Apps, <br />
+            Games & Interactive <br /> Experiences
+          </h1>
+          <p class="hero__description">
+            Generalist developer working with <strong>Unity</strong>,
+            <strong>C#</strong>, <strong>C/C++</strong>, <strong>Python</strong>,
+            and modern <strong>JavaScript</strong>.
+          </p>
+          <a class="hero__btn btn" href="#contact">Wanna talk to me?</a>
+        </div>
       </section>
       <!-- About Section -->
       <section class="about container" id="about">
         <div class="about__content section">
           <h2 class="about__title">About Me</h2>
           <p class="about__description">
-            Heyo👋! I'm
-            <strong><a>Shashank Raj</a></strong
-            >, also known as
-            <a href="https://www.youtube.com/c/SpoiledUnknown" target="_blank"
-              >Spoiled Unknown</a
-            >. I'm a passionate <strong>front-end web</strong> and
-            <strong>game developer</strong>, as well as a
-            <strong>programmer</strong> hailing from <a>Bihar, India</a>.
+            Hey 👋, I'm <strong>Shashank Raj</strong>, also known as <strong><a>Spoiled Unknown.</a></strong>
+            I build web applications and games, focusing on interactive experiences
+            and practical problem-solving.
           </p>
+
           <p class="about__description">
-            I enjoy creating front-end UIs and programs that address real-world
-            problems, innovate, and provide new solutions to existing
-            challenges.
+            My work spans <strong>front-end development</strong>,
+            <strong>game development</strong>, and general programming,
+            using tools like Unity, C#, C/C++, Python, and JavaScript.
           </p>
+
           <p class="about__description">
-            In addition to being a people person, I'm also fluent in multiple
-            programming languages (like:
-            <strong>JS/TS, Python, C/C++ and C#</strong>). I'm constantly
-            striving to upskill and improve myself by learning new things
-            <strong>every day!</strong>
+            I enjoy exploring different domains, experimenting with new ideas,
+            and continuously improving my skills through hands-on projects.
           </p>
           <hr class="about__hr" />
         </div>
@@ -287,7 +304,7 @@
               class="lazy loading"
               src="https://fakeimg.pl/2000x1000"
               data-src="./unity.webp"
-              alt="Uniyt"
+              alt="Unity"
             />
           </div>
           <div class="scroll__itemLeft" style="--n: 6">
@@ -318,7 +335,7 @@
                 <div class="card__data">
                   <h3 class="card__name">XtremeFPS Controller</h3>
                   <p class="card__description">
-                    A very customisable easy to setup first-person player
+                    A very customisable easy to set up first-person player
                     controller, that can be modified into anything that your
                     game needs.
                   </p>
@@ -347,7 +364,7 @@
                 <div class="card__data">
                   <h3 class="card__name">Newtya - The Newton Parody</h3>
                   <p class="card__description">
-                    Its a sarcastic game made for fun with the genre of
+                    It's a sarcastic game made for fun with the genre of
                     hypercasual crude humour. Available on Google Play Store.
                   </p>
                   <p class="card__description">
@@ -357,8 +374,14 @@
                     target="_blank"
                     href="https://play.google.com/store/apps/details?id=com.nds.newtya&pcampaignid=web_share"
                     class="btn"
-                    >Play Store</a
-                  >
+                    >Play Store</a>
+
+                  <!--to do: fix the link here to redirect to itch.io store-->
+                  <a
+                          target="_blank"
+                          href="https://play.google.com/store/apps/details?id=com.nds.newtya&pcampaignid=web_share"
+                          class="btn"
+                  >Itch.io</a>
                 </div>
                 <img
                   class="card__img lazy loading"
@@ -459,133 +482,125 @@
       <section class="contact container" id="contact">
         <h2 class="contact__title section">Wanna Get In Contact With Me?</h2>
         <p class="contact__description">
-          Whether you have a casual question, a work proposal, a shared interest
-          in learning, or just wanna chat casually, my digital doors are always
-          wide open! <br />
-          <br />
+          Whether you have a question, a project idea, or just want to connect,
+          feel free to reach out. I'm always open to new opportunities and conversations. <br /><br />
 
-          Best Regards, Spoiled Unknown (a.k.a Shashank Raj)
+          Best Regards, Spoiled Unknown (a.k.a <strong>Shashank Raj</strong>)
         </p>
-        <div class="contact__borderAnimation">
-          <div class="contact__content">
-            <div class="contact__linkHolder">
-              <h2 class="contact__header">Links</h2>
-              <div class="contact__links">
-                <a
-                  class="contact__btn btn"
-                  href="https://github.com/SpoiledUnknown"
-                  target="_blank"
-                  >Github</a
-                >
-                <a
-                  class="contact__btn btn"
-                  href="https://www.youtube.com/c/SpoiledUnknown"
-                  target="_blank"
-                  >Youtube</a
-                >
-                <a
-                  class="contact__btn btn"
-                  href="https://discord.gg/YykdmCjzmQ"
-                  target="_blank"
-                  >Discord</a
-                >
-                <a
-                  class="contact__btn btn"
-                  href="https://instagram.com/spoiledunknown"
-                  target="_blank"
-                  >Instagram</a
-                >
-                <a class="contact__btn btn" href="#contact" target="_blank"
-                  >Linked-In</a
-                >
-                <a
-                  class="contact__btn btn"
-                  href="mailto:spoiledunknowndev@gmail.com"
-                  >Email</a
-                >
-              </div>
-            </div>
-            <div class="contact__message">
-              <h2 class="contact__header">Send Message</h2>
-              <form
-                action="https://api.web3forms.com/submit"
-                method="POST"
-                class="contact__form"
+        <div class="contact__content">
+          <div class="contact__linkHolder">
+            <h2 class="contact__header">Links</h2>
+            <div class="contact__links">
+              <a
+                      class="contact__btn btn"
+                      href="https://github.com/SpoiledUnknown"
+                      target="_blank"
+              >Github</a
               >
-                <input
-                  type="hidden"
-                  name="access_key"
-                  value="3cc48bb2-96da-40b8-963e-fed4179c5a89"
-                />
-                <div class="contact__inputBox">
-                  <input
-                    class="contact__input"
-                    type="text"
-                    autocomplete="on"
-                    name="name"
-                    required="required"
-                  />
-                  <span class="contact__subtitle">Full Name</span>
-                </div>
-                <div class="contact__inputBox">
-                  <input
-                    class="contact__input"
-                    type="email"
-                    autocomplete="on"
-                    name="email"
-                    required="required"
-                  />
-                  <span class="contact__subtitle">Email Address</span>
-                </div>
-                <div class="contact__inputBox">
-                  <input
-                    class="contact__input"
-                    type="text"
-                    autocomplete="on"
-                    name="subject"
-                    required="required"
-                  />
-                  <span class="contact__subtitle">Subject</span>
-                </div>
-                <div class="contact__inputBox">
-                  <textarea
-                    class="contact__input"
-                    autocomplete="on"
-                    name="message"
-                    required="required"
-                  ></textarea>
-                  <span class="contact__subtitle">Type Your Message....</span>
-                </div>
-                <div
-                  class="h-captcha"
-                  data-theme="dark"
-                  data-size="compact"
-                  data-captcha="true"
-                ></div>
-                <input
-                  type="checkbox"
-                  name="botcheck"
-                  class="contact__botcheck"
-                />
-                <input
-                  type="hidden"
-                  name="from_name"
-                  value="Personal Website"
-                />
-                <input
-                  type="hidden"
-                  name="redirect"
-                  value="https://spoiledunknown.github.io/success/"
-                />
-                <div class="contact__inputBox">
-                  <input
-                    class="contact__btn btn"
-                    type="submit"
-                    value="Submit"
-                  />
-                </div>
-              </form>
+              <a
+                      class="contact__btn btn"
+                      href="https://www.youtube.com/c/SpoiledUnknown"
+                      target="_blank"
+              >YouTube</a
+              >
+              <a
+                      class="contact__btn btn"
+                      href="https://discord.gg/YykdmCjzmQ"
+                      target="_blank"
+              >Discord</a
+              >
+              <a
+                      class="contact__btn btn"
+                      href="https://instagram.com/spoiledunknown"
+                      target="_blank"
+              >Instagram</a
+              >
+              <a class="contact__btn btn" href="#contact" target="_blank"
+              >Linked-In</a
+              >
+              <a
+                      class="contact__btn btn"
+                      href="mailto:spoiledunknowndev@gmail.com"
+              >Email</a
+              >
             </div>
+          </div>
+          <div class="contact__message">
+            <h2 class="contact__header">Send Message</h2>
+            <form
+                    action="https://api.web3forms.com/submit"
+                    method="POST"
+                    class="contact__form"
+            >
+              <input
+                      type="hidden"
+                      name="access_key"
+                      value="3cc48bb2-96da-40b8-963e-fed4179c5a89"
+              />
+              <div class="contact__inputBox">
+                <input
+                        class="contact__input"
+                        type="text"
+                        autocomplete="on"
+                        name="name"
+                        required="required"
+                />
+                <span class="contact__subtitle">Full Name</span>
+              </div>
+              <div class="contact__inputBox">
+                <input
+                        class="contact__input"
+                        type="email"
+                        autocomplete="on"
+                        name="email"
+                        required="required"
+                />
+                <span class="contact__subtitle">Email Address</span>
+              </div>
+              <div class="contact__inputBox">
+                <input
+                        class="contact__input"
+                        type="text"
+                        autocomplete="on"
+                        name="subject"
+                        required="required"
+                />
+                <span class="contact__subtitle">Subject</span>
+              </div>
+              <div class="contact__inputBox">
+                  <textarea
+                          class="contact__input"
+                          autocomplete="on"
+                          name="message"
+                          required="required"
+                  ></textarea>
+                <span class="contact__subtitle">Type Your Message....</span>
+              </div>
+              <div
+                      class="h-captcha"
+                      data-theme="dark"
+
+                      data-captcha="true"
+              ></div>
+              <input
+                      type="checkbox"
+                      name="botcheck"
+                      class="contact__botcheck"
+              />
+              <input
+                      type="hidden"
+                      name="from_name"
+                      value="Personal Website"
+              />
+              <div class="contact__inputBox">
+                <input
+                        class="contact__btn btn"
+                        id="submit_button"
+                        type="submit"
+                        value="Submit"
+                />
+              </div>
+            </form>
           </div>
         </div>
       </section>
