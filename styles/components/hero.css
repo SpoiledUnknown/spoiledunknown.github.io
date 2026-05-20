@@ -21,10 +21,21 @@
 .hero__title {
   font-size: var(--size-4xl);
   color: var(--clr-light);
+  line-height: 1.4;
+  min-height: calc(1.4em * 2);
 
   animation: fade linear both;
   animation-timeline: view();
   animation-range: entry var(--animation-percent) cover var(--animation-percent);
+}
+
+.hero__title::after {
+  content: '|';
+  animation: blink 0.7s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 .hero__description {
@@ -62,6 +73,10 @@
   animation: fade linear both;
   animation-timeline: view();
   animation-range: entry var(--animation-percent) cover var(--animation-percent);
+}
+.hero__social-links{
+  display: flex;
+  gap: 2rem;
 }
 
 .hero__btn {

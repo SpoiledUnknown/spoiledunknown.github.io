@@ -5,7 +5,11 @@ export default function HandlePreloading() {
 
     window.addEventListener("load", async () => {
         if (form !== null) form.reset();
-        preloader.style.display = "none";
+        preloader.style.opacity = "0";
         document.body.style.overflowY = "auto";
     });
+
+    preloader.addEventListener("transitionend", () => {
+        preloader.style.display = "none";
+    })
 }

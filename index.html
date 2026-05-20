@@ -14,7 +14,6 @@
       crossorigin=""
     />
     <title>Spoiled Unknown</title>
-    <script src="https://web3forms.com/client/script.js" async defer></script>
   </head>
   <body>
     <!-- Preloader for the webpage -->
@@ -64,6 +63,15 @@
       </svg>
     </div>
 
+    <!-- Theme Transition Page -->
+    <div class="theme__transition">
+      <div class="loader__light"></div>
+      <div class="loader__dark"></div>
+
+
+      <div class="loader"></div>
+    </div>
+
     <!-- Form submission confirmation page -->
     <section class="submission">
       <div class="submission__borderAnimation">
@@ -85,7 +93,7 @@
 
     <!-- Header Navigation -->
     <header class="header container">
-      <div class="header__name"><p >Shashank Raj<br><p class="header__subname">( Spoiled Unknown )</p></P></div>
+      <div class="header__name"><p>Shashank Raj</P></div>
       <nav>
         <ul class="header__menu">
           <li>
@@ -219,19 +227,21 @@
         </div>
         <div class="hero__content">
           <h2 class="hero__subtitle">
-            नमस्ते 🙏, I am Shashank Raj
+            नमस्ते 🙏, I am <strong> Shashank Raj</strong>  <br /><a>@spoiledunknown</a>
 
           </h2>
-          <h1 class="hero__title">
-            Building Web Apps, <br />
-            Games & Interactive <br /> Experiences
+          <h1 class="hero__title" id="heroTitle">
+            Full-Stack Developer <br />
           </h1>
           <p class="hero__description">
-            Generalist developer working with <strong>Unity</strong>,
-            <strong>C#</strong>, <strong>C/C++</strong>, <strong>Python</strong>,
-            and modern <strong>JavaScript</strong>.
+            I enjoy building <strong>web apps</strong>, <strong>games</strong>, <strong>tools</strong>,
+            and <strong>interactive experiences</strong> while experimenting with new ideas and technologies.
+            Whether personal projects or collaborations, I enjoy turning ideas into reality and understanding how things work.
           </p>
-          <a class="hero__btn btn" href="#contact">Wanna talk to me?</a>
+          <div class="hero__social-links">
+            <a class="hero__btn btn" href="#contact">Contact</a>
+            <a class="hero__btn btn" href="#contact">Projects</a>
+          </div>
         </div>
       </section>
       <!-- About Section -->
@@ -239,22 +249,29 @@
         <div class="about__content section">
           <h2 class="about__title">About Me</h2>
           <p class="about__description">
-            Hey 👋, I'm <strong>Shashank Raj</strong>, also known as <strong><a>Spoiled Unknown.</a></strong>
-            I build web applications and games, focusing on interactive experiences
-            and practical problem-solving.
+            I'm <strong>Shashank Raj</strong> (also known online as <a>Spoiled Unknown</a> ).<br/>
+            I'm a self-taught developer from India,
+            and programming started as something I picked up out of curiosity and as a hobby.
+            Over time, it slowly grew into something much bigger for me.
+            I enjoy building things that are useful, interesting, or simply fun to create,
+            especially tools and projects that can help people in some way.
           </p>
 
           <p class="about__description">
-            My work spans <strong>front-end development</strong>,
-            <strong>game development</strong>, and general programming,
-            using tools like Unity, C#, C/C++, Python, and JavaScript.
+            My journey started back in <strong>2019</strong> with small web games.
+            Since then, I've explored different areas including <a>Web</a> and <a>Game development</a>,
+            <a>graphics programming</a>, and general software projects.
+            These days I primarily focus on web applications using <strong>MEVN</strong>, and games with <strong>Unity</strong>.
+            while still enjoying experiments in other areas whenever something catches my interest.
+            Most of the projects and experiments I work on can be found in my project section.
           </p>
 
           <p class="about__description">
-            I enjoy exploring different domains, experimenting with new ideas,
-            and continuously improving my skills through hands-on projects.
+            Outside programming, I also enjoy exploring things beyond code.
+            I occasionally spend time on <a>Video Editing</a>, <a>Graphics Design/Photo Editing</a>, <a>hardware tinkering</a>,
+            and experimenting with random ideas that seem interesting.
+            I'm always curious about learning new things, even if they're completely outside my usual field.
           </p>
-          <hr class="about__hr" />
         </div>
         <div class="about__img-wrapper">
           <img
@@ -265,58 +282,52 @@
           />
         </div>
       </section>
-      <section class="scroll container">
-        <div class="scroll__wrapper">
-          <div class="scroll__itemLeft" style="--n: 1">
-            <img
-              class="lazy loading"
-              src="https://fakeimg.pl/2000x1000"
-              data-src="./c.webp"
-              alt="The C Family"
-            />
-          </div>
-          <div class="scroll__itemLeft" style="--n: 2">
-            <img
-              class="lazy loading"
-              src="https://fakeimg.pl/2000x1000"
-              data-src="./web.webp"
-              alt="HTML + CSS + JS/TS"
-            />
-          </div>
-          <div class="scroll__itemLeft" style="--n: 3">
-            <img
-              class="lazy loading"
-              src="https://fakeimg.pl/2000x1000"
-              data-src="./python.webp"
-              alt="Python"
-            />
-          </div>
-          <div class="scroll__itemLeft" style="--n: 4">
-            <img
-              class="lazy loading"
-              src="https://fakeimg.pl/2000x1000"
-              data-src="./nodejs.webp"
-              alt="Node.js"
-            />
-          </div>
-          <div class="scroll__itemLeft" style="--n: 5">
-            <img
-              class="lazy loading"
-              src="https://fakeimg.pl/2000x1000"
-              data-src="./unity.webp"
-              alt="Unity"
-            />
-          </div>
-          <div class="scroll__itemLeft" style="--n: 6">
-            <img
-              class="lazy loading"
-              src="https://fakeimg.pl/2000x1000"
-              data-src="./mongodb.webp"
-              alt="MongoDB"
-            />
+
+      <!--  Skills Sections  -->
+      <section class="skills container">
+        <div class="skill__content section">
+          <h2 class="skill__title">Skills & Experiences</h2>
+          <p class="skill__description">Programming languages, frameworks and tools that I am experienced with.</p>
+          <div class="skill__item-wrapper">
+            <div class="skill__item">
+              <img class="skill__img" src="/skills/html.svg" alt="HTML" />
+              <h5 class="skill__name">HTML</h5>
+              <h5 class="skill__level">Advance</h5>
+            </div>
+            <div class="skill__item">
+              <img class="skill__img" src="/skills/css.svg" alt="CSS" />
+              <h5 class="skill__name">CSS</h5>
+              <h5 class="skill__level">Advance</h5>
+            </div>
+            <div class="skill__item">
+              <img class="skill__img" src="/skills/javascript.svg" alt="Javascript" />
+              <h5 class="skill__name">JavaScript</h5>
+              <h5 class="skill__level">Advance</h5>
+            </div>
+            <div class="skill__item">
+              <img class="skill__img" src="/skills/mongodb.svg" alt="MongoDB" />
+              <h5 class="skill__name">MongoDB</h5>
+              <h5 class="skill__level">Beginner</h5>
+            </div>
+            <div class="skill__item">
+              <img class="skill__img" src="/skills/python.svg" alt="Python" />
+              <h5 class="skill__name">Python</h5>
+              <h5 class="skill__level">Intermediate</h5>
+            </div>
+            <div class="skill__item">
+              <img class="skill__img" src="/skills/cpp.svg" alt="C/C++" />
+              <h5 class="skill__name">C/C++</h5>
+              <h5 class="skill__level">Beginner</h5>
+            </div>
+            <div class="skill__item">
+              <img class="skill__img" src="/skills/dotnet.svg" alt=".Net" />
+              <h5 class="skill__name">C#/.NET</h5>
+              <h5 class="skill__level">Intermediate</h5>
+            </div>
           </div>
         </div>
       </section>
+
       <!-- Projects Section -->
       <section class="projects container" id="work">
         <h2 class="placeholder">placeholdertext</h2>
@@ -478,6 +489,62 @@
         </p>
         <a class="project__btn btn" href="./projects/">Complete Project List</a>
       </section>
+      <!--  Work Experiences    -->
+      <!--  Blogs    -->
+<!--      <section class="blogs container">-->
+<!--        <div class="blogs__wrapper section">-->
+<!--          <h2 class="blogs__title">Blogs & Thoughts</h2>-->
+<!--          <p class="blogs__description">-->
+<!--            A quick snapshot of what I'm currently learning, building, and experimenting with.-->
+<!--            These change over time as I explore new ideas and technologies.-->
+<!--          </p>-->
+<!--          <div class="blog__block-wrapper">-->
+<!--            <div class="blog">-->
+<!--              <a class="blog__body-link" href="index.html">-->
+<!--                <img class="blog__img" src="/missnoty.webp" alt="" />-->
+<!--                <h5 class="blog__name">I find video editing interesting!</h5>-->
+<!--                <p class="blog__item-description">-->
+<!--                  I recently started working as a video editor and-->
+<!--                  since then I have found new love for video editing.</p>-->
+<!--                <div class="blog__footer">-->
+<!--                  <p class="blog__tech">DaVinci Resolve</p>-->
+<!--                  &lt;!&ndash;<p class="blog__tech">16th May 2026</p>&ndash;&gt;-->
+<!--                  <p class="blog__date">16th May 2026</p>-->
+<!--                </div>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="blog">-->
+<!--              <a class="blog__body-link" href="index.html">-->
+<!--                <img class="blog__img" src="/missnoty.webp" alt="" />-->
+<!--                <h5 class="blog__name">I find video editing interesting!</h5>-->
+<!--                <p class="blog__item-description">-->
+<!--                  I recently started working as a video editor and-->
+<!--                  since then I have found new love for video editing.</p>-->
+<!--                <div class="blog__footer">-->
+<!--                  <p class="blog__tech">DaVinci Resolve</p>-->
+<!--                  &lt;!&ndash;<p class="blog__tech">16th May 2026</p>&ndash;&gt;-->
+<!--                  <p class="blog__date">16th May 2026</p>-->
+<!--                </div>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="blog">-->
+<!--              <a class="blog__body-link" href="index.html">-->
+<!--                <img class="blog__img" src="/missnoty.webp" alt="" />-->
+<!--                <h5 class="blog__name">I find video editing interesting!</h5>-->
+<!--                <p class="blog__item-description">-->
+<!--                  I recently started working as a video editor and-->
+<!--                  since then I have found new love for video editing.</p>-->
+<!--                <div class="blog__footer">-->
+<!--                  <p class="blog__tech">DaVinci Resolve</p>-->
+<!--                  &lt;!&ndash;<p class="blog__tech">16th May 2026</p>&ndash;&gt;-->
+<!--                  <p class="blog__date">16th May 2026</p>-->
+<!--                </div>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </section>-->
+
       <!-- Contact Section -->
       <section class="contact container" id="contact">
         <h2 class="contact__title section">Wanna Get In Contact With Me?</h2>
@@ -485,120 +552,45 @@
           Whether you have a question, a project idea, or just want to connect,
           feel free to reach out. I'm always open to new opportunities and conversations. <br /><br />
 
-          Best Regards, Spoiled Unknown (a.k.a <strong>Shashank Raj</strong>)
+          Best Regards, <strong>Shashank Raj</strong>
         </p>
         <div class="contact__content">
           <div class="contact__linkHolder">
             <h2 class="contact__header">Links</h2>
             <div class="contact__links">
-              <a
-                      class="contact__btn btn"
-                      href="https://github.com/SpoiledUnknown"
-                      target="_blank"
-              >Github</a
-              >
-              <a
-                      class="contact__btn btn"
-                      href="https://www.youtube.com/c/SpoiledUnknown"
-                      target="_blank"
-              >YouTube</a
-              >
-              <a
-                      class="contact__btn btn"
-                      href="https://discord.gg/YykdmCjzmQ"
-                      target="_blank"
-              >Discord</a
-              >
-              <a
-                      class="contact__btn btn"
-                      href="https://instagram.com/spoiledunknown"
-                      target="_blank"
-              >Instagram</a
-              >
-              <a class="contact__btn btn" href="#contact" target="_blank"
-              >Linked-In</a
-              >
-              <a
-                      class="contact__btn btn"
-                      href="mailto:spoiledunknowndev@gmail.com"
-              >Email</a
-              >
+              <a class="contact__btn" href="https://github.com/SpoiledUnknown" target="_blank"><img class="contact__image" src="/links/github.svg" alt="Github" /></a>
+              <a class="contact__btn" href="https://www.youtube.com/c/SpoiledUnknown" target="_blank"><img class="contact__image" src="/links/youtube.svg" alt="" /></a>
+              <a class="contact__btn" href="https://discord.gg/YykdmCjzmQ" target="_blank"><img class="contact__image" src="/links/discord.svg" alt="Discord" /></a>
+              <a class="contact__btn" href="https://instagram.com/spoiledunknown" target="_blank"><img class="contact__image" src="/links/instagram.svg" alt="Instagram" /></a>
+              <a class="contact__btn" href="https://www.linkedin.com/in/shashank-raj-4a028540b" target="_blank"><img class="contact__image" src="/links/linkedin.svg" alt="LinkedIn" /></a>
+              <a class="contact__btn" href="mailto:spoiledunknowndev@gmail.com"><img class="contact__image" src="/links/email.svg" alt="Email" /></a>
             </div>
           </div>
           <div class="contact__message">
             <h2 class="contact__header">Send Message</h2>
-            <form
-                    action="https://api.web3forms.com/submit"
-                    method="POST"
-                    class="contact__form"
-            >
-              <input
-                      type="hidden"
-                      name="access_key"
-                      value="3cc48bb2-96da-40b8-963e-fed4179c5a89"
-              />
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact__form">
+              <input type="hidden" name="access_key" value="3cc48bb2-96da-40b8-963e-fed4179c5a89"/>
               <div class="contact__inputBox">
-                <input
-                        class="contact__input"
-                        type="text"
-                        autocomplete="on"
-                        name="name"
-                        required="required"
-                />
+                <input class="contact__input" type="text" autocomplete="on" name="name" required="required"/>
                 <span class="contact__subtitle">Full Name</span>
               </div>
               <div class="contact__inputBox">
-                <input
-                        class="contact__input"
-                        type="email"
-                        autocomplete="on"
-                        name="email"
-                        required="required"
-                />
+                <input class="contact__input" type="email" autocomplete="on" name="email" required="required"/>
                 <span class="contact__subtitle">Email Address</span>
               </div>
               <div class="contact__inputBox">
-                <input
-                        class="contact__input"
-                        type="text"
-                        autocomplete="on"
-                        name="subject"
-                        required="required"
-                />
+                <input class="contact__input" type="text" autocomplete="on" name="subject" required="required"/>
                 <span class="contact__subtitle">Subject</span>
               </div>
               <div class="contact__inputBox">
-                  <textarea
-                          class="contact__input"
-                          autocomplete="on"
-                          name="message"
-                          required="required"
-                  ></textarea>
+                <textarea class="contact__input" autocomplete="on" name="message" required="required"></textarea>
                 <span class="contact__subtitle">Type Your Message....</span>
               </div>
-              <div
-                      class="h-captcha"
-                      data-theme="dark"
-
-                      data-captcha="true"
-              ></div>
-              <input
-                      type="checkbox"
-                      name="botcheck"
-                      class="contact__botcheck"
-              />
-              <input
-                      type="hidden"
-                      name="from_name"
-                      value="Personal Website"
-              />
+              <div class="h-captcha" data-theme="dark" data-captcha="true"></div>
+              <input type="checkbox" name="botcheck" class="contact__botcheck"/>
+              <input type="hidden" name="from_name" value="Personal Website"/>
               <div class="contact__inputBox">
-                <input
-                        class="contact__btn btn"
-                        id="submit_button"
-                        type="submit"
-                        value="Submit"
-                />
+                <input class="contact__btn btn" id="submit_button" type="submit" value="Submit"/>
               </div>
             </form>
           </div>
@@ -611,5 +603,6 @@
     </footer>
 
     <script type="module" src="./src/main.js"></script>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
   </body>
 </html>

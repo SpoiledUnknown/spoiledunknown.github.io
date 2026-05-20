@@ -1,9 +1,9 @@
 ﻿.preloader {
     display: flex;
     flex-direction: column;
-    transition: opacity 0.5s;
+    transition: opacity 1s ease;
     position: fixed;
-    z-index: 999;
+    z-index: 993;
     width: 100%;
     height: 100%;
     background-color: var(--clr-dark);

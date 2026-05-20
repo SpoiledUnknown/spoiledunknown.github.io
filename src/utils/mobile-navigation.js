@@ -9,10 +9,11 @@ export default function MobileNavigation() {
     isMobileMenuOpen = !isMobileMenuOpen;
 
     if (isMobileMenuOpen) {
+      mobileNav.style.opacity = "0";         // reset to 0 first
       mobileNav.style.display = "flex";
       document.body.style.overflowY = "hidden";
-      void mobileNav.offsetWidth;
-      mobileNav.style.opacity = "1";
+      void mobileNav.offsetWidth;            // force reflow AFTER display change
+      mobileNav.style.opacity = "1";         // now the transition fires correctly
     } else {
       mobileNav.style.opacity = "0";
     }

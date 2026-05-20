@@ -18,7 +18,7 @@
   flex-direction: column;
   gap: 2rem;
   background: var(--clr-header);
-  padding: 1.75rem;
+  padding: 0.75rem 0.75rem 1rem;
   border-radius: var(--border-radius);
   z-index: 1;
   position: relative;
@@ -71,23 +71,34 @@
   animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
-.contact__btn {
-  border: none;
-  font-size: var(--size-sm);
-}
-
 .contact__links {
-  width: 100%;
   display: grid;
-  grid-template-columns: repeat(1, 10rem);
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  padding: 1.5rem;
   gap: 1rem;
-  justify-content: space-around;
-  align-items: center;
 }
 
-.contact__linkHolder {
-  width: 100%;
+.contact__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  background-color: var(--clr-header-light);
+  border-radius: 8px;
+  transition: transform 0.2s ease;
 }
+
+.contact__btn:hover {
+  transform: scale(1.07);
+}
+
+.contact__image {
+  width: 3rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
 
 .contact__message {
   width: 100%;
@@ -157,11 +168,6 @@
     font-size: var(--size-base);
   }
 
-  .contact__btn {
-    margin-right: 0rem;
-    font-size: var(--size-base);
-  }
-
   .contact__header {
     font-size: var(--size-2xl);
     margin-bottom: 1.5rem;
@@ -175,30 +181,19 @@
 /* sm */
 @media (min-width: 640px) {
   .contact__content {
-    flex-direction: row;
-  }
-
-  .contact__btn {
-    margin-right: 2rem;
+    gap: 3rem;
+    padding: 2rem;
   }
 
   .contact__links {
     gap: 1.5rem;
   }
-
-  .contact__content {
-    gap: 3rem;
-  }
-
-  .contact__linkHolder {
-    width: 50%;
-  }
 }
 
 /* md */
 @media (min-width: 768px) {
-  .contact__btn {
-    margin-right: 0rem;
+  .contact__links {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
   }
 }
 
@@ -209,12 +204,6 @@
   }
 
   .contact__description {
-    font-size: var(--size-lg);
-  }
-
-  .contact__btn {
-    margin-right: 0rem;
-    margin-bottom: 1rem;
     font-size: var(--size-lg);
   }
 
@@ -233,6 +222,7 @@
   }
 
   .contact__content {
+    flex-direction: row;
     gap: 4rem;
   }
 }
@@ -248,10 +238,6 @@
   }
 
   .contact__description {
-    font-size: var(--size-xl);
-  }
-
-  .contact__btn {
     font-size: var(--size-xl);
   }
 
@@ -284,11 +270,6 @@
 
   .contact__description {
     font-size: var(--size-xl);
-  }
-
-  .contact__btn {
-    font-size: var(--size-xl);
-    margin-bottom: 1rem;
   }
 
   .contact__header {

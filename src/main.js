@@ -3,9 +3,11 @@ import "../styles/style.css";
 import "../styles/components/success.css";
 import "../styles/components/header.css";
 import "../styles/components/preloader.css";
+import "../styles/components/themeTransition.css"
 import "../styles/components/hero.css";
 import "../styles/components/about.css";
-import "../styles/components/infinite-scroll.css";
+import "../styles/components/skills.css";
+import "../styles/components/blogs.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -15,19 +17,20 @@ import "../styles/components/footer.css";
 import "../styles/components/mobile-navigation.css";
 import "../styles/utils.css";
 
+import TurnLightModeOn from "./utils/light-mode";
 import HandlePreloading from "./utils/preloader";
 import FooterText from "./utils/footer";
 import MobileNavigation from "./utils/mobile-navigation";
-import TurnLightModeOn from "./utils/light-mode";
 import HandleImageLoading from "./utils/lazy-loading";
-import CheckCaptcha from "./utils/hCaptcha";
+import heroTitleTyper from "./utils/heroTitleTyper";
+import { CheckCaptcha, FormSubmitButton } from "./utils/hCaptcha";
 import "../src/utils/Swiping-handler";
-import FormSubmitButton from "./utils/FormSubmitButton.js";
 
+TurnLightModeOn();
 HandlePreloading();
-FormSubmitButton();
 FooterText();
 MobileNavigation();
-TurnLightModeOn();
 HandleImageLoading();
+heroTitleTyper();
 CheckCaptcha();
+FormSubmitButton();

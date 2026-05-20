@@ -60,6 +60,8 @@ body {
   font-family: "General Sans", sans-serif;
   background-color: var(--clr-dark);
   color: var(--clr-light);
+
+  transition: opacity 0.3s ease;
 }
 
 img,
@@ -102,4 +104,5 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: var(--clr-indigo);
   outline: 1px solid var(--clr-indigo);
+  border-radius: 1rem;
 }

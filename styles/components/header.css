@@ -10,7 +10,11 @@
   right: 0;
   z-index: 10;
   border-radius: var(--border-radius);
-  background-color: var(--clr-header);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(0.625rem);
+  border-top: rgba(255, 255, 255, 0.4);
+  border-left: rgba(255, 255, 255, 0.3);
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
 }
 
 .header__menu {
@@ -33,12 +37,6 @@
   color: var(--clr-rose);
   font-weight: bolder;
   font-size: var(--size-sm);
-}
-
-.header__subname {
-  color: var(--clr-indigo);
-  font-weight: bolder;
-  font-size: var(--size-xxs);
 }
 
 .header__sun {
@@ -97,10 +95,6 @@
   .header__name {
     font-size: var(--size-xl);
   }
-
-  .header__subname {
-    font-size: var(--size-xs);
-  }
 }
 
 /* lg */
@@ -116,9 +110,6 @@
 
   .header__name {
     font-size: var(--size-2xl);
-  }
-  .header__subname {
-    font-size: var(--size-sm);
   }
 }
 
