@@ -1,6 +1,6 @@
 ﻿.submission {
   background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(0.625rem);
+  backdrop-filter: blur(0.5rem);
   border-top: rgba(255, 255, 255, 0.4);
   border-left: rgba(255, 255, 255, 0.3);
   box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
@@ -196,6 +196,7 @@
   position: relative;
   padding: 0.25rem;
   border-radius: var(--border-radius);
+
 }
 
 .submission__borderAnimation::before,
@@ -221,6 +222,7 @@
   z-index: -1;
   border-radius: var(--border-radius);
   animation: 6s border-spin linear infinite;
+  filter: blur(0.5rem);
 }
 
 .submission__borderAnimation::before {
