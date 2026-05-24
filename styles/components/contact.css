@@ -93,6 +93,10 @@
   transform: scale(1.07);
 }
 
+.form__send {
+  border: none;
+}
+
 .contact__image {
   width: 3rem;
   object-fit: contain;

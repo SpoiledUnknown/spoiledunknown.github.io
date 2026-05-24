@@ -1,4 +1,4 @@
-const version = "0.5.0";
+const version = "0.5.1";
 
 export default function FooterText() {
   document.querySelector(
