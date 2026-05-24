@@ -1,16 +1,12 @@
-.blogs {
-    display: flex;
-    flex-direction: column;
-}
-
 .blogs__wrapper {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    text-align: center;
 }
 
 .blogs__title {
-    font-size: var(--size-5xl);
+    font-size: var(--size-2xl);
     color: var(--clr-light);
 
     animation: fade linear both;
@@ -19,7 +15,7 @@
 }
 
 .blogs__description {
-    font-size: var(--size-xl);
+    font-size: var(--size-sm);
     color: var(--clr-slate600);
 
     animation: fade linear both;
@@ -28,21 +24,21 @@
 }
 
 .blog__block-wrapper {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+    align-self: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
 }
 
 .blog{
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: #b7a88a;
-    margin: 2rem;
+    margin-bottom: 2rem;
     padding: 2rem;
-    gap: 1rem;
     border-radius: 1rem;
-    width: 30rem;
+    width: 21rem;
     transition: transform 0.5s ease-in-out;
 
     animation: fade linear both;
@@ -57,29 +53,35 @@
 .blog__body-link {
     text-decoration: none;
     color: var(--clr-slate600);
+    font-size: var(--size-sm);
 }
 
 .blog__img{
-    width: 25rem;
+    display: block;
+    margin: 0 auto 1rem;
+    width: 15rem;
+    border-radius: 0.5rem;
 }
 .blog__name {
-    font-size: var(--size-2xl);
+    font-size: var(--size-base);
 }
 
 .blog__item-description {
-    font-size: var(--size-lg);
+    font-size: var(--size-sm);
     margin-bottom: 0.25rem;
 }
 
 .blog__footer {
     display: flex;
     gap: 2rem;
+    font-size: var(--size-sm);
 }
 .blog__tech {
     color: var(--clr-slate400);
     background-color: var(--clr-slate600);
     padding: 0.5rem;
     border-radius: 1rem;
+    text-align: center;
 
     transition: background-color 0.3s ease;
 }
@@ -92,3 +94,136 @@
     padding: 0.5rem;
     color: var(--clr-slate600);
 }
+
+.blogs__btn {
+    margin-top: 1rem;
+    font-size: var(--size-sm);
+    width: max-content;
+    text-align: center;
+    align-self: center;
+    cursor: pointer;
+}
+
+/* xs */
+ @media (min-width: 475px) {
+     .blogs__title {
+         font-size: var(--size-3xl);
+     }
+
+     .blogs__description {
+         font-size: var(--size-base);
+     }
+
+     .blog__name {
+         font-size: var(--size-lg);
+     }
+
+     .blog__item-description {
+         font-size: var(--size-base);
+     }
+
+     .blog__footer {
+         font-size: var(--size-base);
+     }
+
+     .blog__body-link {
+         font-size: var(--size-base);
+     }
+     .blogs__btn {
+         font-size: var(--size-base);
+     }
+ }
+
+/* sm */
+/* @media (min-width: 640px) {} */
+
+/* md */
+ @media (min-width: 768px) {
+     .blogs__title {
+         font-size: var(--size-4xl);
+     }
+
+     .blogs__description {
+         font-size: var(--size-lg);
+     }
+
+     .blog__block-wrapper {
+         grid-template-columns: repeat(2, minmax(150px, 1fr));
+         gap: 3rem;
+     }
+
+     .blog__name {
+         font-size: var(--size-xl);
+     }
+
+     .blog__item-description {
+         font-size: var(--size-lg);
+     }
+
+     .blog__footer {
+         font-size: var(--size-lg);
+     }
+
+     .blog__body-link {
+         font-size: var(--size-lg);
+     }
+
+     .blogs__btn {
+         font-size: var(--size-lg);
+     }
+
+ }
+
+/* lg */
+ @media (min-width: 1024px) {
+     .blog{
+         margin-bottom: 0;
+     }
+
+     .blogs__wrapper {
+         text-align: left;
+     }
+ }
+
+/* xl */
+ @media (min-width: 1280px) {
+     .blog__block-wrapper {
+         grid-template-columns: repeat(3, minmax(150px, 1fr));
+         gap: 5rem;
+     }
+
+     .blog__img{
+         width: 20rem;
+     }
+
+     .blogs__title {
+         font-size: var(--size-5xl);
+     }
+
+     .blogs__description {
+         font-size: var(--size-xl);
+     }
+
+     .blog__name {
+         font-size: var(--size-2xl);
+     }
+
+     .blog__item-description {
+         font-size: var(--size-xl);
+     }
+
+     .blog__footer {
+         font-size: var(--size-xl);
+     }
+
+     .blog__body-link {
+         font-size: var(--size-xl);
+     }
+
+     .blogs__btn {
+         font-size: var(--size-xl);
+     }
+ }
+
+/* 2xl */
+/* @media (min-width: 1536px) {} */

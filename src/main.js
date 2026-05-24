@@ -7,10 +7,8 @@ import "../styles/components/themeTransition.css"
 import "../styles/components/hero.css";
 import "../styles/components/about.css";
 import "../styles/components/skills.css";
+import "../styles/components/works.css";
 import "../styles/components/blogs.css";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import "../styles/components/projects.css";
 import "../styles/components/contact.css";
 import "../styles/components/footer.css";
@@ -23,8 +21,8 @@ import FooterText from "./utils/footer";
 import MobileNavigation from "./utils/mobile-navigation";
 import HandleImageLoading from "./utils/lazy-loading";
 import heroTitleTyper from "./utils/heroTitleTyper";
+import {initTimeline, initAnimations }from "./utils/timelineAndWorkBlock.js";
 import { CheckCaptcha, FormSubmitButton } from "./utils/hCaptcha";
-import "../src/utils/Swiping-handler";
 
 TurnLightModeOn();
 HandlePreloading();
@@ -34,3 +32,5 @@ HandleImageLoading();
 heroTitleTyper();
 CheckCaptcha();
 FormSubmitButton();
+initTimeline();
+initAnimations();

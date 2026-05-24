@@ -4,63 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="./spoiledunknown.ico" />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=general-sans@600,401,400,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css"
-      crossorigin=""
-    />
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@600,401,400,700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/>
     <title>Spoiled Unknown</title>
   </head>
   <body>
     <!-- Preloader for the webpage -->
     <div class="preloader">
       <h1 class="preloader__title">Spoiled Unknown</h1>
-      <svg
-        class="ip"
-        viewBox="0 0 256 128"
-        width="256px"
-        height="128px"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#5ebd3e" />
-            <stop offset="33%" stop-color="#ffb900" />
-            <stop offset="67%" stop-color="#f78200" />
-            <stop offset="100%" stop-color="#e23838" />
-          </linearGradient>
-          <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="0">
-            <stop offset="0%" stop-color="#e23838" />
-            <stop offset="33%" stop-color="#973999" />
-            <stop offset="67%" stop-color="#009cdf" />
-            <stop offset="100%" stop-color="#5ebd3e" />
-          </linearGradient>
-        </defs>
-        <g fill="none" stroke-linecap="round" stroke-width="16">
-          <g class="ip__track" stroke="#ddd">
-            <path d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
-            <path d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
-          </g>
-          <g stroke-dasharray="180 656">
-            <path
-              class="ip__worm1"
-              stroke="url(#grad1)"
-              stroke-dashoffset="0"
-              d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56"
-            />
-            <path
-              class="ip__worm2"
-              stroke="url(#grad2)"
-              stroke-dashoffset="358"
-              d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64"
-            />
-          </g>
-        </g>
-      </svg>
+      <span class="loading__ring"></span>
     </div>
 
     <!-- Theme Transition Page -->
@@ -290,37 +242,37 @@
           <p class="skill__description">Programming languages, frameworks and tools that I am experienced with.</p>
           <div class="skill__item-wrapper">
             <div class="skill__item">
-              <img class="skill__img" src="/skills/html.svg" alt="HTML" />
+              <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/html.svg" alt="HTML" />
               <h5 class="skill__name">HTML</h5>
               <h5 class="skill__level">Advance</h5>
             </div>
             <div class="skill__item">
-              <img class="skill__img" src="/skills/css.svg" alt="CSS" />
+              <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/css.svg" alt="CSS" />
               <h5 class="skill__name">CSS</h5>
               <h5 class="skill__level">Advance</h5>
             </div>
             <div class="skill__item">
-              <img class="skill__img" src="/skills/javascript.svg" alt="Javascript" />
+              <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/javascript.svg" alt="Javascript" />
               <h5 class="skill__name">JavaScript</h5>
               <h5 class="skill__level">Advance</h5>
             </div>
             <div class="skill__item">
-              <img class="skill__img" src="/skills/mongodb.svg" alt="MongoDB" />
+              <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/mongodb.svg" alt="MongoDB" />
               <h5 class="skill__name">MongoDB</h5>
               <h5 class="skill__level">Beginner</h5>
             </div>
             <div class="skill__item">
-              <img class="skill__img" src="/skills/python.svg" alt="Python" />
+              <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/python.svg" alt="Python" />
               <h5 class="skill__name">Python</h5>
               <h5 class="skill__level">Intermediate</h5>
             </div>
             <div class="skill__item">
-              <img class="skill__img" src="/skills/cpp.svg" alt="C/C++" />
+              <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/cpp.svg" alt="C/C++" />
               <h5 class="skill__name">C/C++</h5>
               <h5 class="skill__level">Beginner</h5>
             </div>
             <div class="skill__item">
-              <img class="skill__img" src="/skills/dotnet.svg" alt=".Net" />
+              <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/dotnet.svg" alt=".Net" />
               <h5 class="skill__name">C#/.NET</h5>
               <h5 class="skill__level">Intermediate</h5>
             </div>
@@ -330,220 +282,294 @@
 
       <!-- Projects Section -->
       <section class="projects container" id="work">
-        <h2 class="placeholder">placeholdertext</h2>
-        <h2 class="projects__title">Projects</h2>
-        <p class="projects__description">
-          Welcome to my project gallery! While most of my work is showcased on
-          GitHub, here are a few standout projects that merit a closer look:
-        </p>
-
-        <!-- All the card styled projects -->
-        <div class="projects__container swiper">
-          <div class="card__content">
-            <div class="swiper-wrapper">
-              <!-- XtremeFPS -->
-              <article class="card__article swiper-slide">
-                <div class="card__data">
-                  <h3 class="card__name">XtremeFPS Controller</h3>
-                  <p class="card__description">
-                    A very customisable easy to set up first-person player
-                    controller, that can be modified into anything that your
-                    game needs.
-                  </p>
-                  <p class="card__description">
-                    Made <a>For</a> <strong>Unity (C#)</strong>
-                  </p>
-                  <a
-                    target="_blank"
-                    href="https://assetstore.unity.com/packages/slug/282203 "
-                    class="btn"
-                  >
-                    Unity Asset Store
-                  </a>
+        <div class="projects__wrapper section">
+          <h2 class="projects__title">Projects</h2>
+          <p class="projects__description">
+            Welcome to my project gallery! While most of my work is showcased on
+            GitHub, here are a few standout projects that merit a closer look:
+          </p>
+          <!-- All the card styled projects -->
+          <div class="projects__container">
+            <!-- XtremeFPS -->
+            <article class="card__article">
+              <img class="card__img lazy loading" src="https://fakeimg.pl/1024" data-src="./XtremeFPS.webp" alt="XtremeFPS Controller"/>
+              <div class="card__data">
+                <h3 class="card__name">XtremeFPS Controller</h3>
+                <p class="card__description">
+                  A very customisable easy to set up first-person player
+                  controller, that can be modified into anything that your
+                  game needs.
+                </p>
+                <div class="card__tags">
+                  <span class="card__tag">Unity</span>
+                  <span class="card__tag">C#</span>
                 </div>
-                <p class="placeholder">K</p>
-                <img
-                  class="card__img lazy loading"
-                  src="https://fakeimg.pl/1024"
-                  data-src="./XtremeFPS.webp"
-                  alt="XtremeFPS Controller"
-                />
-              </article>
+                <a target="_blank" href="https://assetstore.unity.com/packages/slug/282203 " class="btn">Unity Asset Store</a>
+              </div>
+            </article>
 
-              <!-- Newtya- The Newton Parody -->
-              <article class="card__article swiper-slide">
-                <div class="card__data">
-                  <h3 class="card__name">Newtya - The Newton Parody</h3>
-                  <p class="card__description">
-                    It's a sarcastic game made for fun with the genre of
-                    hypercasual crude humour. Available on Google Play Store.
-                  </p>
-                  <p class="card__description">
-                    Made With <strong>Unity (C#)</strong>
-                  </p>
-                  <a
-                    target="_blank"
-                    href="https://play.google.com/store/apps/details?id=com.nds.newtya&pcampaignid=web_share"
-                    class="btn"
-                    >Play Store</a>
-
-                  <!--to do: fix the link here to redirect to itch.io store-->
-                  <a
-                          target="_blank"
-                          href="https://play.google.com/store/apps/details?id=com.nds.newtya&pcampaignid=web_share"
-                          class="btn"
-                  >Itch.io</a>
+            <!-- Newtya - The Newton Parody -->
+            <article class="card__article">
+              <img class="card__img lazy loading" src="https://fakeimg.pl/1024" data-src="./newtya.webp" alt="Newtya's Promo Poster"/>
+              <div class="card__data">
+                <h3 class="card__name">Newtya - The Newton Parody</h3>
+                <p class="card__description">
+                  It's a sarcastic game made for fun with the genre of
+                  hypercasual crude humour. Available on Google Play Store.
+                </p>
+                <div class="card__tags">
+                  <span class="card__tag">Unity</span>
+                  <span class="card__tag">C#</span>
                 </div>
-                <img
-                  class="card__img lazy loading"
-                  src="https://fakeimg.pl/1024"
-                  data-src="./newtya.webp"
-                  alt="Newtya's Promo Poster"
-                />
-              </article>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.nds.newtya&pcampaignid=web_share" class="btn">Play Store</a>
+                <!--to do: fix the link here to redirect to itch.io store-->
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.nds.newtya&pcampaignid=web_share" class="btn">Itch.io</a>
+              </div>
+            </article>
 
-              <!-- Miss Noty -->
-              <article class="card__article swiper-slide">
-                <div class="card__data">
-                  <h3 class="card__name">Miss Noty (Discord Bot)</h3>
-                  <p class="card__description">
-                    An epic bot for your server. Having Giveaway, Economy,
-                    Music, many more Commands.
-                  </p>
-                  <p class="card__description">
-                    Made using <strong>Node.js</strong> and
-                    <strong>HTML, CSS, JS</strong>
-                  </p>
-                  <a
-                    target="_blank"
-                    href="https://spoiledunknown.github.io/MissNotyBot/"
-                    class="btn"
-                    >Dashboard</a
-                  >
-                  <a
-                    target="_blank"
-                    href="https://discord.com/oauth2/authorize?client_id=774225512373551115&permissions=272100390&scope=bot%20applications.commands"
-                    class="btn"
-                    >Invite</a
-                  >
+            <!-- Miss Noty -->
+            <article class="card__article">
+              <img class="card__img lazy loading" src="https://fakeimg.pl/1024" data-src="./missnoty.webp" alt="Miss Noty Discord Bot"/>
+              <div class="card__data">
+                <h3 class="card__name">Miss Noty (Discord Bot)</h3>
+                <p class="card__description">
+                  An epic bot for your server. Having Giveaway, Economy,
+                  Music, many more Commands.
+                </p>
+                <div class="card__tags">
+                  <span class="card__tag">Node.js</span>
+                  <span class="card__tag">HTML</span>
+                  <span class="card__tag">CSS</span>
+                  <span class="card__tag">Javascript</span>
                 </div>
-                <img
-                  class="card__img lazy loading"
-                  src="https://fakeimg.pl/1024"
-                  data-src="./missnoty.webp"
-                  alt="Miss Noty's Profile Pic"
-                />
-              </article>
+                <a target="_blank" href="https://spoiledunknown.github.io/MissNotyBot/" class="btn">Dashboard</a>
+                <a target="_blank" href="https://discord.com/oauth2/authorize?client_id=774225512373551115&permissions=272100390&scope=bot%20applications.commands" class="btn">Invite</a>
+              </div>
+            </article>
 
-              <!-- Richcord Presence -->
-              <article class="card__article swiper-slide">
-                <div class="card__data">
-                  <h3 class="card__name">Richcord Presence</h3>
-                  <p class="card__description">
-                    An advance discord rich presence cli software that allows a
-                    lot of customisation and control in hand of user.
-                  </p>
-                  <p class="card__description">
-                    Made Using <strong>Node.js</strong>
-                  </p>
-                  <a
-                    target="_blank"
-                    href="https://github.com/SpoiledUnknown/Richcord-Presence"
-                    class="btn"
-                    >Repository</a
-                  >
-                  <a
-                    target="_blank"
-                    href="https://github.com/SpoiledUnknown/Richcord-Presence/blob/main/README.md"
-                    class="btn"
-                    >Download</a
-                  >
+            <!-- Richcord Presence -->
+            <article class="card__article">
+              <img class="card__img lazy loading" src="https://fakeimg.pl/1024" data-src="./Richcord.webp" alt="Richcord Presence"/>
+              <div class="card__data">
+                <h3 class="card__name">Richcord Presence</h3>
+                <p class="card__description">
+                  An advance discord rich presence cli software that allows a
+                  lot of customisation and control in hand of user.
+                </p>
+                <div class="card__tags">
+                  <span class="card__tag">Node.js</span>
                 </div>
-                <img
-                  class="card__img lazy loading"
-                  src="https://fakeimg.pl/1024"
-                  data-src="./Richcord.webp"
-                  alt="Richcord Presence Icon"
-                />
-              </article>
+                <a target="_blank" href="https://github.com/SpoiledUnknown/Richcord-Presence" class="btn">Repository</a>
+                <a target="_blank" href="https://github.com/SpoiledUnknown/Richcord-Presence/blob/main/README.md" class="btn">Download</a>
+              </div>
+            </article>
+          </div>
+          <p class="projects__description">
+            These notable projects provide insight into my dedication to
+            innovation and problem-solving. For detailed explanations, please
+            click the button below. Additionally, you can visit my GitHub profile
+            to explore other personal projects and access their source code.
+          </p>
+          <a class="project__btn btn" href="./projects/">Complete Project List</a>
+        </div>
+      </section>
+
+      <!--  Work Experiences    -->
+      <section class="timeline-section container">
+        <div class="work__section section">
+          <h2 class="work__title">Work Experiences</h2>
+          <p class="work__description">
+            A collection of roles and collaborations where I had the opportunity to learn, build,
+            lead, and contribute across different areas of development.
+          </p>
+          <div class="timeline__track">
+            <div class="timeline__bar">
+              <div class="timeline__bar-fill"></div>
+            </div>
+            <article class="timeline__item">
+              <div class="timeline__card glass-card">
+                <div class="glass-card__header">
+                  <div class="glass-card__meta">
+                    <span class="glass-card__duration">2023 — Present</span>
+                    <span class="glass-card__badge">Current</span>
+                  </div>
+                  <h2 class="glass-card__company">Lore Gaming Studios</h2>
+                  <p class="glass-card__role">Co-Founder & Head of Mobile</p>
+                </div>
+                <p class="glass-card__desc">
+                  Co-founded an indie game studio and managed
+                  end-to-end mobile development workflows.
+                </p>
+                <ul class="glass-card__bullets">
+                  <li>Managed publishing pipeline</li>
+                  <li>Led mobile team</li>
+                  <li>Handled QA & playtesting</li>
+                </ul>
+                <div class="glass-card__tags">
+                  <span class="tag">Unity</span>
+                  <span class="tag">C#</span>
+                  <span class="tag">Management</span>
+                </div>
+              </div>
+            </article>
+            <article class="timeline__item">
+              <div class="timeline__card glass-card">
+                <div class="glass-card__header">
+                  <div class="glass-card__meta">
+                        <span class="glass-card__duration">
+                            2023 — Present
+                        </span>
+                    <span class="glass-card__badge">
+                            Current
+                        </span>
+                  </div>
+                  <h2 class="glass-card__company">
+                    Lore Gaming Studios
+                  </h2>
+                  <p class="glass-card__role">
+                    Co-Founder & Head of Mobile
+                  </p>
+                </div>
+                <p class="glass-card__desc">
+                  Co-founded an indie game studio and managed
+                  end-to-end mobile development workflows.
+                </p>
+                <ul class="glass-card__bullets">
+                  <li>Managed publishing pipeline</li>
+                  <li>Led mobile team</li>
+                  <li>Handled QA & playtesting</li>
+                </ul>
+                <div class="glass-card__tags">
+                  <span class="tag">Unity</span>
+                  <span class="tag">C#</span>
+                  <span class="tag">Management</span>
+                </div>
+              </div>
+            </article>
+            <article class="timeline__item">
+              <div class="timeline__card glass-card">
+                <div class="glass-card__header">
+                  <div class="glass-card__meta">
+                        <span class="glass-card__duration">
+                            2023 — Present
+                        </span>
+                    <span class="glass-card__badge">
+                            Current
+                        </span>
+                  </div>
+                  <h2 class="glass-card__company">
+                    Lore Gaming Studios
+                  </h2>
+                  <p class="glass-card__role">
+                    Co-Founder & Head of Mobile
+                  </p>
+                </div>
+                <p class="glass-card__desc">
+                  Co-founded an indie game studio and managed
+                  end-to-end mobile development workflows.
+                </p>
+                <ul class="glass-card__bullets">
+                  <li>Managed publishing pipeline</li>
+                  <li>Led mobile team</li>
+                  <li>Handled QA & playtesting</li>
+                </ul>
+                <div class="glass-card__tags">
+                  <span class="tag">Unity</span>
+                  <span class="tag">C#</span>
+                  <span class="tag">Management</span>
+                </div>
+              </div>
+            </article>
+            <article class="timeline__item">
+              <div class="timeline__card glass-card">
+                <div class="glass-card__header">
+                  <div class="glass-card__meta">
+                        <span class="glass-card__duration">
+                            2023 — Present
+                        </span>
+                    <span class="glass-card__badge">
+                            Current
+                        </span>
+                  </div>
+                  <h2 class="glass-card__company">
+                    Lore Gaming Studios
+                  </h2>
+                  <p class="glass-card__role">
+                    Co-Founder & Head of Mobile
+                  </p>
+                </div>
+                <p class="glass-card__desc">
+                  Co-founded an indie game studio and managed
+                  end-to-end mobile development workflows.
+                </p>
+                <ul class="glass-card__bullets">
+                  <li>Managed publishing pipeline</li>
+                  <li>Led mobile team</li>
+                  <li>Handled QA & playtesting</li>
+                </ul>
+                <div class="glass-card__tags">
+                  <span class="tag">Unity</span>
+                  <span class="tag">C#</span>
+                  <span class="tag">Management</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!--  Blogs    -->
+      <section class="blogs container">
+        <div class="blogs__wrapper section">
+          <h2 class="blogs__title">Blogs & Thoughts</h2>
+          <p class="blogs__description">
+            A quick snapshot of what I'm currently learning, building, and experimenting with.
+            These change over time as I explore new ideas and technologies.
+          </p>
+          <div class="blog__block-wrapper">
+            <div class="blog">
+              <a class="blog__body-link" href="index.html">
+                <img class="blog__img lazy loading" src="https://fakeimg.pl/1024" data-src="/missnoty.webp" alt="" />
+                <h5 class="blog__name">I find video editing interesting!</h5>
+                <p class="blog__item-description">
+                  I recently started working as a video editor and
+                  since then I have found new love for video editing.</p>
+                <div class="blog__footer">
+                  <p class="blog__tech">DaVinci Resolve</p>
+                  <p class="blog__date">16th May 2026</p>
+                </div>
+              </a>
+            </div>
+            <div class="blog">
+              <a class="blog__body-link" href="index.html">
+                <img class="blog__img lazy loading" src="https://fakeimg.pl/1024" data-src="/missnoty.webp" alt="" />
+                <h5 class="blog__name">I find video editing interesting!</h5>
+                <p class="blog__item-description">
+                  I recently started working as a video editor and
+                  since then I have found new love for video editing.</p>
+                <div class="blog__footer">
+                  <p class="blog__tech">DaVinci Resolve</p>
+                  <p class="blog__date">16th May 2026</p>
+                </div>
+              </a>
+            </div>
+            <div class="blog">
+              <a class="blog__body-link" href="index.html">
+                <img class="blog__img lazy loading" src="https://fakeimg.pl/1024" data-src="/missnoty.webp" alt="" />
+                <h5 class="blog__name">I find video editing interesting!</h5>
+                <p class="blog__item-description">
+                  I recently started working as a video editor and
+                  since then I have found new love for video editing.</p>
+                <div class="blog__footer">
+                  <p class="blog__tech">DaVinci Resolve</p>
+                  <p class="blog__date">16th May 2026</p>
+                </div>
+              </a>
             </div>
           </div>
-
-          <!-- Navigation Buttons -->
-          <div class="swiper-button-prev">
-            <i class="ri-arrow-left-s-line"></i>
-          </div>
-          <div class="swiper-button-next">
-            <i class="ri-arrow-right-s-line"></i>
-          </div>
-
-          <!-- Pagination -->
-          <div class="swiper-pagination"></div>
+          <a class="blogs__btn btn">Read Mode</a>
         </div>
-
-        <p class="projects__description">
-          These notable projects provide insight into my dedication to
-          innovation and problem-solving. For detailed explanations, please
-          click the button below. Additionally, you can visit my GitHub profile
-          to explore other personal projects and access their source code.
-        </p>
-        <a class="project__btn btn" href="./projects/">Complete Project List</a>
       </section>
-      <!--  Work Experiences    -->
-      <!--  Blogs    -->
-<!--      <section class="blogs container">-->
-<!--        <div class="blogs__wrapper section">-->
-<!--          <h2 class="blogs__title">Blogs & Thoughts</h2>-->
-<!--          <p class="blogs__description">-->
-<!--            A quick snapshot of what I'm currently learning, building, and experimenting with.-->
-<!--            These change over time as I explore new ideas and technologies.-->
-<!--          </p>-->
-<!--          <div class="blog__block-wrapper">-->
-<!--            <div class="blog">-->
-<!--              <a class="blog__body-link" href="index.html">-->
-<!--                <img class="blog__img" src="/missnoty.webp" alt="" />-->
-<!--                <h5 class="blog__name">I find video editing interesting!</h5>-->
-<!--                <p class="blog__item-description">-->
-<!--                  I recently started working as a video editor and-->
-<!--                  since then I have found new love for video editing.</p>-->
-<!--                <div class="blog__footer">-->
-<!--                  <p class="blog__tech">DaVinci Resolve</p>-->
-<!--                  &lt;!&ndash;<p class="blog__tech">16th May 2026</p>&ndash;&gt;-->
-<!--                  <p class="blog__date">16th May 2026</p>-->
-<!--                </div>-->
-<!--              </a>-->
-<!--            </div>-->
-<!--            <div class="blog">-->
-<!--              <a class="blog__body-link" href="index.html">-->
-<!--                <img class="blog__img" src="/missnoty.webp" alt="" />-->
-<!--                <h5 class="blog__name">I find video editing interesting!</h5>-->
-<!--                <p class="blog__item-description">-->
-<!--                  I recently started working as a video editor and-->
-<!--                  since then I have found new love for video editing.</p>-->
-<!--                <div class="blog__footer">-->
-<!--                  <p class="blog__tech">DaVinci Resolve</p>-->
-<!--                  &lt;!&ndash;<p class="blog__tech">16th May 2026</p>&ndash;&gt;-->
-<!--                  <p class="blog__date">16th May 2026</p>-->
-<!--                </div>-->
-<!--              </a>-->
-<!--            </div>-->
-<!--            <div class="blog">-->
-<!--              <a class="blog__body-link" href="index.html">-->
-<!--                <img class="blog__img" src="/missnoty.webp" alt="" />-->
-<!--                <h5 class="blog__name">I find video editing interesting!</h5>-->
-<!--                <p class="blog__item-description">-->
-<!--                  I recently started working as a video editor and-->
-<!--                  since then I have found new love for video editing.</p>-->
-<!--                <div class="blog__footer">-->
-<!--                  <p class="blog__tech">DaVinci Resolve</p>-->
-<!--                  &lt;!&ndash;<p class="blog__tech">16th May 2026</p>&ndash;&gt;-->
-<!--                  <p class="blog__date">16th May 2026</p>-->
-<!--                </div>-->
-<!--              </a>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </section>-->
 
       <!-- Contact Section -->
       <section class="contact container" id="contact">
@@ -558,12 +584,12 @@
           <div class="contact__linkHolder">
             <h2 class="contact__header">Links</h2>
             <div class="contact__links">
-              <a class="contact__btn" href="https://github.com/SpoiledUnknown" target="_blank"><img class="contact__image" src="/links/github.svg" alt="Github" /></a>
-              <a class="contact__btn" href="https://www.youtube.com/c/SpoiledUnknown" target="_blank"><img class="contact__image" src="/links/youtube.svg" alt="" /></a>
-              <a class="contact__btn" href="https://discord.gg/YykdmCjzmQ" target="_blank"><img class="contact__image" src="/links/discord.svg" alt="Discord" /></a>
-              <a class="contact__btn" href="https://instagram.com/spoiledunknown" target="_blank"><img class="contact__image" src="/links/instagram.svg" alt="Instagram" /></a>
-              <a class="contact__btn" href="https://www.linkedin.com/in/shashank-raj-4a028540b" target="_blank"><img class="contact__image" src="/links/linkedin.svg" alt="LinkedIn" /></a>
-              <a class="contact__btn" href="mailto:spoiledunknowndev@gmail.com"><img class="contact__image" src="/links/email.svg" alt="Email" /></a>
+              <a class="contact__btn" href="https://github.com/SpoiledUnknown" target="_blank"><img class="contact__image lazy loading" src="https://fakeimg.pl/1024" data-src="/links/github.svg" alt="Github" /></a>
+              <a class="contact__btn" href="https://www.youtube.com/c/SpoiledUnknown" target="_blank"><img class="contact__image lazy loading" src="https://fakeimg.pl/1024" data-src="/links/youtube.svg" alt="" /></a>
+              <a class="contact__btn" href="https://discord.gg/YykdmCjzmQ" target="_blank"><img class="contact__image lazy loading" src="https://fakeimg.pl/1024" data-src="/links/discord.svg" alt="Discord" /></a>
+              <a class="contact__btn" href="https://instagram.com/spoiledunknown" target="_blank"><img class="contact__image lazy loading" src="https://fakeimg.pl/1024" data-src="/links/instagram.svg" alt="Instagram" /></a>
+              <a class="contact__btn" href="https://www.linkedin.com/in/shashank-raj-4a028540b" target="_blank"><img class="contact__image lazy loading" src="https://fakeimg.pl/1024" data-src="/links/linkedin.svg" alt="LinkedIn" /></a>
+              <a class="contact__btn" href="mailto:spoiledunknowndev@gmail.com"><img class="contact__image lazy loading" src="https://fakeimg.pl/1024" data-src="/links/email.svg" alt="Email" /></a>
             </div>
           </div>
           <div class="contact__message">
