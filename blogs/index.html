@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../public/spoiledunknown.ico" />
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@600,401,400,700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/>
+    <title>Spoiled Unknown</title>
+</head>
+<body>
+<!-- Theme Transition Page -->
+<div class="theme__transition">
+    <div class="loader__light"></div>
+    <div class="loader__dark"></div>
+
+
+    <div class="loader"></div>
+</div>
+
+<!-- Header Navigation -->
+<header class="header container">
+    <div class="header__name"><p>Shashank Raj</P></div>
+    <nav>
+        <ul class="header__menu">
+            <li>
+                <a class="header__link" href="../">Home</a>
+            </li>
+            <li class="header__line"></li>
+            <li>
+                <button class="theme-toggle header__ThemeBtn">
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="header__sun"
+                    >
+                        <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                        />
+                    </svg>
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="header__moon"
+                    >
+                        <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+                        />
+                    </svg>
+                </button>
+            </li>
+        </ul>
+        <button class="header__bars">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+            >
+                <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+            </svg>
+        </button>
+    </nav>
+</header>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+    <nav>
+        <ul class="mobile-nav__menu">
+            <li>
+                <a class="mobile-nav__link" href="../">Home</a>
+            </li>
+            <li class="mobile-nav__link-line"></li>
+            <li>
+                <button class="theme-toggle mobile-nav__themeBtn">
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="header__sun-m"
+                    >
+                        <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                        />
+                    </svg>
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="header__moon-m"
+                    >
+                        <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+                        />
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!--End Of Mobile Navigation-->
+
+<!--Background Ribbons-->
+<div class="ribbon-bg" aria-hidden="true">
+    <svg class="ribbon ribbon--1"
+         viewBox="0 0 1440 900"
+         preserveAspectRatio="xMidYMid slice"
+         xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="rb1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%"   stop-color="#e11d48" stop-opacity="0.7"/>
+                <stop offset="100%" stop-color="#7909e2" stop-opacity="0.4"/>
+            </linearGradient>
+        </defs>
+        <path fill="url(#rb1)"
+              d="M-100,300 C200,100 600,500 900,250 S1300,50 1550,300
+           L1550,420 C1300,170 900,370 600,370 S200,220 -100,420Z"/>
+    </svg>
+
+    <svg class="ribbon ribbon--2"
+         viewBox="0 0 1440 900"
+         preserveAspectRatio="xMidYMid slice"
+         xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="rb2" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#7909e2" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="#4f46e5" stop-opacity="0.3"/>
+            </linearGradient>
+        </defs>
+        <path fill="url(#rb2)"
+              d="M-80,550 C300,350 700,700 1000,480 S1350,280 1560,550
+           L1560,680 C1350,410 1000,610 700,600 S300,480 -80,680Z"/>
+    </svg>
+</div>
+
+<main class="page-wrapper" id="main-content">
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+        <div class="container">
+            <p class="page-header__eyebrow">Writing</p>
+            <h1 class="page-header__title">The <em>Blogs</em></h1>
+            <p class="page-header__sub">
+                Deep-dives into animation systems, design engineering,
+                and the craft of building beautiful web experiences.
+            </p>
+        </div>
+    </header>
+    <section class="section blog-section" aria-label="Blog post timeline">
+        <div class="container">
+            <div class="blog__track" id="blogTrack" role="list">
+                <!-- ── POST 1 ── left side ───────────────────────── -->
+                <article class="blog__item blog__item--left"
+                         role="listitem"
+                         data-index="0">
+
+                    <div class="blog__node" aria-hidden="true">
+                        <span class="blog__node-dot"></span>
+                    </div>
+                    <div class="blog__connector" aria-hidden="true"></div>
+
+                    <div class="blog__card glass-card">
+                        <!-- Cover image -->
+                        <div class="blog__cover-wrap">
+                            <img
+                                    class="blog__cover"
+                                    src="/missnoty.webp"
+                                    alt="Abstract animation system visualisation"
+                                    loading="lazy"
+                                    width="800"
+                                    height="420"
+                                    onerror="this.style.display='none';this.parentElement.classList.add('blog__cover-wrap--placeholder')"
+                            />
+                        </div>
+
+                        <div class="blog__body">
+                            <!-- Meta -->
+                            <div class="blog__meta">
+                                <span class="blog__date">16th May 2026</span>
+                                <span class="blog__read-time">5 min read</span>
+                            </div>
+
+                            <!-- Title -->
+                            <h2 class="blog__title">
+                                I find video editing interesting!
+                            </h2>
+
+                            <!-- Description -->
+                            <p class="blog__desc">
+                                I recently started working as a video editor and
+                                since then I have found new love for video editing.
+                            </p>
+
+                            <!-- Tags -->
+                            <div class="blog__tags" aria-label="Topics">
+                                <span class="tag">DaVinci Resolve</span>
+                                <span class="tag">Video Editing</span>
+                            </div>
+
+                            <!-- CTA -->
+                            <a href="#" class="btn blog__cta" aria-label="Read: How I Built My Portfolio Animation System">
+                                Read Article →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+<!--                &lt;!&ndash; ── POST 2 ── right side ──────────────────────── &ndash;&gt;-->
+<!--                <article class="blog__item blog__item&#45;&#45;right"-->
+<!--                         role="listitem"-->
+<!--                         data-index="1">-->
+
+<!--                    <div class="blog__node" aria-hidden="true">-->
+<!--                        <span class="blog__node-dot"></span>-->
+<!--                    </div>-->
+<!--                    <div class="blog__connector" aria-hidden="true"></div>-->
+
+<!--                    <div class="blog__card glass-card">-->
+<!--                        <div class="blog__cover-wrap">-->
+<!--                            <img-->
+<!--                                    class="blog__cover"-->
+<!--                                    src="/missnoty.webp"-->
+<!--                                    alt="Glassmorphism UI components"-->
+<!--                                    loading="lazy"-->
+<!--                                    width="1024"-->
+<!--                                    height="1024"-->
+<!--                                    onerror="this.style.display='none';this.parentElement.classList.add('blog__cover-wrap&#45;&#45;placeholder')"-->
+<!--                            />-->
+<!--                        </div>-->
+<!--                        <div class="blog__body">-->
+<!--                            <div class="blog__meta">-->
+<!--                                <span class="blog__date">28 Apr 2025</span>-->
+<!--                                <span class="blog__read-time">6 min read</span>-->
+<!--                            </div>-->
+<!--                            <h2 class="blog__title">-->
+<!--                                Glassmorphism in 2025 — What Still Works-->
+<!--                            </h2>-->
+<!--                            <p class="blog__desc">-->
+<!--                                Revisiting the trend with fresh eyes: which glassmorphism-->
+<!--                                techniques hold up for accessibility, performance, and-->
+<!--                                aesthetic longevity.-->
+<!--                            </p>-->
+<!--                            <div class="blog__tags" aria-label="Topics">-->
+<!--                                <span class="tag">UI Design</span>-->
+<!--                                <span class="tag">CSS</span>-->
+<!--                                <span class="tag">backdrop-filter</span>-->
+<!--                                <span class="tag">Accessibility</span>-->
+<!--                            </div>-->
+<!--                            <a href="#" class="btn blog__cta" aria-label="Read: Glassmorphism in 2025">-->
+<!--                                Read Article →-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </article>-->
+
+<!--                &lt;!&ndash; ── POST 3 ── left side ───────────────────────── &ndash;&gt;-->
+<!--                <article class="blog__item blog__item&#45;&#45;left"-->
+<!--                         role="listitem"-->
+<!--                         data-index="2">-->
+
+<!--                    <div class="blog__node" aria-hidden="true">-->
+<!--                        <span class="blog__node-dot"></span>-->
+<!--                    </div>-->
+<!--                    <div class="blog__connector" aria-hidden="true"></div>-->
+
+<!--                    <div class="blog__card glass-card">-->
+<!--                        <div class="blog__cover-wrap">-->
+<!--                            <img-->
+<!--                                    class="blog__cover"-->
+<!--                                    src="/missnoty.webp"-->
+<!--                                    alt="IntersectionObserver scroll reveal diagram"-->
+<!--                                    loading="lazy"-->
+<!--                                    width="800"-->
+<!--                                    height="420"-->
+<!--                                    onerror="this.style.display='none';this.parentElement.classList.add('blog__cover-wrap&#45;&#45;placeholder')"-->
+<!--                            />-->
+<!--                        </div>-->
+<!--                        <div class="blog__body">-->
+<!--                            <div class="blog__meta">-->
+<!--                                <span class="blog__date">10 Mar 2025</span>-->
+<!--                                <span class="blog__read-time">10 min read</span>-->
+<!--                            </div>-->
+<!--                            <h2 class="blog__title">-->
+<!--                                Scroll Reveal Without the Library — IntersectionObserver Deep Dive-->
+<!--                            </h2>-->
+<!--                            <p class="blog__desc">-->
+<!--                                How to build buttery scroll-triggered animations using only-->
+<!--                                the browser's native IntersectionObserver API — no GSAP,-->
+<!--                                no AOS, no scroll listeners.-->
+<!--                            </p>-->
+<!--                            <div class="blog__tags" aria-label="Topics">-->
+<!--                                <span class="tag">JavaScript</span>-->
+<!--                                <span class="tag">IntersectionObserver</span>-->
+<!--                                <span class="tag">Performance</span>-->
+<!--                                <span class="tag">CSS Transitions</span>-->
+<!--                            </div>-->
+<!--                            <a href="#" class="btn blog__cta" aria-label="Read: Scroll Reveal Without the Library">-->
+<!--                                Read Article →-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </article>-->
+
+<!--                &lt;!&ndash; ── POST 4 ── right side ──────────────────────── &ndash;&gt;-->
+<!--                <article class="blog__item blog__item&#45;&#45;right"-->
+<!--                         role="listitem"-->
+<!--                         data-index="3">-->
+
+<!--                    <div class="blog__node" aria-hidden="true">-->
+<!--                        <span class="blog__node-dot"></span>-->
+<!--                    </div>-->
+<!--                    <div class="blog__connector" aria-hidden="true"></div>-->
+
+<!--                    <div class="blog__card glass-card">-->
+<!--                        <div class="blog__cover-wrap">-->
+<!--                            <img-->
+<!--                                    class="blog__cover"-->
+<!--                                    src="/missnoty.webp"-->
+<!--                                    alt="SVG path animation artwork"-->
+<!--                                    loading="lazy"-->
+<!--                                    width="800"-->
+<!--                                    height="420"-->
+<!--                                    onerror="this.style.display='none';this.parentElement.classList.add('blog__cover-wrap&#45;&#45;placeholder')"-->
+<!--                            />-->
+<!--                        </div>-->
+<!--                        <div class="blog__body">-->
+<!--                            <div class="blog__meta">-->
+<!--                                <span class="blog__date">18 Feb 2025</span>-->
+<!--                                <span class="blog__read-time">7 min read</span>-->
+<!--                            </div>-->
+<!--                            <h2 class="blog__title">-->
+<!--                                SVG Path Animations — From Zero to Cinematic-->
+<!--                            </h2>-->
+<!--                            <p class="blog__desc">-->
+<!--                                Everything I learned building animated SVG backgrounds,-->
+<!--                                progress bars, and decorative ring systems — and how to-->
+<!--                                keep them running at 60 fps.-->
+<!--                            </p>-->
+<!--                            <div class="blog__tags" aria-label="Topics">-->
+<!--                                <span class="tag">SVG</span>-->
+<!--                                <span class="tag">CSS Animation</span>-->
+<!--                                <span class="tag">Performance</span>-->
+<!--                                <span class="tag">GPU</span>-->
+<!--                            </div>-->
+<!--                            <a href="#" class="btn blog__cta" aria-label="Read: SVG Path Animations">-->
+<!--                                Read Article →-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </article>-->
+
+<!--                &lt;!&ndash; ── POST 5 ── left side ───────────────────────── &ndash;&gt;-->
+<!--                <article class="blog__item blog__item&#45;&#45;left"-->
+<!--                         role="listitem"-->
+<!--                         data-index="4">-->
+
+<!--                    <div class="blog__node" aria-hidden="true">-->
+<!--                        <span class="blog__node-dot"></span>-->
+<!--                    </div>-->
+<!--                    <div class="blog__connector" aria-hidden="true"></div>-->
+
+<!--                    <div class="blog__card glass-card">-->
+<!--                        <div class="blog__cover-wrap">-->
+<!--                            <img-->
+<!--                                    class="blog__cover"-->
+<!--                                    src="/missnoty.webp"-->
+<!--                                    alt="Typography specimens on dark background"-->
+<!--                                    loading="lazy"-->
+<!--                                    width="800"-->
+<!--                                    height="420"-->
+<!--                                    onerror="this.style.display='none';this.parentElement.classList.add('blog__cover-wrap&#45;&#45;placeholder')"-->
+<!--                            />-->
+<!--                        </div>-->
+<!--                        <div class="blog__body">-->
+<!--                            <div class="blog__meta">-->
+<!--                                <span class="blog__date">3 Jan 2025</span>-->
+<!--                                <span class="blog__read-time">5 min read</span>-->
+<!--                            </div>-->
+<!--                            <h2 class="blog__title">-->
+<!--                                Dark-Mode Typography That Actually Feels Premium-->
+<!--                            </h2>-->
+<!--                            <p class="blog__desc">-->
+<!--                                Font pairings, size scales, and contrast ratios I've-->
+<!--                                refined across a dozen dark-mode projects — plus the-->
+<!--                                CSS variables system I reach for every time.-->
+<!--                            </p>-->
+<!--                            <div class="blog__tags" aria-label="Topics">-->
+<!--                                <span class="tag">Typography</span>-->
+<!--                                <span class="tag">CSS Variables</span>-->
+<!--                                <span class="tag">Dark Mode</span>-->
+<!--                                <span class="tag">UI Design</span>-->
+<!--                            </div>-->
+<!--                            <a href="#" class="btn blog__cta" aria-label="Read: Dark-Mode Typography">-->
+<!--                                Read Article →-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </article>-->
+
+<!--                &lt;!&ndash; ── POST 6 ── right side ──────────────────────── &ndash;&gt;-->
+<!--                <article class="blog__item blog__item&#45;&#45;right"-->
+<!--                         role="listitem"-->
+<!--                         data-index="5">-->
+
+<!--                    <div class="blog__node" aria-hidden="true">-->
+<!--                        <span class="blog__node-dot"></span>-->
+<!--                    </div>-->
+<!--                    <div class="blog__connector" aria-hidden="true"></div>-->
+
+<!--                    <div class="blog__card glass-card">-->
+<!--                        <div class="blog__cover-wrap">-->
+<!--                            <img-->
+<!--                                    class="blog__cover"-->
+<!--                                    src="/missnoty.webp"-->
+<!--                                    alt="ES module diagram"-->
+<!--                                    loading="lazy"-->
+<!--                                    width="800"-->
+<!--                                    height="420"-->
+<!--                                    onerror="this.style.display='none';this.parentElement.classList.add('blog__cover-wrap&#45;&#45;placeholder')"-->
+<!--                            />-->
+<!--                        </div>-->
+<!--                        <div class="blog__body">-->
+<!--                            <div class="blog__meta">-->
+<!--                                <span class="blog__date">14 Dec 2024</span>-->
+<!--                                <span class="blog__read-time">9 min read</span>-->
+<!--                            </div>-->
+<!--                            <h2 class="blog__title">-->
+<!--                                Vanilla JS Architecture — ES Modules Without a Build Step-->
+<!--                            </h2>-->
+<!--                            <p class="blog__desc">-->
+<!--                                How to organise a multi-file vanilla JS project using-->
+<!--                                native ES modules, import maps, and clean separation of-->
+<!--                                concerns — no Webpack, no Vite, no bundler.-->
+<!--                            </p>-->
+<!--                            <div class="blog__tags" aria-label="Topics">-->
+<!--                                <span class="tag">JavaScript</span>-->
+<!--                                <span class="tag">ES Modules</span>-->
+<!--                                <span class="tag">Architecture</span>-->
+<!--                                <span class="tag">No Build</span>-->
+<!--                            </div>-->
+<!--                            <a href="#" class="btn blog__cta" aria-label="Read: Vanilla JS Architecture">-->
+<!--                                Read Article →-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </article>-->
+            </div>
+        </div>
+    </section>
+
+    <!--  space so that the timeline is filled  -->
+    <div class="conttainer page-header">
+        <p class="page-header__sub">
+            Thanks for visiting my blogs page. See you soon when I have written more blogs.
+        </p>
+        <a class="return__btn btn" href="../">Return To Home</a>
+    </div>
+</main>
+
+<footer class="footer container section">
+    <h4 class="footer__title"></h4>
+</footer>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

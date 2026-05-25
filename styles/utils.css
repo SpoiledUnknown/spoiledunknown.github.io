@@ -17,23 +17,26 @@
 /* @media (min-width: 1536px) {} */
 
 .btn {
-  display: inline-block;
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: -0.05em;
-  background-color: var(--clr-blue);
-  color: #f1f5f9;
-  padding: 0.5em 1em;
-  border-radius: var(--border-radius);
-  box-shadow: 0 10px 20px rgba(29, 32, 225, 0.5),
-    0 6px 6px rgba(29, 32, 225, 0.5), 0 0 100px -10px var(--clr-blue);
-  transition: transform 0.3s, box-shadow 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.6em 1.4em;
+  border-radius: calc(var(--border-radius) * 0.5);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  font-size: var(--size-sm);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+  will-change: transform;
 }
-
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 28px rgba(29, 32, 225, 0.25),
-    0 10px 10px rgba(29, 32, 225, 0.25), 0 0 120px -10px var(--clr-blue);
+  background: rgba(255, 255, 255, 0.11);
+  box-shadow: 0 0 24px rgba(225, 29, 72, 0.35);
+  transform: translateY(-2px);
 }
 
 .container {

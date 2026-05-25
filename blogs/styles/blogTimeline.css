@@ -1,0 +1,383 @@
+/*
+ * blogTimeline.css
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Blog timeline layout layer.
+ *
+ * Core concept:
+ *   A central vertical spine runs down the page.
+ *   Cards alternate: odd → left side, even → right side (desktop ≥ 768px).
+ *   Mobile (< 768px): spine shifts left, all cards fill the remaining width.
+ *
+ * DOM structure per item:
+ *   .blog__item (.blog__item--left | .blog__item--right)
+ *     .blog__node > .blog__node-dot
+ *     .blog__connector          ← horizontal stub from node to card
+ *     .blog__card.glass-card    ← content card
+ *
+ * JS (blogTimeline.js) injects:
+ *   • .blog__bar > .blog__bar-fill   into .blog__track
+ *   • SVG ring elements              into each .blog__node
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/* ══════════════════════════════════════════════════════════════════
+   1. SECTION
+   ══════════════════════════════════════════════════════════════════ */
+.blog-section {
+    padding-top:    clamp(1rem, 3vw, 2rem);
+    padding-bottom: clamp(4rem, 10vw, 8rem);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   2. TRACK  — the scrollable column that holds all items
+   The spine bar is positioned relative to this element.
+   ══════════════════════════════════════════════════════════════════ */
+.blog__track {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Gap between consecutive items */
+    gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   3. VERTICAL SPINE — injected by JS as .blog__bar
+   Sits dead-centre on desktop, left-offset on mobile.
+   ══════════════════════════════════════════════════════════════════ */
+.blog__bar {
+    position: absolute;
+    /* Mobile: left-aligned; desktop: overridden to centre below */
+    left: 0.6875rem;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Fill travels downward — JS sets height via inline style */
+.blog__bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    border-radius: inherit;
+    background: linear-gradient(
+            180deg,
+            var(--clr-rose)   0%,
+            var(--clr-voilet) 55%,
+            var(--clr-blue)   100%
+    );
+    transition: height 0.12s linear;
+    will-change: height;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   4. ITEM — wrapper for node + connector + card
+   ══════════════════════════════════════════════════════════════════ */
+.blog__item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    /* Mobile: all items flow left-to-right with left spine */
+    padding-left: 2.75rem;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   5. NODE DOT
+   ══════════════════════════════════════════════════════════════════ */
+.blog__node {
+    position: absolute;
+    /* Vertically aligned with the card's first line of content */
+    top: 1.4rem;
+    left: 0;
+    width: 1.375rem;
+    height: 1.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+.blog__node-dot {
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--clr-dark);
+    border: 2px solid var(--clr-voilet);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    will-change: box-shadow;
+}
+
+/* Active node glow — triggered when .is-visible reaches parent */
+.blog__item.is-visible .blog__node-dot {
+    border-color: var(--clr-rose);
+    box-shadow:
+            0 0 0 4px rgba(225, 29, 72, 0.15),
+            0 0 16px rgba(225, 29, 72, 0.5),
+            0 0 32px rgba(121, 9, 226, 0.25);
+}
+
+/* SVG rings injected by JS */
+.blog__node-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   6. CONNECTOR — horizontal stub from node → card
+   ══════════════════════════════════════════════════════════════════ */
+.blog__connector {
+    position: absolute;
+    top: 2rem;        /* aligns with node centre */
+    left: 1.375rem;   /* right edge of node */
+    width: 1.375rem;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(
+            to right,
+            rgba(225, 29, 72, 0.7),
+            rgba(121, 9, 226, 0.3)
+    );
+    opacity: 0.5;
+    z-index: 2;
+    transition: opacity 0.4s ease;
+    will-change: opacity;
+}
+.blog__item.is-visible .blog__connector { opacity: 1; }
+
+/* ══════════════════════════════════════════════════════════════════
+   7. BLOG CARD — extends .glass-card with blog-specific internals
+   ══════════════════════════════════════════════════════════════════ */
+.blog__card {
+    /* Override glass-card padding: cover image should bleed to edges */
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+}
+/* All card content above the pseudo-element highlights */
+.blog__card > * { position: relative; z-index: 1; }
+
+/* ── Cover image wrapper ── */
+.blog__cover-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 8;
+    overflow: hidden;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    background: var(--clr-slate800); /* fallback while image loads */
+}
+
+/* Gradient placeholder shown when onerror fires */
+.blog__cover-wrap--placeholder {
+    background: linear-gradient(
+            135deg,
+            rgba(225, 29, 72, 0.25) 0%,
+            rgba(121, 9, 226, 0.25) 50%,
+            rgba(29, 78, 216, 0.2) 100%
+    );
+}
+
+.blog__cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Zoom in slightly on hover (parent overflow:hidden clips it) */
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+.blog__card:hover .blog__cover {
+    transform: scale(1.04);
+}
+
+/* ── Card body — all text content ── */
+.blog__body {
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+/* ── Meta row: date + reading time ── */
+.blog__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+.blog__date,
+.blog__read-time {
+    font-size: var(--size-xs);
+    font-weight: 400;
+    letter-spacing: 0.07em;
+    color: var(--clr-slate400);
+}
+/* Visual separator between date and read-time */
+.blog__date::after {
+    content: '·';
+    margin-left: var(--space-sm);
+    opacity: 0.5;
+}
+
+/* ── Title ── */
+.blog__title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(var(--size-xl), 2.5vw, var(--size-3xl));
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--clr-light);
+}
+
+/* ── Description ── */
+.blog__desc {
+    font-size: var(--size-sm);
+    color: var(--clr-slate400);
+    line-height: 1.65;
+    /* Cap at 3 lines on small screens to keep cards uniform */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ── Tags ── */
+.blog__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+/* ── CTA button ── */
+.blog__cta {
+    /* Aligns button to start; avoids stretching to full width */
+    align-self: flex-start;
+    margin-top: calc(var(--space-xs) / 2);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   8. DESKTOP LAYOUT  (≥ 768px)
+   Spine moves to horizontal centre; cards alternate left / right.
+   ══════════════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+
+    /* Track needs horizontal padding so cards don't overlap the spine */
+    .blog__track {
+        /* Each side: half the card width + a comfortable gutter */
+        padding-inline: 0;
+    }
+
+    /* ── Reposition spine to horizontal centre ── */
+    .blog__bar {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* ── All items: centre-relative positioning ── */
+    .blog__item {
+        width: 100%;
+        padding-left: 0;
+        align-items: flex-start;
+        /* Node will be positioned at centre via absolute + left:50% */
+    }
+
+    /* Node always centred on the spine */
+    .blog__node {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 1.6rem;
+    }
+
+    /* ──────────────────────────────────────
+       LEFT items: card on the LEFT half,
+       connector bridges right edge of card → node
+    ────────────────────────────────────── */
+    .blog__item--left {
+        justify-content: flex-start;
+        /* Push card so its right edge meets the spine gutter */
+        padding-right: calc(50% + 2.5rem);
+    }
+    .blog__item--left .blog__card {
+        width: 100%;
+    }
+    /* Connector: left card → right toward node */
+    .blog__item--left .blog__connector {
+        left: auto;
+        right: calc(50% - 1.375rem);
+        top: 2.05rem;
+        width: 2.5rem;
+        /* Gradient reversed: node colour first, fades left */
+        background: linear-gradient(
+                to left,
+                rgba(225, 29, 72, 0.7),
+                rgba(121, 9, 226, 0.3)
+        );
+    }
+
+    /* ──────────────────────────────────────
+       RIGHT items: card on the RIGHT half,
+       connector bridges node → left edge of card
+    ────────────────────────────────────── */
+    .blog__item--right {
+        justify-content: flex-end;
+        padding-left: calc(50% + 2.5rem);
+    }
+    .blog__item--right .blog__card {
+        width: 100%;
+    }
+    /* Connector: node → right card */
+    .blog__item--right .blog__connector {
+        left: calc(50% + 0.625rem); /* just past node centre */
+        top: 2.05rem;
+        width: 2.5rem;
+        background: linear-gradient(
+                to right,
+                rgba(225, 29, 72, 0.7),
+                rgba(121, 9, 226, 0.3)
+        );
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   9. TABLET  (≥ 640px, < 768px)
+   Widen mobile cards slightly before desktop layout kicks in.
+   ══════════════════════════════════════════════════════════════════ */
+@media (min-width: 640px) and (max-width: 767px) {
+    .blog__card { max-width: 520px; }
+    .blog__track { padding-left: 3rem; }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   10. LARGE DESKTOP  (≥ 1024px)
+   Increase gutter so cards don't crowd the spine.
+   ══════════════════════════════════════════════════════════════════ */
+@media (min-width: 1024px) {
+    .blog__item--left  { padding-right: calc(50% + 3.5rem); }
+    .blog__item--right { padding-left:  calc(50% + 3.5rem); }
+
+    .blog__item--left .blog__connector  { right: calc(50% - 1.375rem); width: 3.5rem; }
+    .blog__item--right .blog__connector { left:  calc(50% + 0.625rem); width: 3.5rem; }
+
+    .blog__body { padding: var(--space-lg) var(--space-xl) var(--space-xl); }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   11. XL  (≥ 1280px)
+   ══════════════════════════════════════════════════════════════════ */
+@media (min-width: 1280px) {
+    .blog__item--left  { padding-right: calc(50% + 4rem); }
+    .blog__item--right { padding-left:  calc(50% + 4rem); }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   12. 2XL  (≥ 1536px)
+   ══════════════════════════════════════════════════════════════════ */
+@media (min-width: 1536px) {
+    .blog__item--left  { padding-right: calc(50% + 4.5rem); }
+    .blog__item--right { padding-left:  calc(50% + 4.5rem); }
+}

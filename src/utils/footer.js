@@ -1,4 +1,4 @@
-const version = "0.5.1";
+import {version} from "../../config.json";
 
 export default function FooterText() {
   document.querySelector(
