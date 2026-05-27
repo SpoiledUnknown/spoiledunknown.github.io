@@ -225,7 +225,6 @@
 
     /* Decorative */
     .ribbon--1, .ribbon--2   { animation: none; }
-    .particle                { animation: none; opacity: 0.35; }
     .category-header__line::after,
     .category-divider__line::after { animation: none; }
     .category-divider__gem   { animation: none; }
