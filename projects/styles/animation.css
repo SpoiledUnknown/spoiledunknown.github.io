@@ -1,0 +1,235 @@
+/*
+ * animations.css
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Animation layer for the projects showcase.
+ *
+ * Scroll-reveal is CLASS-BASED (IntersectionObserver — no scroll listeners):
+ *   .reveal-item          → initial hidden state  (set by animations.js)
+ *   .is-visible           → final visible state   (set by observer)
+ *
+ * Project cards use DIRECTIONAL reveal:
+ *   .project-card--img-left  → image slides from left, content from right
+ *   .project-card--img-right → image slides from right, content from left
+ *
+ * Category headers and dividers use a simpler fade+slide-up.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/* ══════════════════════════════════════════════════════════════════
+   1. BASE REVEAL STATE
+   Every .reveal-item starts hidden and blurred.
+   ══════════════════════════════════════════════════════════════════ */
+.reveal-item {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(60px);
+    will-change: transform, opacity, filter;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   2. DIRECTIONAL CARD OVERRIDES
+   On desktop (≥ 768px), project cards have directional slide-in.
+   The outer card itself fades up; inner halves slide in from their
+   respective edges via CSS child selectors.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Outer card — just fades + lifts (translateY handled by base) */
+.project-card.reveal-item {
+    transform: translateY(80px);
+    transition: none; /* transitions fire only once is-visible is set */
+}
+
+/* Desktop: separate initial transforms for image and content halves */
+@media (min-width: 768px) {
+
+    /* Image-left card: image comes from left, content from right */
+    .project-card--img-left.reveal-item .project-card__image-wrap {
+        opacity: 0;
+        transform: translateX(-60px);
+        will-change: transform, opacity;
+    }
+    .project-card--img-left.reveal-item .project-card__content {
+        opacity: 0;
+        transform: translateX(60px);
+        will-change: transform, opacity;
+    }
+
+    /* Image-right card: image from right, content from left */
+    .project-card--img-right.reveal-item .project-card__image-wrap {
+        opacity: 0;
+        transform: translateX(60px);
+        will-change: transform, opacity;
+    }
+    .project-card--img-right.reveal-item .project-card__content {
+        opacity: 0;
+        transform: translateX(-60px);
+        will-change: transform, opacity;
+    }
+
+    /* ── Visible: both halves animate to natural position ── */
+    .project-card.is-visible .project-card__image-wrap,
+    .project-card.is-visible .project-card__content {
+        opacity: 1;
+        transform: translateX(0);
+        transition:
+                opacity   0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.85s cubic-bezier(0.22, 1.35, 0.36, 1);
+    }
+    /* Content transitions slightly delayed for staggered feel */
+    .project-card.is-visible .project-card__content {
+        transition-delay: 0.1s;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   3. IS-VISIBLE — all .reveal-item types animate to natural state
+   ══════════════════════════════════════════════════════════════════ */
+.reveal-item.is-visible {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+    transition:
+            opacity   0.9s cubic-bezier(0.22, 1, 0.36, 1),
+            filter    0.9s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 0.9s cubic-bezier(0.22, 1.4, 0.36, 1);
+}
+
+/* ── Stagger by position in DOM (JS sets --reveal-index on each item) ── */
+/*.reveal-item { transition-delay: calc(var(--reveal-index, 0) * 80ms); }*/
+
+/* ══════════════════════════════════════════════════════════════════
+   4. CATEGORY HEADER REVEAL
+   Slides up from below, fades in.
+   ══════════════════════════════════════════════════════════════════ */
+.category-header.reveal-item {
+    transform: translateY(40px);
+}
+.category-header.is-visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+    transition:
+            opacity   0.8s cubic-bezier(0.22, 1, 0.36, 1),
+            filter    0.8s ease,
+            transform 0.8s cubic-bezier(0.22, 1.4, 0.36, 1);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   5. EMPTY STATE REVEAL
+   ══════════════════════════════════════════════════════════════════ */
+.projects-empty.reveal-item {
+    transform: translateY(30px);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   6. PAGE HEADER ENTRANCE — same language as other pages
+   ══════════════════════════════════════════════════════════════════ */
+.page-header__eyebrow,
+.page-header__title,
+.page-header__sub {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: headerReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.page-header__eyebrow { animation-delay: 0.3s; }
+.page-header__title   { animation-delay: 0.5s; }
+.page-header__sub     { animation-delay: 0.75s; }
+
+@keyframes headerReveal {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   7. TAG HOVER SHIMMER
+   ══════════════════════════════════════════════════════════════════ */
+@keyframes tagShimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
+}
+.tag:hover {
+    background-image: linear-gradient(
+            90deg,
+            rgba(225,29,72,0.2)  0%,
+            rgba(121,9,226,0.3)  50%,
+            rgba(225,29,72,0.2)  100%
+    );
+    background-size: 200% auto;
+    animation: tagShimmer 1.2s linear infinite;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   8. PRELOADER
+   ══════════════════════════════════════════════════════════════════ */
+@keyframes spin      { to { transform: rotate(360deg); } }
+@keyframes pulse-text {
+    from { opacity: 0.4; }
+    to   { opacity: 1;   }
+}
+#preloader.loaded {
+    animation: preloaderExit 0.6s ease forwards;
+}
+@keyframes preloaderExit {
+    0%   { opacity: 1; visibility: visible; }
+    100% { opacity: 0; visibility: hidden;  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   9. RIBBON DRIFTS (shared with other pages)
+   ══════════════════════════════════════════════════════════════════ */
+@keyframes ribbonDrift1 {
+    0%   { transform: translateY(0)   translateX(0); }
+    100% { transform: translateY(-4%) translateX(2%); }
+}
+@keyframes ribbonDrift2 {
+    0%   { transform: translateY(0)  translateX(0); }
+    100% { transform: translateY(5%) translateX(-3%); }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   10. REDUCED-MOTION OVERRIDES
+   ══════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+
+    /* All reveal items start visible */
+    .reveal-item {
+        opacity: 1;
+        filter: none;
+        transform: none;
+        transition: none;
+    }
+    .reveal-item.is-visible {
+        transition: none;
+    }
+
+    /* Desktop half-card directions */
+    .project-card--img-left.reveal-item  .project-card__image-wrap,
+    .project-card--img-left.reveal-item  .project-card__content,
+    .project-card--img-right.reveal-item .project-card__image-wrap,
+    .project-card--img-right.reveal-item .project-card__content {
+        opacity: 1;
+        transform: none;
+    }
+    .project-card.is-visible .project-card__image-wrap,
+    .project-card.is-visible .project-card__content {
+        transition: none;
+    }
+
+    /* Header */
+    .page-header__eyebrow,
+    .page-header__title,
+    .page-header__sub {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    /* Decorative */
+    .ribbon--1, .ribbon--2   { animation: none; }
+    .particle                { animation: none; opacity: 0.35; }
+    .category-header__line::after,
+    .category-divider__line::after { animation: none; }
+    .category-divider__gem   { animation: none; }
+    .project-card__image-shine { animation: none; }
+    .projects-empty__icon    { animation: none; }
+    .tag:hover               { animation: none; }
+}
