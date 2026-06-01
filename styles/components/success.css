@@ -253,8 +253,9 @@
 
 .submission__btn {
   display: flex;
+  justify-content: center;
   align-self: center;
-  width: 50%;
+  width: fit-content;
   font-size: var(--size-xs);
 }
 

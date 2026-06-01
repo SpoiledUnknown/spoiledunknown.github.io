@@ -96,22 +96,12 @@
     position:relative;
     padding:1rem 2rem;
     border-radius:var(--border-radius);
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(0.625rem) saturate(160%);
-    -webkit-backdrop-filter: blur(0.625rem) saturate(160%);
     overflow:hidden;
     transition: transform .35s cubic-bezier(.22,1,0.36,1), background 0.35s, box-shadow 0.35s;
 
     animation: fade linear both;
     animation-timeline: view();
     animation-range: entry var(--animation-percent) cover var(--animation-percent);
-}
-
-.glass-card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: linear-gradient(160deg, rgba(255,255,255,0.12), transparent 45%);
 }
 
 .glass-card>*{

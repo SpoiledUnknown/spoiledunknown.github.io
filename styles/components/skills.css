@@ -43,7 +43,6 @@
     justify-content: center;
     text-align: center;
     padding: 1.5rem 1rem;
-    background-color: var(--clr-header-light);
     border-radius: 8px;
     transition: transform 0.2s ease;
 

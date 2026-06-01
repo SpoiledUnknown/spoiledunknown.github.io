@@ -34,7 +34,6 @@
 .blog{
     display: flex;
     flex-direction: column;
-    background-color: #b7a88a;
     margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 1rem;
@@ -76,19 +75,6 @@
     gap: 2rem;
     font-size: var(--size-sm);
 }
-.blog__tech {
-    color: var(--clr-slate400);
-    background-color: var(--clr-slate600);
-    padding: 0.5rem;
-    border-radius: 1rem;
-    text-align: center;
-
-    transition: background-color 0.3s ease;
-}
-
-.blog__tech:hover {
-    background-color: var(--clr-slate800);
-}
 
 .blog__date {
     padding: 0.5rem;
@@ -96,6 +82,7 @@
 }
 
 .blogs__btn {
+    color: var(--clr-blue);
     margin-top: 1rem;
     font-size: var(--size-sm);
     width: max-content;

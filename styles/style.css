@@ -129,6 +129,10 @@ body::-webkit-scrollbar-thumb {
   border-radius: 1rem;
 }
 
+input {
+  background-color: transparent;
+}
+
 .ribbon-bg {
   position: fixed;
   inset: 0;

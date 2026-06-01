@@ -33,7 +33,6 @@
 .card__article {
   display: flex;
   flex-direction: column;
-  background-color: var(--clr-header);
   border-radius: var(--border-radius);
   margin-bottom: 2rem;
   padding: 2rem;
