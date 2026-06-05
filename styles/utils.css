@@ -42,9 +42,22 @@
 
 .glass{
   background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(1.5rem) saturate(160%);
+  -webkit-backdrop-filter: blur(0.625rem) saturate(160%);
+  border-radius: var(--border-radius);
+  border-top: rgba(255, 255, 255, 0.4);
+  border-left: rgba(255, 255, 255, 0.3);
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+.glass__header {
+  background: rgba(255,255,255,0.05);
   backdrop-filter: blur(0.625rem) saturate(160%);
   -webkit-backdrop-filter: blur(0.625rem) saturate(160%);
   border-radius: var(--border-radius);
+  border-top: rgba(255, 255, 255, 0.4);
+  border-left: rgba(255, 255, 255, 0.3);
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
 }
 
 .glass::before{
@@ -75,6 +88,14 @@
 .loaded {
   filter: blur(0) grayscale(0);
   transition: 1s ease-in-out;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
 }
 
 /* xs */

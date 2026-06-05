@@ -132,23 +132,3 @@ body::-webkit-scrollbar-thumb {
 input {
   background-color: transparent;
 }
-
-.ribbon-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-  filter: blur(1.5rem);
-}
-
-.ribbon {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.ribbon--2 {
-  margin-top: 7rem;
-}
