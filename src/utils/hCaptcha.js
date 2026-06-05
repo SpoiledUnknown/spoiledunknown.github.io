@@ -17,36 +17,60 @@ export function CheckCaptcha() {
     });
 }
 
-export function FormSubmitButton() {
+export function setupContactForm() {
+    const form = document.getElementById("contact-form");
     const submitButton = document.getElementById("submit_button");
-    const submissionPage = document.querySelector(".submission");
-    const goBackButton = document.querySelector(".submission__btn");
-    const form = document.querySelector("form"); // or use an id/class if you have one
+    const status = document.getElementById("form-status");
 
-    submitButton.addEventListener("click", e => {
-        e.preventDefault();
+    if (!form) return;
 
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-        }
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-        submissionPage.style.opacity = "0";
-        submissionPage.style.display = "flex";
-        document.body.style.overflowY = "hidden";
-        void submissionPage.offsetWidth;
-        submissionPage.style.opacity = "1";
-    });
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+        status.textContent = "";
 
-    goBackButton.addEventListener("click", e => {
-        e.preventDefault();
-        submissionPage.style.opacity = "0";
-    });
+        try {
+            const formData = new FormData(form);
 
-    submissionPage.addEventListener("transitionend", () => {
-        if (submissionPage.style.opacity === "0") {
-            submissionPage.style.display = "none";
-            document.body.style.overflowY = "auto";
+            const response = await fetch(
+                "https://api.web3forms.com/submit",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+            const result = await response.json();
+
+            if (result.success) {
+                status.textContent =
+                    "✓ Message sent successfully.";
+
+                form.reset();
+
+                if (
+                    window.hcaptcha &&
+                    typeof hcaptcha.reset === "function"
+                ) {
+                    hcaptcha.reset();
+                }
+            } else {
+                status.textContent =
+                    result.message ||
+                    "Failed to send message.";
+
+                console.error(result);
+            }
+        } catch (error) {
+            console.error(error);
+
+            status.textContent =
+                "Network error. Please try again.";
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = "Submit";
         }
     });
 }

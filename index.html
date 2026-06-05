@@ -24,26 +24,6 @@
     <div class="loader"></div>
 </div>
 
-<!-- Success Form Submission-->
-<section class="submission">
-    <div class="submission__borderAnimation">
-        <div class="submission__content">
-            <div class="success-checkmark">
-                <div class="check-icon">
-                    <span class="icon-line line-tip"></span>
-                    <span class="icon-line line-long"></span>
-                    <div class="icon-circle"></div>
-                    <div class="icon-fix"></div>
-                </div>
-            </div>
-            <h2 class="submission__title">Form submitted successfully!</h2>
-            <p class="submission__description">Thank you! The form has been submitted successfully. <br/>We will reply
-                to you soon!</p>
-            <a class="submission__btn btn" href="../">Go Back</a>
-        </div>
-    </div>
-</section>
-
 <!-- Header Navigation -->
 <header class="header container glass__header">
     <div class="header__name"><p>Shashank Raj</P></div>
@@ -532,38 +512,90 @@
                 </div>
             </div>
             <div class="contact__message glass">
-                <!-- todo: fix this form-->
                 <h2 class="contact__header">Send Message</h2>
-                <form action="https://api.web3forms.com/submit" method="POST" class="contact__form">
-                    <input type="hidden" name="access_key" value="3cc48bb2-96da-40b8-963e-fed4179c5a89"/>
-                    <div class="contact__inputBox">
-                        <input class="contact__input" type="text" autocomplete="on" name="name" required="required"/>
-                        <span class="contact__subtitle">Full Name</span>
-                    </div>
-                    <div class="contact__inputBox">
-                        <input class="contact__input" type="email" autocomplete="on" name="email" required="required"/>
-                        <span class="contact__subtitle">Email Address</span>
-                    </div>
-                    <div class="contact__inputBox">
-                        <input class="contact__input" type="text" autocomplete="on" name="subject" required="required"/>
-                        <span class="contact__subtitle">Subject</span>
-                    </div>
-                    <div class="contact__inputBox">
-                        <textarea class="contact__input" autocomplete="on" name="message"
-                                  required="required"></textarea>
-                        <span class="contact__subtitle">Type Your Message....</span>
-                    </div>
-                    <div class="h-captcha" data-theme="dark" data-captcha="true"></div>
-                    <input type="checkbox" name="botcheck" class="contact__botcheck"/>
-                    <input type="hidden" name="from_name" value="Personal Website"/>
+
+                <form id="contact-form" class="contact__form">
                     <input
                             type="hidden"
-                            name="redirect"
-                            value="https://web3forms.com/success"
+                            name="access_key"
+                            value="3cc48bb2-96da-40b8-963e-fed4179c5a89"
                     />
+
                     <div class="contact__inputBox">
-                        <input class="form__send btn" id="submit_button" type="submit" value="Submit"/>
+                        <input
+                                class="contact__input"
+                                type="text"
+                                autocomplete="name"
+                                name="name"
+                                required
+                        />
+                        <span class="contact__subtitle">Full Name</span>
                     </div>
+
+                    <div class="contact__inputBox">
+                        <input
+                                class="contact__input"
+                                type="email"
+                                autocomplete="email"
+                                name="email"
+                                required
+                        />
+                        <span class="contact__subtitle">Email Address</span>
+                    </div>
+
+                    <div class="contact__inputBox">
+                        <input
+                                class="contact__input"
+                                type="text"
+                                name="subject"
+                                required
+                        />
+                        <span class="contact__subtitle">Subject</span>
+                    </div>
+
+                    <div class="contact__inputBox">
+            <textarea
+                    class="contact__input"
+                    name="message"
+                    required
+            ></textarea>
+                        <span class="contact__subtitle">
+                Type Your Message....
+            </span>
+                    </div>
+
+                    <div
+                            class="h-captcha"
+                            data-theme="dark"
+                            data-captcha="true"
+                    ></div>
+
+                    <input
+                            type="checkbox"
+                            name="botcheck"
+                            class="contact__botcheck"
+                            tabindex="-1"
+                            autocomplete="off"
+                            style="display:none"
+                    />
+
+                    <input
+                            type="hidden"
+                            name="from_name"
+                            value="Personal Website"
+                    />
+
+                    <div class="contact__inputBox">
+                        <button
+                                id="submit_button"
+                                class="form__send btn"
+                                type="submit"
+                        >
+                            Submit
+                        </button>
+                    </div>
+
+                    <p id="form-status" class="contact__status"></p>
                 </form>
             </div>
         </div>

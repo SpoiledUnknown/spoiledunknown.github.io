@@ -1,6 +1,5 @@
 import "../styles/modern-normalise.css";
 import "../styles/style.css";
-import "../styles/components/success.css";
 import "../styles/components/header.css";
 import "../styles/components/preloader.css";
 import "../styles/components/themeTransition.css"
@@ -23,7 +22,7 @@ import MobileNavigation from "./utils/mobile-navigation";
 import HandleImageLoading from "./utils/lazy-loading";
 import heroTitleTyper from "./utils/heroTitleTyper";
 import {initTimeline, initAnimations} from "./utils/timelineAndWorkBlock.js";
-import {CheckCaptcha, FormSubmitButton} from "./utils/hCaptcha";
+import {CheckCaptcha, setupContactForm} from "./utils/hCaptcha";
 
 TurnLightModeOn();
 HandlePreloading();
@@ -33,6 +32,6 @@ MobileNavigation();
 HandleImageLoading();
 heroTitleTyper();
 CheckCaptcha();
-FormSubmitButton();
+setupContactForm();
 initTimeline();
 initAnimations();
