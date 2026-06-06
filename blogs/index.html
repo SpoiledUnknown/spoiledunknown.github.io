@@ -6,6 +6,7 @@
     <link rel="icon" type="image/x-icon" href="../public/spoiledunknown.ico"/>
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@600,401,400,700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <title>Spoiled Unknown</title>
 </head>
 <body>
@@ -83,7 +84,10 @@
     <nav>
         <ul class="mobile-nav__menu">
             <li>
-                <a class="mobile-nav__link" href="../">Home</a>
+                <button class="mobile-nav__link btn">Back</button>
+            </li>
+            <li>
+                <a class="mobile-nav__link btn" href="../">Home</a>
             </li>
             <li class="mobile-nav__link-line"></li>
             <li>
@@ -443,14 +447,29 @@
         </div>
     </section>
 
-    <!--  space so that the timeline is filled  -->
-    <div class="container page-header">
-        <p class="page-header__sub">
-            Thanks for visiting my blogs page. See you soon when I have written more blogs.
-        </p>
-        <a class="return__btn btn" href="../">Back to Home</a>
-        <a class="return__btn btn" href="#">Back to Top</a>
-    </div>
+    <section class="section showcase-section" aria-labelledby="cat-experiments">
+        <div class="container">
+            <header class="category-header reveal-item">
+                <h2 class="category-header__title" id="cat-experiments">What's Next?</h2>
+                <div class="category-header__line" aria-hidden="true"></div>
+            </header>
+
+            <!-- Empty state — shown when a category has no projects yet -->
+            <div class="projects-empty reveal-item glass" role="status">
+                <div class="projects-empty__icon" aria-hidden="true">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+                <p class="projects-empty__text">More projects coming soon…</p>
+                <div class="project-empty__actions">
+                    <a class="return__btn btn" href="../">Back to Home</a>
+                    <a class="return__btn btn" href="#">Back to Top</a>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer class="footer container section">

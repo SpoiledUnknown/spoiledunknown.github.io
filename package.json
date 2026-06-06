@@ -1,7 +1,7 @@
 {
   "name": "spoiledunknown.github.io",
   "private": true,
-  "version": "0.5.1",
+  "version": "0.7.7",
   "type": "module",
   "homepage": "https://spoiledunknown.github.io/",
   "scripts": {
@@ -16,5 +16,8 @@
   "main": "index.html",
   "keywords": [],
   "author": "Spoiled Unknown",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "vanta": "^0.5.24"
+  }
 }

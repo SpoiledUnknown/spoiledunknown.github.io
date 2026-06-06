@@ -1,23 +1,20 @@
-import "../vendor/three.min.js"
-import "../vendor/vanta.waves.min.js";
+import WAVES from "vanta/dist/vanta.waves.min";
 
-const background = document.querySelector(".background");
+export default function backgroundAnimation() {
+    const background = document.querySelector(".background");
 
-
-export default function backgroundAnimation(){
-    VANTA.WAVES({
+    WAVES.default({
         el: background,
-        mouseControls: false,
-        touchControls: false,
+        mouseControls: true,
+        touchControls: true,
         gyroControls: false,
         minHeight: 200.00,
         minWidth: 200.00,
         scale: 1.00,
         scaleMobile: 1.00,
         color: 0x070a13,
-        shininess: 20.00,
-        waveHeight: 26.00,
-        waveSpeed: 0.45,
-        zoom: 0.25
+        shininess: 26.00,
+        waveHeight: 36.00,
+        waveSpeed: 0.35
     })
 }

@@ -8,6 +8,7 @@ import "../../styles/utils.css";
 import "../styles/blogPage.css";
 import "../styles/blogTimeline.css";
 import "../styles/animation.css";
+import "../../projects/styles/projects.css";
 
 
 import TurnLightModeOn from "../../src/utils/light-mode.js";

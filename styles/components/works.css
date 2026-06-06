@@ -8,207 +8,218 @@
 .work__title {
     font-size: var(--size-2xl);
     color: var(--clr-light);
-}
-.work__description {
-    font-size: var(--size-sm);
-    color: var(--clr-slate600);
-    text-align: center;
-}
 
-    /*======== Timeline ========*/
-.timeline-section{
-    display:flex;
-    justify-content:center;
-}
-
-.timeline__track{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    gap:3rem;
-    padding-left:3rem;
-    margin-top: 3rem;
-}
-
-.timeline__bar{
-    position:absolute;
-    left:0.6rem;
-    inset-block:0;
-    width:0.15rem;
-    border-radius:10rem;
-    background:var(--clr-slate800);
-}
-
-.timeline__bar-fill{
-    width:100%;
-    height:0;
-    border-radius:inherit;
-    background: linear-gradient(
-                    180deg,
-                    var(--clr-rose),
-                    var(--clr-voilet),
-                    var(--clr-blue)
-    );
-}
-
-.timeline__item{
-    position:relative;
-}
-
-.timeline__item::before{
-    content:"";
-    position:absolute;
-    top:1.3rem;
-    left:-2.7rem;
-    width:0.875rem;
-    height:0.875rem;
-    border-radius:50%;
-    background:var(--clr-dark);
-    border:0.1rem solid var(--clr-voilet);
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.timeline__item.is-visible::before{
-    border-color:var(--clr-rose);
-    box-shadow: 0 0 0 4px rgba(225,29,72,0.15),
-    0 0 16px rgba(225,29,72,0.5),
-    0 0 32px rgba(121,9,226,0.25);
-}
-
-.timeline__item.is-visible::after{
-    content:"";
-    position:absolute;
-    top:1.65rem;
-    left:-1.8rem;
-    width:1.8rem;
-    height:2px;
-    background:linear-gradient(
-            90deg,
-            var(--clr-rose),
-            var(--clr-voilet)
-    );
-
-    border-radius:999px;
-}
-
-/*======== Glass card ========*/
-.glass-card{
-    position:relative;
-    padding:1rem 2rem;
-    border-radius:var(--border-radius);
-    overflow:hidden;
-    transition: transform .35s cubic-bezier(.22,1,0.36,1), background 0.35s, box-shadow 0.35s;
 
     animation: fade linear both;
     animation-timeline: view();
     animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
-.glass-card>*{
-    position:relative;
-    z-index:1;
+.work__description {
+    font-size: var(--size-sm);
+    color: var(--clr-slate600);
+    text-align: center;
+
+    animation: fade linear both;
+    animation-timeline: view();
+    animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
-.glass-card:hover{
-    transform:scale(1.5);
-    background: rgba(255,255,255,0.08);
+/*======== Timeline ========*/
+.timeline-section {
+    display: flex;
+    justify-content: center;
 }
 
-.glass-card__header{
-    margin-bottom:1rem;
+.timeline__track {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-left: 3rem;
+    margin-top: 3rem;
 }
 
-.glass-card__meta{
-    display:flex;
-    gap:1rem;
-    margin-bottom:0.4rem;
-    font-size:var(--size-sm);
+.timeline__bar {
+    position: absolute;
+    left: 0.6rem;
+    inset-block: 0;
+    width: 0.15rem;
+    border-radius: 10rem;
+    background: var(--clr-slate800);
+}
+
+.timeline__bar-fill {
+    width: 100%;
+    height: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+            180deg,
+            var(--clr-rose),
+            var(--clr-voilet),
+            var(--clr-blue)
+    );
+}
+
+.timeline__item {
+    position: relative;
+}
+
+.timeline__item::before {
+    content: "";
+    position: absolute;
+    top: 1.3rem;
+    left: -2.7rem;
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 50%;
+    background: var(--clr-dark);
+    border: 0.1rem solid var(--clr-voilet);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.timeline__item.is-visible::before {
+    border-color: var(--clr-rose);
+    box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.15),
+    0 0 16px rgba(225, 29, 72, 0.5),
+    0 0 32px rgba(121, 9, 226, 0.25);
+}
+
+.timeline__item.is-visible::after {
+    content: "";
+    position: absolute;
+    top: 1.65rem;
+    left: -1.8rem;
+    width: 1.8rem;
+    height: 2px;
+    background: linear-gradient(
+            90deg,
+            var(--clr-rose),
+            var(--clr-voilet)
+    );
+
+    border-radius: 999px;
+}
+
+/*======== Glass card ========*/
+.glass-card {
+    position: relative;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: transform .35s cubic-bezier(.22, 1, 0.36, 1), background 0.35s, box-shadow 0.35s;
+
+    animation: fade linear both;
+    animation-timeline: view();
+    animation-range: entry var(--animation-percent) cover var(--animation-percent);
+}
+
+.glass-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.glass-card:hover {
+    transform: scale(1.5);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.glass-card__header {
+    margin-bottom: 1rem;
+}
+
+.glass-card__meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+    font-size: var(--size-sm);
 }
 
 .glass-card__company {
-    font-size:var(--size-lg);
+    font-size: var(--size-lg);
 }
 
 .glass-card__role,
-.glass-card__desc{
-    font-size:var(--size-sm);
+.glass-card__desc {
+    font-size: var(--size-sm);
 }
 
-.glass-card__bullets{
-    display:flex;
-    flex-direction:column;
-    gap:0.3rem;
-    font-size:var(--size-sm);
+.glass-card__bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: var(--size-sm);
 }
 
-.glass-card__tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:0.5rem;
-    font-size:var(--size-sm);
-    margin-top:0.4rem;
-    margin-bottom:0.4rem;
+.glass-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: var(--size-sm);
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
 }
 
-.tag{
-    padding:.25em 0.75em;
-    border-radius:10rem;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.13);
+.tag {
+    padding: .25em 0.75em;
+    border-radius: 10rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.13);
 }
 
-.tag:hover{
-    background: rgba(225,29,72,0.18);
+.tag:hover {
+    background: rgba(225, 29, 72, 0.18);
 }
 
 /*======== Scroll reveal ========*/
-.timeline__item.reveal-pending .timeline__card{
-    opacity:0;
-    filter:blur(10px);
-    transform:translateX(-40px);
+.timeline__item.reveal-pending .timeline__card {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateX(-40px);
 }
 
-.timeline__item.is-visible .timeline__card{
-    opacity:1;
-    filter:none;
-    transform:none;
-    transition: opacity .9s cubic-bezier(0.22,1,0.36,1),
-    filter .9s cubic-bezier(0.22,1,0.36,1),
-    transform .9s cubic-bezier(0.22,1.4,0.36,1);
+.timeline__item.is-visible .timeline__card {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: opacity .9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter .9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform .9s cubic-bezier(0.22, 1.4, 0.36, 1);
 }
 
 
 /* stagger */
-.timeline__item:nth-child(1) .timeline__card{
-    transition-delay:0ms;
+.timeline__item:nth-child(1) .timeline__card {
+    transition-delay: 0ms;
 }
 
-.timeline__item:nth-child(2) .timeline__card{
-    transition-delay:100ms;
+.timeline__item:nth-child(2) .timeline__card {
+    transition-delay: 100ms;
 }
 
-.timeline__item:nth-child(3) .timeline__card{
-    transition-delay:200ms;
+.timeline__item:nth-child(3) .timeline__card {
+    transition-delay: 200ms;
 }
 
-.timeline__item:nth-child(4) .timeline__card{
-    transition-delay:300ms;
+.timeline__item:nth-child(4) .timeline__card {
+    transition-delay: 300ms;
 }
 
-.timeline__item:nth-child(5) .timeline__card{
-    transition-delay:400ms;
+.timeline__item:nth-child(5) .timeline__card {
+    transition-delay: 400ms;
 }
 
 
-@media(min-width:768px){
-    .timeline__card{
-        max-width:640px;
+@media (min-width: 768px) {
+    .timeline__card {
+        max-width: 640px;
     }
 
     .work__title {
         font-size: var(--size-3xl);
         align-self: flex-start;
     }
+
     .work__description {
         font-size: var(--size-base);
         text-align: left;
@@ -216,70 +227,72 @@
 }
 
 /* lg */
- @media (min-width: 1024px) {
-     .work__title {
-         font-size: var(--size-4xl);
-     }
-     .work__description {
-         font-size: var(--size-lg);
-     }
+@media (min-width: 1024px) {
+    .work__title {
+        font-size: var(--size-4xl);
+    }
 
-     .glass-card__company {
-         font-size:var(--size-xl);
-     }
+    .work__description {
+        font-size: var(--size-lg);
+    }
 
-     .glass-card__role,
-     .glass-card__desc{
-         font-size:var(--size-base);
-     }
+    .glass-card__company {
+        font-size: var(--size-xl);
+    }
 
-     .glass-card__bullets{
-         font-size:var(--size-base);
-     }
+    .glass-card__role,
+    .glass-card__desc {
+        font-size: var(--size-base);
+    }
 
-     .glass-card__tags{
-         font-size:var(--size-base);
-     }
- }
+    .glass-card__bullets {
+        font-size: var(--size-base);
+    }
 
-@media(min-width:1280px){
-    .timeline__card{
-        max-width:780px;
+    .glass-card__tags {
+        font-size: var(--size-base);
+    }
+}
+
+@media (min-width: 1280px) {
+    .timeline__card {
+        max-width: 780px;
     }
 
     .work__title {
         font-size: var(--size-5xl);
     }
+
     .work__description {
         font-size: var(--size-xl);
     }
 
     .glass-card__company {
-        font-size:var(--size-2xl);
+        font-size: var(--size-2xl);
     }
 
     .glass-card__role,
-    .glass-card__desc{
-        font-size:var(--size-lg);
+    .glass-card__desc {
+        font-size: var(--size-lg);
     }
 
-    .glass-card__bullets{
-        font-size:var(--size-lg);
+    .glass-card__bullets {
+        font-size: var(--size-lg);
     }
 
-    .glass-card__tags{
-        font-size:var(--size-lg);
+    .glass-card__tags {
+        font-size: var(--size-lg);
     }
 }
 
-@media(prefers-reduced-motion:reduce){
-    .timeline__item.reveal-pending .timeline__card{
-        opacity:1;
-        filter:none;
-        transform:none;
+@media (prefers-reduced-motion: reduce) {
+    .timeline__item.reveal-pending .timeline__card {
+        opacity: 1;
+        filter: none;
+        transform: none;
     }
 
-    .timeline__item.is-visible .timeline__card{
-        transition:none;
+    .timeline__item.is-visible .timeline__card {
+        transition: none;
     }
 }
