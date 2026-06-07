@@ -24,7 +24,7 @@
    1. SECTION
    ══════════════════════════════════════════════════════════════════ */
 .blog-section {
-    padding-top:    clamp(1rem, 3vw, 2rem);
+    padding-top: clamp(1rem, 3vw, 2rem);
     padding-bottom: clamp(4rem, 10vw, 8rem);
 }
 
@@ -67,9 +67,9 @@
     border-radius: inherit;
     background: linear-gradient(
             180deg,
-            var(--clr-rose)   0%,
+            var(--clr-rose) 0%,
             var(--clr-voilet) 55%,
-            var(--clr-blue)   100%
+            var(--clr-blue) 100%
     );
     transition: height 0.12s linear;
     will-change: height;
@@ -101,6 +101,7 @@
     justify-content: center;
     z-index: 3;
 }
+
 .blog__node-dot {
     display: block;
     width: 14px;
@@ -115,10 +116,9 @@
 /* Active node glow — triggered when .is-visible reaches parent */
 .blog__item.is-visible .blog__node-dot {
     border-color: var(--clr-rose);
-    box-shadow:
-            0 0 0 4px rgba(225, 29, 72, 0.15),
-            0 0 16px rgba(225, 29, 72, 0.5),
-            0 0 32px rgba(121, 9, 226, 0.25);
+    box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.15),
+    0 0 16px rgba(225, 29, 72, 0.5),
+    0 0 32px rgba(121, 9, 226, 0.25);
 }
 
 /* SVG rings injected by JS */
@@ -135,8 +135,8 @@
    ══════════════════════════════════════════════════════════════════ */
 .blog__connector {
     position: absolute;
-    top: 2rem;        /* aligns with node centre */
-    left: 1.375rem;   /* right edge of node */
+    top: 2rem; /* aligns with node centre */
+    left: 1.375rem; /* right edge of node */
     width: 1.375rem;
     height: 2px;
     border-radius: 2px;
@@ -150,7 +150,10 @@
     transition: opacity 0.4s ease;
     will-change: opacity;
 }
-.blog__item.is-visible .blog__connector { opacity: 1; }
+
+.blog__item.is-visible .blog__connector {
+    opacity: 1;
+}
 
 /* ══════════════════════════════════════════════════════════════════
    7. BLOG CARD — extends .glass-card with blog-specific internals
@@ -159,15 +162,20 @@
     /* Override glass-card padding: cover image should bleed to edges */
     padding: 0;
     width: 100%;
+    border-bottom: 2px solid var(--clr-blue);
+    border-right: 2px solid var(--clr-blue);
     overflow: hidden;
 }
+
 /* All card content above the pseudo-element highlights */
-.blog__card > * { position: relative; z-index: 1; }
+.blog__card > * {
+    position: relative;
+    z-index: 1;
+}
 
 /* ── Cover image wrapper ── */
 .blog__cover-wrap {
     width: 100%;
-    aspect-ratio: 16 / 8;
     overflow: hidden;
     border-radius: var(--border-radius) var(--border-radius) 0 0;
     background: var(--clr-slate800); /* fallback while image loads */
@@ -192,6 +200,7 @@
     transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform;
 }
+
 .blog__card:hover .blog__cover {
     transform: scale(1.04);
 }
@@ -210,6 +219,7 @@
     align-items: center;
     gap: var(--space-sm);
 }
+
 .blog__date,
 .blog__read-time {
     font-size: var(--size-xs);
@@ -217,6 +227,7 @@
     letter-spacing: 0.07em;
     color: var(--clr-slate400);
 }
+
 /* Visual separator between date and read-time */
 .blog__date::after {
     content: '·';
@@ -302,9 +313,11 @@
         /* Push card so its right edge meets the spine gutter */
         padding-right: calc(50% + 2.5rem);
     }
+
     .blog__item--left .blog__card {
         width: 100%;
     }
+
     /* Connector: left card → right toward node */
     .blog__item--left .blog__connector {
         left: auto;
@@ -327,9 +340,11 @@
         justify-content: flex-end;
         padding-left: calc(50% + 2.5rem);
     }
+
     .blog__item--right .blog__card {
         width: 100%;
     }
+
     /* Connector: node → right card */
     .blog__item--right .blog__connector {
         left: calc(50% + 0.625rem); /* just past node centre */
@@ -348,8 +363,13 @@
    Widen mobile cards slightly before desktop layout kicks in.
    ══════════════════════════════════════════════════════════════════ */
 @media (min-width: 640px) and (max-width: 767px) {
-    .blog__card { max-width: 520px; }
-    .blog__track { padding-left: 3rem; }
+    .blog__card {
+        max-width: 520px;
+    }
+
+    .blog__track {
+        padding-left: 3rem;
+    }
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -357,27 +377,51 @@
    Increase gutter so cards don't crowd the spine.
    ══════════════════════════════════════════════════════════════════ */
 @media (min-width: 1024px) {
-    .blog__item--left  { padding-right: calc(50% + 3.5rem); }
-    .blog__item--right { padding-left:  calc(50% + 3.5rem); }
+    .blog__item--left {
+        padding-right: calc(50% + 3.5rem);
+    }
 
-    .blog__item--left .blog__connector  { right: calc(50% - 1.375rem); width: 3.5rem; }
-    .blog__item--right .blog__connector { left:  calc(50% + 0.625rem); width: 3.5rem; }
+    .blog__item--right {
+        padding-left: calc(50% + 3.5rem);
+    }
 
-    .blog__body { padding: var(--space-lg) var(--space-xl) var(--space-xl); }
+    .blog__item--left .blog__connector {
+        right: calc(50% - 1.375rem);
+        width: 3.5rem;
+    }
+
+    .blog__item--right .blog__connector {
+        left: calc(50% + 0.625rem);
+        width: 3.5rem;
+    }
+
+    .blog__body {
+        padding: var(--space-lg) var(--space-xl) var(--space-xl);
+    }
 }
 
 /* ══════════════════════════════════════════════════════════════════
    11. XL  (≥ 1280px)
    ══════════════════════════════════════════════════════════════════ */
 @media (min-width: 1280px) {
-    .blog__item--left  { padding-right: calc(50% + 4rem); }
-    .blog__item--right { padding-left:  calc(50% + 4rem); }
+    .blog__item--left {
+        padding-right: calc(50% + 4rem);
+    }
+
+    .blog__item--right {
+        padding-left: calc(50% + 4rem);
+    }
 }
 
 /* ══════════════════════════════════════════════════════════════════
    12. 2XL  (≥ 1536px)
    ══════════════════════════════════════════════════════════════════ */
 @media (min-width: 1536px) {
-    .blog__item--left  { padding-right: calc(50% + 4.5rem); }
-    .blog__item--right { padding-left:  calc(50% + 4.5rem); }
+    .blog__item--left {
+        padding-right: calc(50% + 4.5rem);
+    }
+
+    .blog__item--right {
+        padding-left: calc(50% + 4.5rem);
+    }
 }

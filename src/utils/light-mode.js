@@ -1,3 +1,5 @@
+import WAVES from "vanta/dist/vanta.waves.min";
+
 export default function TurnLightModeOn() {
     const themeToggleButtons = document.querySelectorAll(".theme-toggle");
     const sunIcon = document.querySelector(".header__sun");
@@ -12,6 +14,10 @@ export default function TurnLightModeOn() {
     const theme = localStorage.getItem("theme");
     let fadePanelTimer = null;
 
+    const background = document.querySelector(".background");
+
+    let backgroundEffect;
+
     // On website-load
     if (theme !== null) {
         document.body.classList.toggle("light-mode");
@@ -19,6 +25,36 @@ export default function TurnLightModeOn() {
         mobileSunIcon.style.display = "none";
         moonIcon.style.display = "block";
         mobileMoonIcon.style.display = "block";
+
+        backgroundEffect = WAVES.default({
+            el: background,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x9FA1FF,
+            shininess: 0,
+            waveHeight: 36.00,
+            waveSpeed: 0.35
+        })
+    } else {
+        backgroundEffect = WAVES.default({
+            el: background,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x070a13,
+            shininess: 26.00,
+            waveHeight: 36.00,
+            waveSpeed: 0.35
+        })
     }
 
     const showPanel = (isGoingDark) => {
@@ -28,7 +64,7 @@ export default function TurnLightModeOn() {
         }
 
         // Reset to invisible with the target colour already set
-        themePanel.style.backgroundColor = isGoingDark ? "#f7f3e8" : "#070a13";
+        themePanel.style.backgroundColor = isGoingDark ? "#9FA1FF" : "#070a13";
         themePanel.style.opacity = "0";
         themePanel.style.display = "flex";
         document.body.style.overflowY = "hidden";
@@ -74,7 +110,7 @@ export default function TurnLightModeOn() {
                 document.body.style.overflowY = "auto";
                 themePanel.style.display = "none";
             },
-            { once: true }
+            {once: true}
         );
     };
 
@@ -93,6 +129,11 @@ export default function TurnLightModeOn() {
                 moonIcon.style.display = "block";
                 mobileMoonIcon.style.display = "block";
                 localStorage.setItem("theme", "light-mode");
+
+                backgroundEffect.setOptions({
+                    color: 0x9FA1FF,
+                    shininess: 0,
+                })
             } else {
                 sunIcon.style.display = "block";
                 mobileSunIcon.style.display = "block";
@@ -100,6 +141,11 @@ export default function TurnLightModeOn() {
                 mobileMoonIcon.style.display = "none";
                 localStorage.removeItem("theme");
                 document.body.removeAttribute("class");
+
+                backgroundEffect.setOptions({
+                    color: 0x070a13,
+                    shininess: 26.00,
+                })
             }
         }, 500);
     };

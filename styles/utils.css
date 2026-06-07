@@ -22,7 +22,7 @@
     gap: var(--space-xs);
     padding: 0.6em 1.4em;
     border-radius: calc(var(--border-radius) * 0.5);
-    border: 1px solid var(--glass-border);
+    border: 2px solid var(--clr-blue);
     background: var(--glass-bg);
     backdrop-filter: blur(var(--glass-blur));
     font-size: var(--size-sm);
@@ -94,10 +94,8 @@
     position: fixed;
     inset: 0;
     z-index: -1;
-    width: 100vw;
-    height: 100vh;
     overflow: hidden;
-    filter: blur(0.2rem);
+    filter: blur(0.1rem);
 }
 
 /* xs */

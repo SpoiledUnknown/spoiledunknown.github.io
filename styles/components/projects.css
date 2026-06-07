@@ -1,223 +1,228 @@
 .projects__wrapper {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .projects__title {
-  font-size: var(--size-2xl);
-  color: var(--clr-light);
+    font-size: var(--size-2xl);
+    color: var(--clr-light);
 
-  animation: fade linear both;
-  animation-timeline: view();
-  animation-range: entry var(--animation-percent) cover var(--animation-percent);
+    animation: fade linear both;
+    animation-timeline: view();
+    animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
 .projects__description {
-  font-size: var(--size-sm);
-  color: var(--clr-slate600);
+    font-size: var(--size-sm);
+    color: var(--clr-slate600);
 
-  animation: fade linear both;
-  animation-timeline: view();
-  animation-range: entry var(--animation-percent) cover var(--animation-percent);
+    animation: fade linear both;
+    animation-timeline: view();
+    animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
 .projects__container {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(150px, 1fr));
-  padding: 2rem;
-  gap: 5rem;
-  justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+    padding: 2rem;
+    gap: 5rem;
+    justify-items: center;
 }
 
 .card__article {
-  display: flex;
-  flex-direction: column;
-  border-radius: var(--border-radius);
-  margin-bottom: 2rem;
-  padding: 2rem;
-  width: 21rem;
-  transition: transform 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    width: 21rem;
+    border-bottom: 2px solid var(--clr-blue);
+    border-right: 2px solid var(--clr-blue);
+    transition: transform 0.25s ease-in-out;
 
-  animation: fade linear both;
-  animation-timeline: view();
-  animation-range: entry var(--animation-percent) cover var(--animation-percent);
+    animation: fade linear both;
+    animation-timeline: view();
+    animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
 .card__article:hover {
-  transform: scale(1.07);
+    transform: scale(1.07);
 }
 
 .card__data {
-  padding: 1.5rem;
-  text-align: center;
+    padding: 1.5rem;
+    text-align: center;
 }
 
 .card__img {
-  display: block;
-  margin: 0 auto;
-  width: 15rem;
-  border-radius: var(--border-radius);
+    display: block;
+    margin: 0 auto;
+    width: 15rem;
+    border-radius: var(--border-radius);
 }
 
 .card__name {
-  font-size: var(--size-base);
-  color: var(--clr-indigo);
-  margin-bottom: 0.75rem;
+    font-size: var(--size-base);
+    color: var(--clr-indigo);
+    margin-bottom: 0.75rem;
 }
 
 .card__description {
-  font-size: var(--size-sm);
-  font-weight: 500;
-  margin-bottom: 1.75rem;
-  color: var(--clr-slate600);
+    font-size: var(--size-sm);
+    font-weight: 500;
+    margin-bottom: 1.75rem;
+    color: var(--clr-slate600);
 }
 
-.card__tags{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content: center;
-  gap:0.5rem;
-  font-size:var(--size-sm);
-  margin-top:0.4rem;
-  margin-bottom:1rem;
+.card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: var(--size-sm);
+    margin-top: 0.4rem;
+    margin-bottom: 1rem;
 }
 
-.card__tag{
-  padding:.25em 0.75em;
-  border-radius:10rem;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.13);
+.card__tag {
+    padding: .25em 0.75em;
+    border-radius: 10rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 2px solid var(--clr-blue);
+    z-index: 10;
+    transition: background 0.5s ease-in-out;
+    cursor: default;
 }
 
-.card__tag:hover{
-  background: rgba(225,29,72,0.18);
+.card__tag:hover {
+    background: rgba(225, 29, 72, 0.18);
 }
 
 .project__btn {
-  width: fit-content;
-  align-self: center;
-  margin: 1rem;
+    width: fit-content;
+    align-self: center;
+    margin: 1rem;
 
-  animation: fade linear both;
-  animation-timeline: view();
-  animation-range: entry var(--animation-percent) cover var(--animation-percent);
+    animation: fade linear both;
+    animation-timeline: view();
+    animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
 /* xs */
- @media (min-width: 475px) {
-   .projects__title {
-     font-size: var(--size-3xl);
-   }
+@media (min-width: 475px) {
+    .projects__title {
+        font-size: var(--size-3xl);
+    }
 
-   .projects__description {
-     font-size: var(--size-base);
-   }
+    .projects__description {
+        font-size: var(--size-base);
+    }
 
-   .card__name {
-     font-size: var(--size-lg);
-   }
+    .card__name {
+        font-size: var(--size-lg);
+    }
 
-   .card__description {
-     font-size: var(--size-base);
-   }
- }
+    .card__description {
+        font-size: var(--size-base);
+    }
+}
 
 /* sm */
- @media (min-width: 640px) {
-   .projects__container {
-     grid-template-columns: repeat(1, minmax(150px, 1fr));
-   }
- }
+@media (min-width: 640px) {
+    .projects__container {
+        grid-template-columns: repeat(1, minmax(150px, 1fr));
+    }
+}
 
 /* md */
- @media (min-width: 768px) {
-   .projects__title {
-     font-size: var(--size-4xl);
-   }
+@media (min-width: 768px) {
+    .projects__title {
+        font-size: var(--size-4xl);
+    }
 
-   .projects__description {
-     font-size: var(--size-lg);
-   }
+    .projects__description {
+        font-size: var(--size-lg);
+    }
 
-   .projects__container {
-     grid-template-columns: repeat(2, minmax(150px, 1fr));
-   }
+    .projects__container {
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+    }
 
-   .card__article {
-     width: 21rem;
-   }
+    .card__article {
+        width: 21rem;
+    }
 
-   .card__name {
-     font-size: var(--size-xl);
-   }
+    .card__name {
+        font-size: var(--size-xl);
+    }
 
-   .card__description {
-     font-size: var(--size-lg);
-   }
- }
+    .card__description {
+        font-size: var(--size-lg);
+    }
+}
 
 /* lg */
- @media (min-width: 1024px) {
-   .projects__wrapper {
-     text-align: left;
-   }
+@media (min-width: 1024px) {
+    .projects__wrapper {
+        text-align: left;
+    }
 
-   .card__article {
-     width: 25rem;
-   }
+    .card__article {
+        width: 25rem;
+    }
 
-   .card__tags{
-     font-size:var(--size-base);
-   }
- }
+    .card__tags {
+        font-size: var(--size-base);
+    }
+}
 
 /* xl */
- @media (min-width: 1280px) {
-   .projects__title {
-     font-size: var(--size-5xl);
-   }
+@media (min-width: 1280px) {
+    .projects__title {
+        font-size: var(--size-5xl);
+    }
 
-   .projects__description {
-     font-size: var(--size-xl);
-   }
+    .projects__description {
+        font-size: var(--size-xl);
+    }
 
-   .projects__container {
-     grid-template-columns: repeat(3, minmax(150px, 1fr));
-   }
+    .projects__container {
+        grid-template-columns: repeat(3, minmax(150px, 1fr));
+    }
 
-   .card__img {
-     width: 20rem;
-   }
+    .card__img {
+        width: 20rem;
+    }
 
-   .card__name {
-     font-size: var(--size-2xl);
-   }
+    .card__name {
+        font-size: var(--size-2xl);
+    }
 
-   .card__description {
-     font-size: var(--size-xl);
-   }
+    .card__description {
+        font-size: var(--size-xl);
+    }
 
-   .card__tags{
-     font-size:var(--size-lg);
-   }
- }
+    .card__tags {
+        font-size: var(--size-lg);
+    }
+}
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion) {
-  .projects__title {
-    animation: none;
-  }
+    .projects__title {
+        animation: none;
+    }
 
-  .projects__description {
-    animation: none;
-  }
+    .projects__description {
+        animation: none;
+    }
 
-  .projects__btn {
-    animation: none;
-  }
+    .projects__btn {
+        animation: none;
+    }
 
-  .projects__container {
-    animation: none;
-  }
+    .projects__container {
+        animation: none;
+    }
 }

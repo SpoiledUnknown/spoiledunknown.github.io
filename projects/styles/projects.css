@@ -315,7 +315,8 @@
     gap: var(--space-md);
     padding: clamp(3rem, 8vw, 5rem) var(--space-lg);
     border-radius: var(--border-radius);
-    border: 1px dashed rgba(255, 255, 255, 0.12);
+    border-bottom: 2px solid var(--clr-blue);
+    border-right: 2px solid var(--clr-blue);
     background: rgba(255, 255, 255, 0.03);
     text-align: center;
 }

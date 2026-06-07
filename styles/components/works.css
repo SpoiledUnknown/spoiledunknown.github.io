@@ -164,11 +164,17 @@
     padding: .25em 0.75em;
     border-radius: 10rem;
     background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.13);
+    border: 2px solid var(--clr-blue);
+    cursor: default;
 }
 
 .tag:hover {
     background: rgba(225, 29, 72, 0.18);
+}
+
+.timeline__card {
+    border-bottom: 2px solid var(--clr-blue);
+    border-right: 2px solid var(--clr-blue);
 }
 
 /*======== Scroll reveal ========*/
@@ -211,9 +217,7 @@
 
 
 @media (min-width: 768px) {
-    .timeline__card {
-        max-width: 640px;
-    }
+
 
     .work__title {
         font-size: var(--size-3xl);

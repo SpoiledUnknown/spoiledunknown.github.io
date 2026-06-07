@@ -16,7 +16,6 @@ import "../styles/utils.css";
 
 import TurnLightModeOn from "./utils/light-mode";
 import HandlePreloading from "./utils/preloader";
-import backgroundAnimation from "./utils/backgroundAnimation.js";
 import FooterText from "./utils/footer";
 import MobileNavigation from "./utils/mobile-navigation";
 import HandleImageLoading from "./utils/lazy-loading";
@@ -26,7 +25,6 @@ import {CheckCaptcha, setupContactForm} from "./utils/hCaptcha";
 
 TurnLightModeOn();
 HandlePreloading();
-backgroundAnimation();
 FooterText();
 MobileNavigation();
 HandleImageLoading();
