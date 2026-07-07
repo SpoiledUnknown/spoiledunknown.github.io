@@ -24,8 +24,6 @@
 }
 
 .blog__block-wrapper {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(150px, 1fr));
     align-self: center;
     gap: 1.5rem;
     padding: 1.5rem;
@@ -45,10 +43,6 @@
     animation: fade linear both;
     animation-timeline: view();
     animation-range: entry var(--animation-percent) cover var(--animation-percent);
-}
-
-.blog:hover {
-    transform: scale(1.05);
 }
 
 .blog__body-link {
@@ -143,7 +137,6 @@
     }
 
     .blog__block-wrapper {
-        grid-template-columns: repeat(2, minmax(150px, 1fr));
         gap: 3rem;
     }
 
@@ -183,7 +176,6 @@
 /* xl */
 @media (min-width: 1280px) {
     .blog__block-wrapper {
-        grid-template-columns: repeat(3, minmax(150px, 1fr));
         gap: 5rem;
     }
 

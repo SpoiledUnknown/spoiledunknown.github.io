@@ -88,10 +88,6 @@
     border-radius: 8px;
 }
 
-.form__send {
-    border: none;
-}
-
 .contact__image {
     width: 3rem;
     object-fit: contain;

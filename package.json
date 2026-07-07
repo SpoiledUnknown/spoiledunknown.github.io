@@ -18,6 +18,7 @@
   "author": "Spoiled Unknown",
   "license": "ISC",
   "dependencies": {
+    "swiper": "^14.0.1",
     "vanta": "^0.5.24"
   }
 }
