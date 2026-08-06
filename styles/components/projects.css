@@ -1,303 +1,301 @@
 .projects__wrapper {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 .projects__title {
-    font-size: var(--size-2xl);
-    color: var(--clr-light);
+  font-size: var(--size-2xl);
+  color: var(--clr-light);
 
-    animation: fade linear both;
-    animation-timeline: view();
-    animation-range: entry var(--animation-percent) cover var(--animation-percent);
+  animation: fade linear both;
+  animation-timeline: view();
+  animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
 .projects__description {
-    font-size: var(--size-sm);
-    color: var(--clr-slate600);
+  font-size: var(--size-sm);
+  color: var(--clr-slate600);
 
-    animation: fade linear both;
-    animation-timeline: view();
-    animation-range: entry var(--animation-percent) cover var(--animation-percent);
+  animation: fade linear both;
+  animation-timeline: view();
+  animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
 .projects__container {
-    width: 100%;
-    overflow: hidden;
-    padding: 2rem 0 4rem;
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0 4rem;
 }
 
 /*============= Swiper =============*/
 
 .swiper {
-    width: 100%;
+  width: 100%;
 }
 
 .swiper-wrapper {
-    align-items: stretch;
+  align-items: stretch;
 }
 
 .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: auto;
 }
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-    content: "";
+  content: "";
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-    width: initial;
-    height: initial;
-    font-size: 4rem;
-    color: var(--clr-voilet);
-    display: none;
+  width: initial;
+  height: initial;
+  font-size: 4rem;
+  color: var(--clr-voilet);
+  display: none;
 }
 
 .swiper-button-prev {
-    transform: scale(0.85);
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(1.5rem) saturate(160%);
-    color: var(--clr-voilet);
-    border: 1px solid var(--clr-voilet);
-    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
-    padding: 0.75rem 1rem;
-    border-radius: 50%;
-    left: 0;
-    transition: transform .2s ease-in-out;
+  transform: scale(0.85);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(1.5rem) saturate(160%);
+  color: var(--clr-voilet);
+  border: 1px solid var(--clr-voilet);
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 50%;
+  left: 0;
+  transition: transform 0.2s ease-in-out;
 }
 
 .swiper-button-prev:hover {
-    transform: scale(1.15);
+  transform: scale(1.15);
 }
 
 .swiper-button-prev:active {
-    border: 1px solid var(--clr-rose);
-    color: var(--clr-rose);
+  border: 1px solid var(--clr-rose);
+  color: var(--clr-rose);
 }
 
 .swiper-button-next {
-    right: 0;
-    transform: scale(0.85);
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(1.5rem) saturate(160%);
-    color: var(--clr-voilet);
-    border: 1px solid var(--clr-voilet);
-    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
-    padding: 0.75rem 1rem;
-    border-radius: 50%;
-    transition: transform .2s ease-in-out;
+  right: 0;
+  transform: scale(0.85);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(1.5rem) saturate(160%);
+  color: var(--clr-voilet);
+  border: 1px solid var(--clr-voilet);
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out;
 }
 
 .swiper-button-next:hover {
-    transform: scale(1.15);
+  transform: scale(1.15);
 }
 
 .swiper-button-next:active {
-    color: var(--clr-rose);
-    border: 1px solid var(--clr-rose);
+  color: var(--clr-rose);
+  border: 1px solid var(--clr-rose);
 }
 
 .swiper-pagination {
-    position: relative;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(1.5rem) saturate(160%);
-    border: 1px solid var(--clr-blue);
-    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
-    padding: 0.75rem 1rem;
-    border-radius: var(--border-radius);
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(1.5rem) saturate(160%);
+  border: 1px solid var(--clr-blue);
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
 
-    width: 15rem !important;
-    margin: auto;
-
+  width: 15rem !important;
+  margin: auto;
 }
 
 .swiper-pagination-bullet {
-    background-color: var(--clr-voilet);
-    opacity: 1;
+  background-color: var(--clr-voilet);
+  opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-    background-color: var(--clr-rose);
+  background-color: var(--clr-rose);
 }
 
 .card__article {
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--border-radius);
-    margin-bottom: 2rem;
-    padding: 2rem;
-    width: 21rem;
-    height: 40rem;
-    border-bottom: 2px solid var(--clr-blue);
-    border-right: 2px solid var(--clr-blue);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  padding: 2rem;
+  width: 21rem;
+  height: 40rem;
+  border-bottom: 2px solid var(--clr-blue);
+  border-right: 2px solid var(--clr-blue);
 
-    animation: fade linear both;
-    animation-timeline: view();
-    animation-range: entry var(--animation-percent) cover var(--animation-percent);
+  animation: fade linear both;
+  animation-timeline: view();
+  animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
 .card__btns {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  gap: 1rem;
 }
 
 .card__btn {
-    justify-content: center;
-    width: fit-content;
+  justify-content: center;
+  width: fit-content;
 }
 
 .card__data {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 1.5rem;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.5rem;
+  text-align: center;
 }
 
 .card__img {
-    display: block;
-    margin: 0 auto;
-    width: 15rem;
-    border-radius: var(--border-radius);
+  display: block;
+  margin: 0 auto;
+  width: 15rem;
+  border-radius: var(--border-radius);
 }
 
 .card__name {
-    font-size: var(--size-base);
-    color: var(--clr-indigo);
-    margin-bottom: 0.75rem;
+  font-size: var(--size-base);
+  color: var(--clr-indigo);
+  margin-bottom: 0.75rem;
 }
 
 .card__description {
-    font-size: var(--size-sm);
-    font-weight: 500;
-    margin-bottom: 1.75rem;
-    color: var(--clr-slate600);
+  font-size: var(--size-sm);
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+  color: var(--clr-slate600);
 }
 
 .project__btn {
-    width: fit-content;
-    align-self: center;
-    margin: 1rem;
+  width: fit-content;
+  align-self: center;
+  margin: 1rem;
 
-    animation: fade linear both;
-    animation-timeline: view();
-    animation-range: entry var(--animation-percent) cover var(--animation-percent);
+  animation: fade linear both;
+  animation-timeline: view();
+  animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
 /* xs */
 @media (min-width: 475px) {
-    .projects__title {
-        font-size: var(--size-3xl);
-    }
+  .projects__title {
+    font-size: var(--size-3xl);
+  }
 
-    .projects__description {
-        font-size: var(--size-base);
-    }
+  .projects__description {
+    font-size: var(--size-base);
+  }
 
-    .card__name {
-        font-size: var(--size-lg);
-    }
+  .card__name {
+    font-size: var(--size-lg);
+  }
 
-    .card__description {
-        font-size: var(--size-base);
-    }
+  .card__description {
+    font-size: var(--size-base);
+  }
 }
 
 /* sm */
 @media (min-width: 640px) {
-
 }
 
 /* md */
 @media (min-width: 768px) {
-    .projects__title {
-        font-size: var(--size-4xl);
-    }
+  .projects__title {
+    font-size: var(--size-4xl);
+  }
 
-    .projects__description {
-        font-size: var(--size-lg);
-    }
+  .projects__description {
+    font-size: var(--size-lg);
+  }
 
-    .card__article {
-        width: 21rem;
-    }
+  .card__article {
+    width: 21rem;
+  }
 
-    .card__name {
-        font-size: var(--size-xl);
-    }
+  .card__name {
+    font-size: var(--size-xl);
+  }
 
-    .card__description {
-        font-size: var(--size-lg);
-    }
+  .card__description {
+    font-size: var(--size-lg);
+  }
 }
 
 /* lg */
 @media (min-width: 1024px) {
-    .projects__wrapper {
-        text-align: left;
-    }
+  .projects__wrapper {
+    text-align: left;
+  }
 
-    .card__article {
-        width: 25rem;
-    }
+  .card__article {
+    width: 25rem;
+  }
 
-    .swiper-button-prev,
-    .swiper-button-next {
-        display: flex;
-    }
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: flex;
+  }
 }
 
 /* xl */
 @media (min-width: 1280px) {
-    .projects__title {
-        font-size: var(--size-5xl);
-    }
+  .projects__title {
+    font-size: var(--size-5xl);
+  }
 
-    .projects__description {
-        font-size: var(--size-xl);
-    }
+  .projects__description {
+    font-size: var(--size-xl);
+  }
 
-    .card__article {
-        width: 25rem;
-        height: 41rem;
-    }
+  .card__article {
+    width: 25rem;
+    height: 41rem;
+  }
 
-    .card__img {
-        width: 20rem;
-    }
+  .card__img {
+    width: 20rem;
+  }
 
-    .card__name {
-        font-size: var(--size-2xl);
-    }
+  .card__name {
+    font-size: var(--size-2xl);
+  }
 
-    .card__description {
-        font-size: var(--size-xl);
-    }
+  .card__description {
+    font-size: var(--size-xl);
+  }
 }
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion) {
-    .projects__title {
-        animation: none;
-    }
+  .projects__title {
+    animation: none;
+  }
 
-    .projects__description {
-        animation: none;
-    }
+  .projects__description {
+    animation: none;
+  }
 
-    .projects__btn {
-        animation: none;
-    }
+  .projects__btn {
+    animation: none;
+  }
 
-    .projects__container {
-        animation: none;
-    }
+  .projects__container {
+    animation: none;
+  }
 }

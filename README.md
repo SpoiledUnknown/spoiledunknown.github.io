@@ -59,10 +59,6 @@
  <a href="https://www.blender.org/" target="_blank" rel="noreferrer"> <img src="https://download.blender.org/branding/community/blender_community_badge_white.svg" alt="blender" width="40" height="40"/> </a>
 </p>
 
-
-
-
-
 <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=spoiledunknown&show_icons=true&locale=en&layout=compact" alt="spoiledunknown" /></p>
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=spoiledunknown&show_icons=true&locale=en" alt="spoiledunknown" /></p>
