@@ -7,9 +7,9 @@ export default defineConfig({
         cssCodeSplit: true,
         rollupOptions: {
             input: {
-                main: resolve(__dirname, "index.html"),
-                projects: resolve(__dirname, "projects/index.html"),
-                blogs: resolve(__dirname, "blogs/index.html")
+                main: resolve(import.meta.dirname, "index.html"),
+                projects: resolve(import.meta.dirname, "projects/index.html"),
+                blogs: resolve(import.meta.dirname, "blogs/index.html")
             },
         },
     },

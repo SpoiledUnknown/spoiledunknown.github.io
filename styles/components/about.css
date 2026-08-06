@@ -21,14 +21,25 @@
     animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
-.about__description {
-    max-width: 60ch;
-    font-size: var(--size-sm);
-    color: var(--clr-slate600);
+.about__description__container {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    border-bottom: 2px solid var(--clr-blue);
+    border-right: 2px solid var(--clr-blue);
 
     animation: fade linear both;
     animation-timeline: view();
     animation-range: entry var(--animation-percent) cover var(--animation-percent);
+}
+
+.about__description {
+    max-width: 60ch;
+    font-size: var(--size-sm);
+    color: var(--clr-slate600);
+    z-index: 10;
 }
 
 
@@ -41,14 +52,21 @@
     animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
 
-.about__img {
+.about__img-wrapper {
     border-radius: var(--border-radius);
-    width: 100%;
+    border: 2px solid var(--clr-blue);
+    padding: 2rem;
 
     animation: fade linear both;
     animation-timeline: view();
     animation-range: entry var(--animation-percent) cover var(--animation-percent);
 }
+
+.about__img {
+    border-radius: var(--border-radius);
+    width: 100%;
+}
+
 
 @keyframes fade {
     from {

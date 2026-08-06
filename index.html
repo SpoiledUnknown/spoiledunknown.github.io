@@ -190,33 +190,22 @@
     <section class="about container section" id="about">
         <div class="about__content">
             <h2 class="about__title">About Me</h2>
-            <p class="about__description">
-                I'm <strong>Shashank Raj</strong> (also known online as <a>Spoiled Unknown</a> ).<br/>
-                I'm a self-taught developer from India,
-                and programming started as something I picked up out of curiosity and as a hobby.
-                Over time, it slowly grew into something much bigger for me.
-                I enjoy building things that are useful, interesting, or simply fun to create,
-                especially tools and projects that can help people in some way.
-            </p>
-
-            <p class="about__description">
-                My journey started back in <strong>2019</strong> with small web games.
-                Since then, I've explored different areas including <a>Web</a> and <a>Game development</a>,
-                <a>graphics programming</a>, and general software projects.
-                These days I primarily focus on web applications using <strong>MEVN</strong>, and games with <strong>Unity</strong>.
-                while still enjoying experiments in other areas whenever something catches my interest.
-                Most of the projects and experiments I work on can be found in my project section.
-            </p>
-
-            <p class="about__description">
-                Outside programming, I also enjoy exploring things beyond code.
-                I occasionally spend time on <a>Video Editing</a>, <a>Graphics Design/Photo Editing</a>, <a>hardware
-                tinkering</a>,
-                and experimenting with random ideas that seem interesting.
-                I'm always curious about learning new things, even if they're completely outside my usual field.
-            </p>
+            <div class="about__description__container glass">
+                <p class="about__description">
+                    I'm <strong>Shashank Raj</strong> (also known online as <strong>Spoiled Unknown</strong>).
+                </p>
+                <p class="about__description">
+                    I'm a self-taught <strong>software developer</strong> from <strong>India</strong>. I started programming in <strong>2019</strong> out of curiosity, without expecting it to become such a big part of my life. Since then, it's grown from a hobby into something I genuinely enjoy. I like building things that are useful, interesting, or simply fun to create—especially <a>tools</a> and <a>projects</a> that solve real problems or make someone's life a little easier.
+                </p>
+                <p class="about__description">
+                    My journey began with <a>small web games</a> and gradually expanded into different areas, including <a>web development</a>, <a>game development</a>, <a>graphics programming</a>, and <a>software projects</a>. These days I mainly work with the <strong>MEVN stack</strong> for web applications and <strong>Unity</strong> for game development, though I still enjoy exploring <a>new technologies</a> whenever something catches my interest. Most of the projects and experiments I've worked on can be found in the <a>Projects</a> section.
+                </p>
+                <p class="about__description">
+                    Outside of programming, I enjoy exploring things beyond software as well. I occasionally spend time on <a>video editing</a>, <a>graphic design</a>, <a>photo editing</a>, <a>hardware tinkering</a>, and experimenting with <a>random ideas</a> that seem interesting. I enjoy learning <strong>new things</strong>, even when they're completely unrelated to programming.
+                </p>
+            </div>
         </div>
-        <div class="about__img-wrapper">
+        <div class="about__img-wrapper glass">
             <img
                     class="about__img lazy loading"
                     src="https://fakeimg.pl/3000"
@@ -231,48 +220,46 @@
         <div class="skill__content section">
             <h2 class="skill__title">Skills & Experiences</h2>
             <p class="skill__description">Programming languages, frameworks and tools that I am experienced with.</p>
-            <div class="skill__item-wrapper">
-                <div class="glass skill__item">
-                    <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/html.svg"
-                         alt="HTML"/>
-                    <h5 class="skill__name">HTML</h5>
-                    <h5 class="skill__level">Advance</h5>
-                </div>
-                <div class="glass skill__item">
-                    <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/css.svg"
-                         alt="CSS"/>
-                    <h5 class="skill__name">CSS</h5>
-                    <h5 class="skill__level">Advance</h5>
-                </div>
-                <div class="glass skill__item">
-                    <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/javascript.svg"
-                         alt="Javascript"/>
-                    <h5 class="skill__name">JavaScript</h5>
-                    <h5 class="skill__level">Advance</h5>
-                </div>
-                <div class="glass skill__item">
-                    <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/mongodb.svg"
-                         alt="MongoDB"/>
-                    <h5 class="skill__name">MongoDB</h5>
-                    <h5 class="skill__level">Beginner</h5>
-                </div>
-                <div class="glass skill__item">
-                    <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/python.svg"
-                         alt="Python"/>
-                    <h5 class="skill__name">Python</h5>
-                    <h5 class="skill__level">Intermediate</h5>
-                </div>
-                <div class="glass skill__item">
-                    <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/cpp.svg"
-                         alt="C/C++"/>
-                    <h5 class="skill__name">C/C++</h5>
-                    <h5 class="skill__level">Beginner</h5>
-                </div>
-                <div class="glass skill__item">
-                    <img class="skill__img lazy loading" src="https://fakeimg.pl/1024" data-src="/skills/dotnet.svg"
-                         alt=".Net"/>
-                    <h5 class="skill__name">C#/.NET</h5>
-                    <h5 class="skill__level">Intermediate</h5>
+            <div class="skill__wrapper">
+                <!-- Floating glass navigation -->
+                <nav class="glass tabbar" aria-label="Skill categories">
+                    <ul class="tabbar__list" role="tablist">
+                        <li role="presentation">
+                            <button class="tabbar__tab" id="tab-languages" role="tab" aria-selected="true" aria-controls="panel-languages" data-category="languages">
+                                <span class="tab__label">Languages</span>
+                            </button>
+                        </li>
+                        <li role="presentation">
+                            <button class="tabbar__tab" id="tab-frameworks" role="tab" aria-selected="false" aria-controls="panel-frameworks" data-category="frameworks" tabindex="-1">
+                                <span class="tab__label">Frameworks</span>
+                            </button>
+                        </li>
+                        <li role="presentation">
+                            <button class="tabbar__tab" id="tab-tools" role="tab" aria-selected="false" aria-controls="panel-tools" data-category="tools" tabindex="-1">
+                                <span class="tab__label">Tools</span>
+                            </button>
+                        </li>
+                        <li role="presentation">
+                            <button class="tabbar__tab" id="tab-databases" role="tab" aria-selected="false" aria-controls="panel-databases" data-category="databases" tabindex="-1">
+                                <span class="tab__label">Databases</span>
+                            </button>
+                        </li>
+                        <span class="tabbar__indicator" aria-hidden="true"></span>
+                    </ul>
+                </nav>
+                <div class="skill__item-wrapper">
+                    <section class="panel" id="panel-languages" role="tabpanel" aria-labelledby="tab-languages" tabindex="0">
+                        <div class="skills-grid" data-grid="languages"></div>
+                    </section>
+                    <section class="panel" id="panel-frameworks" role="tabpanel" aria-labelledby="tab-frameworks" tabindex="0" hidden>
+                        <div class="skills-grid" data-grid="frameworks"></div>
+                    </section>
+                    <section class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools" tabindex="0" hidden>
+                        <div class="skills-grid" data-grid="tools"></div>
+                    </section>
+                    <section class="panel" id="panel-databases" role="tabpanel" aria-labelledby="tab-databases" tabindex="0" hidden>
+                        <div class="skills-grid" data-grid="databases"></div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -302,15 +289,9 @@
                                     controller, that can be modified into anything that your
                                     game needs.
                                 </p>
-                                <div class="card__tags">
-                                    <span class="card__tag">Unity</span>
-                                    <span class="card__tag">C#</span>
-                                    <span class="card__tag">Deprecated</span>
-                                </div>
                                 <div class="card__btns">
                                     <a target="_blank" href="https://assetstore.unity.com/packages/slug/282203 "
-                                       class="btn card__btn">Unity
-                                        Asset Store</a>
+                                       class="btn card__btn">Asset Store</a>
                                     <a target="_blank" href="https://github.com/SpoiledUnknown/XtremeFPS"
                                        class="btn card__btn">Repository</a>
                                 </div>
@@ -329,10 +310,6 @@
                                     It's a sarcastic game made for fun with the genre of
                                     hypercasual crude humour. Available on Google Play Store.
                                 </p>
-                                <div class="card__tags">
-                                    <span class="card__tag">Unity</span>
-                                    <span class="card__tag">C#</span>
-                                </div>
                                 <div class="card__btns">
                                     <a target="_blank"
                                        href="https://play.google.com/store/apps/details?id=com.nds.newtya&pcampaignid=web_share"
@@ -357,12 +334,6 @@
                                     An epic bot for your server. Having Giveaway, Economy,
                                     Music, many more Commands.
                                 </p>
-                                <div class="card__tags">
-                                    <span class="card__tag">Node.js</span>
-                                    <span class="card__tag">HTML</span>
-                                    <span class="card__tag">CSS</span>
-                                    <span class="card__tag">Javascript</span>
-                                </div>
                                 <div class="card__btns">
                                     <a target="_blank" href="https://spoiledunknown.github.io/Miss-Noty/"
                                        class="btn card__btn">Dashboard</a>
@@ -385,9 +356,6 @@
                                     An advance discord rich presence cli software that allows a
                                     lot of customisation and control in hand of user.
                                 </p>
-                                <div class="card__tags">
-                                    <span class="card__tag">Node.js</span>
-                                </div>
                                 <div class="card__btns">
                                     <a target="_blank" href="https://github.com/SpoiledUnknown/Richcord-Presence"
                                        class="btn card__btn">Repository</a>
@@ -418,117 +386,47 @@
         </div>
     </section>
 
-    <!--  Work Experiences    -->
-    <section class="timeline-section container">
-        <div class="work__section section">
-            <h2 class="work__title">Work Experiences</h2>
-            <p class="work__description">
-                A collection of roles and collaborations where I had the opportunity to learn, build,
-                lead, and contribute across different areas of development.
-            </p>
-            <div class="timeline__track">
-                <div class="timeline__bar">
-                    <div class="timeline__bar-fill"></div>
-                </div>
-                <article class="timeline__item">
-                    <div class="timeline__card glass glass-card">
-                        <div class="glass-card__header">
-                            <div class="glass-card__meta">
-                                <span class="glass-card__duration">2021 — 2023</span>
-                                <span class="glass-card__badge">2 Years</span>
-                            </div>
-                            <h2 class="glass-card__company">Lore Gaming Studios</h2>
-                            <p class="glass-card__role">Co-Founder & Head of Mobile</p>
-                        </div>
-                        <p class="glass-card__desc">
-                            Co-founded an indie game studio and managed
-                            end-to-end mobile development workflows.
-                        </p>
-                        <ul class="glass-card__bullets">
-                            <li>Managed publishing pipeline</li>
-                            <li>Led mobile team</li>
-                            <li>Handled QA & playtesting</li>
-                        </ul>
-                        <div class="glass-card__tags">
-                            <span class="tag">Unity</span>
-                            <span class="tag">C#</span>
-                            <span class="tag">Management</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="timeline__item">
-                    <div class="timeline__card glass glass-card">
-                        <div class="glass-card__header">
-                            <div class="glass-card__meta">
-                                <span class="glass-card__duration">2019 — 2021</span>
-                                <span class="glass-card__badge">2 Years</span>
-                            </div>
-                            <h2 class="glass-card__company">Insanity Crew Games</h2>
-                            <p class="glass-card__role">Community Manager & Game Tester</p>
-                        </div>
-                        <p class="glass-card__desc">
-                            Managed and grew the studio's Discord community while supporting player engagement and
-                            communication.
-                            Assisted with game playtesting by identifying issues, collecting gameplay feedback,
-                            and helping improve the overall player experience during development cycles.
-                        </p>
-                        <ul class="glass-card__bullets">
-                            <li>Community moderation</li>
-                            <li>Player support & feedback collection</li>
-                            <li>Handled QA & playtesting</li>
-                        </ul>
-                        <div class="glass-card__tags">
-                            <span class="tag">Discord</span>
-                            <span class="tag">Unreal Engine</span>
-                            <span class="tag">Management</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
     <!--  Blogs    -->
-    <section class="blogs container">
-        <div class="blogs__wrapper section">
-            <h2 class="blogs__title">Blogs & Thoughts</h2>
-            <p class="blogs__description">
-                A quick snapshot of what I'm currently learning, building, and experimenting with.
-                These change over time as I explore new ideas and technologies.
-            </p>
-            <div class="blog__block-wrapper swiper">
-                <div class="swiper-wrapper">
-                    <!-- Blog 1 -->
-                    <div class="swiper-slide">
-                        <article class="blog glass">
-                            <a class="blog__body-link" href="./projects/">
-                                <img class="blog__img lazy loading" src="https://fakeimg.pl/1024"
-                                     data-src="/missnoty.webp"
-                                     alt=""/>
-                                <h5 class="blog__name">I find video editing interesting!</h5>
-                                <p class="blog__item-description">
-                                    I recently started working as a video editor and
-                                    since then I have found new love for video editing.</p>
-                                <div class="blog__footer">
-                                    <p class="blogs__btn btn">DaVinci Resolve</p>
-                                    <p class="blog__date">16th May 2026</p>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
-                </div>
+<!--    <section class="blogs container">-->
+<!--        <div class="blogs__wrapper section">-->
+<!--            <h2 class="blogs__title">Blogs...</h2>-->
+<!--            <p class="blogs__description">-->
+<!--                A quick snapshot of what I'm currently learning, building, and experimenting with.-->
+<!--                These change over time as I explore new ideas and technologies.-->
+<!--            </p>-->
+<!--            <div class="blog__block-wrapper swiper">-->
+<!--                <div class="swiper-wrapper">-->
+<!--                    &lt;!&ndash; Blog 1 &ndash;&gt;-->
+<!--                    <div class="swiper-slide">-->
+<!--                        <article class="blog glass">-->
+<!--                            <a class="blog__body-link" href="./projects/">-->
+<!--                                <img class="blog__img lazy loading" src="https://fakeimg.pl/1024"-->
+<!--                                     data-src="/missnoty.webp"-->
+<!--                                     alt=""/>-->
+<!--                                <h5 class="blog__name">I find video editing interesting!</h5>-->
+<!--                                <p class="blog__item-description">-->
+<!--                                    I recently started working as a video editor and-->
+<!--                                    since then I have found new love for video editing.</p>-->
+<!--                                <div class="blog__footer">-->
+<!--                                    <p class="blogs__btn btn">DaVinci Resolve</p>-->
+<!--                                    <p class="blog__date">16th May 2026</p>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </article>-->
+<!--                    </div>-->
+<!--                </div>-->
 
 
-                <!-- pagination -->
-                <div class="swiper-pagination"></div>
+<!--                &lt;!&ndash; pagination &ndash;&gt;-->
+<!--                <div class="swiper-pagination"></div>-->
 
-                <!-- navigation buttons -->
-<!--                <div class="swiper-button-prev"></div>-->
-<!--                <div class="swiper-button-next"></div>-->
-            </div>
-            <a class="blogs__btn btn" href="./blogs/">Read Mode</a>
-        </div>
-    </section>
+<!--                &lt;!&ndash; navigation buttons &ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="swiper-button-prev"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="swiper-button-next"></div>&ndash;&gt;-->
+<!--            </div>-->
+<!--            <a class="blogs__btn btn" href="./blogs/">Read Mode</a>-->
+<!--        </div>-->
+<!--    </section>-->
 
     <!-- Contact Section -->
     <section class="contact container" id="contact">

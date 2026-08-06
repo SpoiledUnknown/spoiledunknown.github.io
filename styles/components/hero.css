@@ -70,6 +70,7 @@
 
 .hero__img {
     border-radius: 50%;
+    border: 2px solid var(--clr-blue);
     width: 20rem;
 }
 

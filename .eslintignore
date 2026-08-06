@@ -1,0 +1,6 @@
+{
+    ignores: [
+        "dist/**",
+        "node_modules/**",
+    ],
+},

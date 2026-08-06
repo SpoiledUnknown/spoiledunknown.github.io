@@ -46,8 +46,6 @@
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(1.5rem) saturate(160%);
     border-radius: var(--border-radius);
-    border-top: rgba(255, 255, 255, 0.4);
-    border-left: rgba(255, 255, 255, 0.3);
     box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
 }
 
@@ -55,8 +53,6 @@
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(1.5rem) saturate(160%);
     border-radius: var(--border-radius);
-    border-top: rgba(255, 255, 255, 0.4);
-    border-left: rgba(255, 255, 255, 0.3);
     box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
 }
 

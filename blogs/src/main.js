@@ -1,7 +1,7 @@
 import "../../styles/modern-normalise.css";
 import "../../styles/style.css";
 import "../../styles/components/header.css";
-import "../../styles/components/themeTransition.css"
+import "../../styles/components/themeTransition.css";
 import "../../styles/components/footer.css";
 import "../../styles/components/mobile-navigation.css";
 import "../../styles/utils.css";
@@ -10,13 +10,12 @@ import "../styles/blogTimeline.css";
 import "../styles/animation.css";
 import "../../projects/styles/projects.css";
 
-
 import TurnLightModeOn from "../../src/utils/light-mode.js";
 import FooterText from "../../src/utils/footer.js";
 import MobileNavigation from "../../src/utils/mobile-navigation.js";
 import HandleImageLoading from "../../src/utils/lazy-loading.js";
-import {initAnimations, setupObserver, markItemsPending} from "./animation.js";
-import {initBlogTimeline, buildProgressBar, buildNodeRings} from "./blogTimeline.js";
+import { initAnimations, setupObserver, markItemsPending } from "./animation.js";
+import { initBlogTimeline, buildProgressBar, buildNodeRings } from "./blogTimeline.js";
 
 TurnLightModeOn();
 FooterText();

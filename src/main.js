@@ -6,7 +6,6 @@ import "../styles/components/themeTransition.css"
 import "../styles/components/hero.css";
 import "../styles/components/about.css";
 import "../styles/components/skills.css";
-import "../styles/components/works.css";
 import "../styles/components/blogs.css";
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -26,6 +25,7 @@ import heroTitleTyper from "./utils/heroTitleTyper";
 import {initTimeline, initAnimations} from "./utils/timelineAndWorkBlock.js";
 import {CheckCaptcha, setupContactForm} from "./utils/hCaptcha";
 import Slider from "./utils/slider.js";
+import { initSkills } from "./utils/skillsNavigation.js";
 
 TurnLightModeOn();
 HandlePreloading();
@@ -38,3 +38,4 @@ setupContactForm();
 initTimeline();
 initAnimations();
 Slider();
+initSkills();
