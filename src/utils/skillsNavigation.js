@@ -193,7 +193,7 @@ function activateTab(targetTab, { focus = false } = {}) {
       panel.classList.remove("panel--leaving");
       // restart the entrance animation
       panel.style.animation = "none";
-      // eslint-disable-next-line no-unused-expressions
+
       panel.offsetHeight; // force reflow
       panel.style.animation = "";
     } else if (!panel.hidden) {

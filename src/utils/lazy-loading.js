@@ -4,7 +4,7 @@ export default function HandleImageLoading() {
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((loadedImage) => {
       if (loadedImage.isIntersecting) {
-        let image = loadedImage.target;
+        const image = loadedImage.target;
         image.src = image.dataset.src;
         image.classList.remove("loading");
         image.classList.add("loaded");

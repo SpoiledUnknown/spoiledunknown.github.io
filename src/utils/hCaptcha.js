@@ -43,8 +43,9 @@ export function setupContactForm() {
         status.textContent = "✓ Message sent successfully.";
 
         form.reset();
-
+        // eslint-disable-next-line no-undef
         if (window.hcaptcha && typeof hcaptcha.reset === "function") {
+          // eslint-disable-next-line no-undef
           hcaptcha.reset();
         }
       } else {

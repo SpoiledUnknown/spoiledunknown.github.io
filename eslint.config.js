@@ -3,10 +3,15 @@ import globals from "globals";
 import prettier from "eslint-config-prettier";
 
 export default [
+  {
+    ignores: ["**/node_modules/**", "**/dist/**", "**/build/**", "**/*.min.js"],
+  },
+
   js.configs.recommended,
 
   {
     files: ["**/*.js"],
+
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -15,10 +20,7 @@ export default [
       },
     },
 
-    ignores: ["node_modules/", "dist/", "build/", "*.min.js"],
-
     rules: {
-      // Possible bugs
       "no-unused-vars": [
         "warn",
         {
@@ -26,10 +28,10 @@ export default [
           varsIgnorePattern: "^_",
         },
       ],
+
       "no-console": "off",
       "no-debugger": "warn",
 
-      // Style
       "prefer-const": "error",
       "no-var": "error",
       "object-shorthand": "error",

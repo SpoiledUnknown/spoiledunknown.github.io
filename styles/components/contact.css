@@ -149,6 +149,11 @@
   }
 }
 
+.h-captcha {
+  position: relative;
+  z-index: 10;
+}
+
 /* xs */
 @media (min-width: 475px) {
   .contact {

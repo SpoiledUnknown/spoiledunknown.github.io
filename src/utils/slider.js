@@ -2,7 +2,7 @@ import Swiper from "swiper";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 export default function Slider() {
-  const swiper = new Swiper(".swiper", {
+  new Swiper(".swiper", {
     modules: [Autoplay, Navigation, Pagination],
     loop: true,
     spaceBetween: 50,
