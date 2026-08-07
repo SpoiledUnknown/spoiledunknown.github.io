@@ -1,66 +1,245 @@
-<h1 align="center">Heyo! 👋, I'm Spoiled Unknown</h1>
-<h3 align="center">A passionate front-end web developer, game developer and programmer from Bihar, India</h3>
+# Personal Portfolio Website
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=spoiledunknown&label=Profile%20views&color=0e75b6&style=flat" alt="spoiledunknown" /> </p>
+My personal portfolio website built with vanilla HTML, CSS and JavaScript.
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=spoiledunknown" alt="spoiledunknown" /></a> </p>
+---
 
-- 🔭 I’m currently working on [XtremeFPS](https://assetstore.unity.com/packages/tools/game-toolkits/xtremefps-first-person-controller-282203)
+## Tech Stack
 
-- 🌱 I’m currently learning **_Game Engine_** and **_Graphics Programming_**
+- HTML5
+- CSS3
+- JavaScript (ES Modules)
+- Vite
+- ESLint
+- Prettier
 
-- 👨‍💻 To know more about me and my projects be sure to visist my: [Website](https://spoiledunknown.github.io/)
+---
 
-- 💬 Ask me about **C#/Unity, JS/TS, C/C++ or Python**
+## Project Structure
 
-- 📫 How to reach me **spoiledunknowndev@gmail.com**
+```text
+.
+├── blogs
+│   ├── index.html
+│   ├── src
+│   │   ├── animation.js
+│   │   ├── blogTimeline.js
+│   │   └── main.js
+│   └── styles
+│       ├── animation.css
+│       ├── blogPage.css
+│       └── blogTimeline.css
+├── config.json
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── projects
+│   ├── index.html
+│   ├── src
+│   │   ├── animation.js
+│   │   ├── main.js
+│   │   └── projects.js
+│   └── styles
+│       ├── animation.css
+│       ├── projects.css
+│       └── projectsPage.css
+├── public
+│   ├── links
+│   │   ├── discord.svg
+│   │   ├── email.svg
+│   │   ├── github.svg
+│   │   ├── instagram.svg
+│   │   ├── linkedin.svg
+│   │   └── youtube.svg
+│   ├── missnoty.webp
+│   ├── mypic.webp
+│   ├── newtya.webp
+│   ├── pfp.webp
+│   ├── Richcord.webp
+│   ├── spoiledunknown.ico
+│   └── XtremeFPS.webp
+├── README.md
+├── src
+│   ├── main.js
+│   └── utils
+│       ├── footer.js
+│       ├── hCaptcha.js
+│       ├── heroTitleTyper.js
+│       ├── lazy-loading.js
+│       ├── light-mode.js
+│       ├── mobile-navigation.js
+│       ├── preloader.js
+│       ├── skillsNavigation.js
+│       ├── slider.js
+│       └── timelineAndWorkBlock.js
+├── styles
+│   ├── components
+│   │   ├── about.css
+│   │   ├── blogs.css
+│   │   ├── contact.css
+│   │   ├── footer.css
+│   │   ├── header.css
+│   │   ├── hero.css
+│   │   ├── mobile-navigation.css
+│   │   ├── preloader.css
+│   │   ├── projects.css
+│   │   ├── skills.css
+│   │   └── themeTransition.css
+│   ├── modern-normalise.css
+│   ├── style.css
+│   └── utils.css
+└── vite.config.js
+```
 
-- ⚡ Fun Fact: **Everything I have learned has started with "Screw it how hard can it be".**
+---
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://instagram.com/spoiledunknown" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="spoiledunknown" height="30" width="40" /></a>
-<a href="https://www.youtube.com/c/spoiledunknown" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="spoiledunknown" height="30" width="40" /></a>
-<a href="https://discord.gg/YykdmCjzmQ" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="YykdmCjzmQ" height="30" width="40" /></a>
-</p>
+# Requirements
 
-<h3 align="left">Programming Languages :</h3>
-<p align="left">
-   <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a>
-  <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a>
-    <a href="https://www.w3schools.com/cs/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/> </a> 
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> 
-    <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> 
-    <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> 
-</p>
+- Node.js 22+
+- npm
 
-<h3 align="left">Front-End Development :</h3>
-<p align="left">
-    <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a>
-     <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> 
-     <a href="https://vuejs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original-wordmark.svg" alt="vuejs" width="40" height="40"/> </a> 
-</p>
+---
 
-<h3 align="left">Backend and Other Tools :</h3>
-<p align="left">
-    <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> 
-    <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> 
-      <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> 
-           <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> 
-    <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> 
-    <a href="https://aws.amazon.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/> </a>
-</p>
+# Installation
 
-<h3 align="left">frameworks and Softwares :</h3>
-<p align="left">
-     <a href="https://dotnet.microsoft.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt="dotnet" width="40" height="40"/> </a> 
-    <a href="https://unity.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/unity3d/unity3d-icon.svg" alt="unity" width="40" height="40"/> </a>
-    <a href="https://www.photoshop.com/en" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" alt="photoshop" width="40" height="40"/> </a> 
- <a href="https://www.blender.org/" target="_blank" rel="noreferrer"> <img src="https://download.blender.org/branding/community/blender_community_badge_white.svg" alt="blender" width="40" height="40"/> </a>
-</p>
+Clone the repository.
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=spoiledunknown&show_icons=true&locale=en&layout=compact" alt="spoiledunknown" /></p>
+```bash
+git clone https://github.com/spoiledunknown/spoiledunknown.github.io.git
+cd <repository>
+```
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=spoiledunknown&show_icons=true&locale=en" alt="spoiledunknown" /></p>
+Install dependencies.
 
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=spoiledunknown&" alt="spoiledunknown" /></p>
+```bash
+npm install
+```
+
+---
+
+# Development
+
+Start the Vite development server.
+
+```bash
+npm run dev
+```
+
+Open the URL printed in the terminal.
+
+Usually:
+
+```
+http://localhost:5173
+```
+
+---
+
+# Production Build
+
+Generate an optimized production build.
+
+```bash
+npm run build
+```
+
+The generated files will be placed inside:
+
+```
+dist/
+```
+
+---
+
+# Preview Production Build
+
+Run the built website locally.
+
+```bash
+npm run preview
+```
+
+---
+
+# Formatting
+
+Format the entire project.
+
+```bash
+npm run format
+```
+
+Check formatting.
+
+```bash
+npm run format-check
+```
+
+---
+
+# Linting
+
+Run ESLint.
+
+```bash
+npm run lint
+```
+
+Automatically fix lint issues.
+
+```bash
+npm run lint-fix
+```
+
+---
+
+# Deployment
+
+The website is automatically deployed using **GitHub Pages**.
+
+Deployment flow:
+
+```
+Push
+      ↓
+GitHub Actions
+      ↓
+Vite Build
+      ↓
+Deploy to GitHub Pages
+```
+
+No manual deployment is required.
+
+---
+
+# Development Notes
+
+- Built entirely with vanilla HTML, CSS and JavaScript.
+- Uses ES Modules for code organization.
+- SVG icons are embedded directly into JavaScript.
+- Skill cards are generated dynamically from a single data source.
+- Navigation uses ARIA-compliant tabs.
+- Code formatting is handled with Prettier.
+- Static analysis is handled with ESLint.
+
+---
+
+# Available Scripts
+
+| Command                | Description                   |
+| ---------------------- | ----------------------------- |
+| `npm run dev`          | Start development server      |
+| `npm run build`        | Build production files        |
+| `npm run preview`      | Preview production build      |
+| `npm run lint`         | Run ESLint                    |
+| `npm run lint-fix`     | Automatically fix lint issues |
+| `npm run format`       | Format project with Prettier  |
+| `npm run format-check` | Verify formatting             |
+
+---
+
+# License
+
+This repository contains the source code for my personal portfolio website.

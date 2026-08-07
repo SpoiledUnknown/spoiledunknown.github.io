@@ -74,7 +74,7 @@
   border: 1px solid var(--border-soft);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
 
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
   backdrop-filter: blur(1.5rem) saturate(160%);
   border-radius: var(--border-radius);
   box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
@@ -85,21 +85,20 @@
   z-index: 2;
   padding: 10px 20px;
   border-radius: 999px;
-  font-family: var(--font-display);
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--text-secondary);
+  font-size: var(--size-xs);
+  font-weight: 550;
+  color: var(--clr-indigo);
   white-space: nowrap;
   transition: color var(--dur-fast) var(--ease-standard);
 }
 
 .tabbar__tab:hover {
-  color: var(--text-primary);
+  color: var(--clr-rose);
 }
 
 .tabbar__tab[aria-selected="true"] {
-  color: #06110e;
-  font-weight: 600;
+  color: var(--clr-blue);
+  font-weight: bolder;
 }
 
 .tabbar__indicator {
@@ -169,12 +168,12 @@
   padding: 26px 16px 20px;
 
   z-index: 1;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
   backdrop-filter: blur(1.5rem) saturate(160%);
   border-radius: var(--border-radius);
   box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
 
-  border: 2px solid var(--border-soft);
+  border: 2px solid var(--clr-blue);
   overflow: hidden;
   opacity: 0;
   transform: translateY(14px);
@@ -242,10 +241,9 @@
 }
 
 .skill-card__name {
-  font-family: var(--font-display);
-  font-size: 0.86rem;
-  font-weight: 500;
-  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--accent);
   text-align: center;
   letter-spacing: 0.01em;
 }
@@ -267,11 +265,13 @@
   .tabbar {
     max-width: 100%;
   }
+
   .tabbar__list {
     flex-wrap: nowrap;
     overflow-x: auto;
     scrollbar-width: none;
   }
+
   .tabbar__list::-webkit-scrollbar {
     display: none;
   }
@@ -283,14 +283,17 @@
     gap: 2px;
     padding: 5px;
   }
+
   .tabbar__tab {
     padding: 9px 14px;
     font-size: 0.8rem;
   }
+
   .skills-grid {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 12px;
   }
+
   .skill-card {
     padding: 20px 10px 16px;
   }
@@ -316,6 +319,10 @@
   .skill__name {
     font-size: var(--size-xl);
   }
+
+  .tabbar__tab {
+    font-size: var(--size-base);
+  }
 }
 
 /* xl */
@@ -326,6 +333,10 @@
 
   .skill__description {
     font-size: var(--size-xl);
+  }
+
+  .tabbar__tab {
+    font-size: var(--size-lg);
   }
 }
 
