@@ -132,7 +132,7 @@
   margin-bottom: 2rem;
   padding: 2rem;
   width: 21rem;
-  height: 40rem;
+  height: 35rem;
   border-bottom: 2px solid var(--clr-blue);
   border-right: 2px solid var(--clr-blue);
 
@@ -226,6 +226,7 @@
 
   .card__article {
     width: 21rem;
+    height: 40rem;
   }
 
   .card__name {
@@ -265,7 +266,7 @@
 
   .card__article {
     width: 25rem;
-    height: 41rem;
+    height: 45rem;
   }
 
   .card__img {

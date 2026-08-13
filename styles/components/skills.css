@@ -41,6 +41,7 @@
 
 .skill__item-wrapper {
   width: 100%;
+  min-height: 17rem;
 }
 
 @keyframes fade-down {
