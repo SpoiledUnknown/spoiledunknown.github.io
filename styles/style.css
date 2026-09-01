@@ -1,13 +1,19 @@
 :root {
-  --clr-dark: #070a13;
+  --clr-dark: #06080f;
   --clr-light: #f1f5f9;
-  --clr-slate400: #94a3b8;
-  --clr-slate600: #475569;
-  --clr-slate800: #1e293b;
+  --clr-slate400: #aaa499;
+  --clr-slate600: #aaa499;
+  --clr-slate800: #aaa499;
   --clr-rose: #e11d48;
   --clr-blue: #1d4ed8;
   --clr-indigo: #4f46e5;
   --clr-voilet: #7909e2;
+
+  /*
+  aaa499
+
+
+  */
   /* sizes */
   --size-xxs: 0.5rem;
   --size-xs: 0.75rem;
