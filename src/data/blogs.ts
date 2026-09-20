@@ -1,0 +1,128 @@
+import type { BlogArticle } from "../types";
+
+export const blogCategories = [
+  { id: "all", label: "All Posts" },
+  { id: "game-arch", label: "Game Architecture" },
+  { id: "full-stack", label: "Full-Stack Web" },
+  { id: "graphics", label: "Graphics & Shaders" },
+  { id: "devlog", label: "Devlogs" },
+] as const;
+
+export const blogsData: BlogArticle[] = [
+  {
+    id: "xtremefps-kinematics",
+    title: "Decoupled Physics & Weapon Sway Architecture in Unity 3D",
+    slug: "decoupled-physics-weapon-sway",
+    excerpt:
+      "Designing a modular kinematic movement framework that preserves momentum through slope sliding, dynamic crouching, and surface-aware procedural head-bob.",
+    date: "February 2026",
+    readTime: "6 min read",
+    category: "game-arch",
+    categoryLabel: "Game Architecture",
+    image: "./XtremeFPS.webp",
+    tags: ["Unity 3D", "Kinematics", "C# Engine", "Physics"],
+    codeTelemetry: {
+      file: "XtremeFPS :: KinematicKernel.cs",
+      revision: "rev #3c9f1a0",
+    },
+    link: "https://github.com/SpoiledUnknown/XtremeFPS",
+  },
+  {
+    id: "mevn-reactive-performance",
+    title: "Reactive Full-Stack Systems: Practical MEVN & WebSocket Patterns",
+    slug: "reactive-fullstack-systems",
+    excerpt:
+      "Exploring event-driven communication protocols, fine-grained state synchronization, and building reactive web interfaces without bloated state managers.",
+    date: "January 2026",
+    readTime: "8 min read",
+    category: "full-stack",
+    categoryLabel: "Full-Stack Web",
+    image: "./Richcord.webp",
+    tags: ["MEVN Stack", "Vue 3", "WebSockets", "Node.js"],
+    link: "https://github.com/SpoiledUnknown",
+  },
+  {
+    id: "video-editing-craft",
+    title: "The Craft of Video Editing & Visual Rhythm",
+    slug: "craft-of-video-editing-visual-rhythm",
+    excerpt:
+      "Exploring pacing, match cuts, and temporal composition. Reflections on transitioning into video editing and applying computational timing to cinematic media.",
+    date: "December 2025",
+    readTime: "5 min read",
+    category: "graphics",
+    categoryLabel: "Visual Media",
+    icon: "movie_filter",
+    tags: ["DaVinci Resolve", "Cinematography", "Pacing", "Storytelling"],
+    link: "https://github.com/SpoiledUnknown",
+  },
+  {
+    id: "dark-mode-typography",
+    title: "Dark-Mode Typography That Actually Feels Premium",
+    slug: "dark-mode-typography-feels-premium",
+    excerpt:
+      "Font pairings, typographic scales, contrast hierarchies, and the CSS token system that prevents eye fatigue in dark-first developer interfaces.",
+    date: "November 2025",
+    readTime: "6 min read",
+    category: "full-stack",
+    categoryLabel: "UI & Typography",
+    icon: "format_size",
+    tags: ["Typography", "Design Systems", "CSS Tokens", "Dark Mode"],
+    link: "https://github.com/SpoiledUnknown",
+  },
+  {
+    id: "indie-devlog-newtya",
+    title: "Devlog: Building & Publishing a Hypercasual Game to Google Play",
+    slug: "devlog-building-newtya",
+    excerpt:
+      "From humorous prototype to published store release: tackling Android build pipelines, physics tuning, and lessons learned from hypercasual game launches.",
+    date: "October 2025",
+    readTime: "7 min read",
+    category: "devlog",
+    categoryLabel: "Devlog",
+    image: "./newtya.webp",
+    tags: ["Unity 3D", "Android", "Mobile Game", "Publishing"],
+    link: "https://play.google.com/store/apps/details?id=com.nds.newtya",
+  },
+  {
+    id: "glsl-generative-mathematics",
+    title: "Generative Shaders & Vector Fields in WebGL",
+    slug: "generative-shaders-vector-fields",
+    excerpt:
+      "Mathematical reflections on fragment shaders, Simplex noise synthesis, and optimizing real-time canvas rendering for high-DPI displays.",
+    date: "September 2025",
+    readTime: "5 min read",
+    category: "graphics",
+    categoryLabel: "Graphics & Shaders",
+    icon: "blur_on",
+    tags: ["GLSL", "WebGL", "Mathematics", "Shaders"],
+    link: "https://github.com/SpoiledUnknown",
+  },
+  {
+    id: "vanilla-js-architecture",
+    title: "Vanilla JS Architecture: Modular Systems Without Build Steps",
+    slug: "vanilla-js-architecture-no-build",
+    excerpt:
+      "Organizing multi-file JavaScript projects using native ES modules, browser import maps, and decoupled event buses without bundler overhead.",
+    date: "August 2025",
+    readTime: "7 min read",
+    category: "full-stack",
+    categoryLabel: "Vanilla JS",
+    icon: "javascript",
+    tags: ["JavaScript", "ES Modules", "Architecture", "No-Build"],
+    link: "https://github.com/SpoiledUnknown",
+  },
+  {
+    id: "intersection-observer-scroll",
+    title: "Fluid Scroll Reveal Without External Libraries",
+    slug: "fluid-scroll-reveal-native-intersection-observer",
+    excerpt:
+      "Building buttery scroll-triggered element reveals and viewport tracking with native IntersectionObserver API at 60 frames per second.",
+    date: "June 2025",
+    readTime: "4 min read",
+    category: "full-stack",
+    categoryLabel: "Web Engineering",
+    icon: "animation",
+    tags: ["Browser APIs", "Performance", "Animations", "60 FPS"],
+    link: "https://github.com/SpoiledUnknown",
+  },
+];
