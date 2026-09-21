@@ -134,7 +134,7 @@ watch(selectedCategory, () => {
 <template>
   <section id="blogs" class="py-16 md:py-24 max-w-6xl mx-auto w-full flex flex-col gap-14">
     <!-- Section Header -->
-    <div class="flex flex-col gap-3">
+    <div v-reveal:base class="flex flex-col gap-3">
       <div class="flex items-center gap-2">
         <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
         <span class="font-mono text-xs text-primary uppercase tracking-widest font-semibold">
@@ -152,11 +152,11 @@ watch(selectedCategory, () => {
     </div>
 
     <!-- Featured Spotlight Article (Billboard Format, matching Projects Featured Hero) with Transition -->
-    <div class="min-h-[380px]">
+    <div v-reveal:blogs class="min-h-[380px]">
       <Transition name="blogs-spotlight" mode="out-in">
         <div
           :key="spotlightArticle.id"
-          class="group relative w-full rounded-3xl bg-surface-container-low/90 overflow-hidden shadow-2xl transition-all duration-500 border border-black/[0.06] dark:border-white/[0.08] hover:shadow-[0_24px_50px_rgba(45,104,255,0.18)]"
+          class="blog-spotlight-item group relative w-full rounded-3xl bg-surface-container-low/90 overflow-hidden shadow-2xl transition-all duration-700 ease-out border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 hover:shadow-[0_28px_60px_rgba(45,104,255,0.22)] hover:-translate-y-1"
         >
           <!-- Media Aspect Container -->
           <div
@@ -166,7 +166,7 @@ watch(selectedCategory, () => {
               v-if="spotlightArticle.image"
               :src="spotlightArticle.image"
               :alt="spotlightArticle.title"
-              class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+              class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               loading="lazy"
             />
             <!-- Fallback Blueprint for Non-Image Spotlight Articles -->
@@ -175,10 +175,10 @@ watch(selectedCategory, () => {
               class="w-full h-full bg-gradient-to-tr from-surface-obsidian via-surface-container-high/60 to-surface-container-low flex items-center justify-center p-8 relative overflow-hidden"
             >
               <div
-                class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-primary/15 blur-3xl pointer-events-none"
+                class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-primary/15 blur-3xl pointer-events-none group-hover:bg-primary/25 transition-all duration-700 ease-out"
               ></div>
               <div
-                class="w-24 h-24 rounded-2xl bg-primary-container/20 border border-primary/30 flex items-center justify-center text-primary shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500"
+                class="w-24 h-24 rounded-2xl bg-primary-container/20 border border-primary/30 flex items-center justify-center text-primary shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 ease-out"
               >
                 <span class="material-symbols-outlined text-5xl">{{
                   getBlogIcon(spotlightArticle)
@@ -271,11 +271,14 @@ watch(selectedCategory, () => {
                 :href="spotlightArticle.link"
                 target="_blank"
                 rel="noreferrer"
-                class="flex items-center gap-2 bg-primary-container hover:bg-blue-600 text-white px-4 sm:px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all shadow-[0_0_20px_rgba(45,104,255,0.4)]"
+                class="group/btn flex items-center gap-2 bg-primary-container hover:bg-blue-600 text-white px-4 sm:px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 ease-out hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(45,104,255,0.4)] hover:shadow-[0_0_25px_rgba(45,104,255,0.6)] cursor-pointer"
               >
                 <span class="material-symbols-outlined text-[18px]">menu_book</span>
                 <span>Read Architecture Article</span>
-                <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                <span
+                  class="material-symbols-outlined text-xs group-hover/btn:translate-x-1 transition-transform duration-300 ease-out"
+                  >arrow_forward</span
+                >
               </a>
             </div>
           </div>
@@ -283,8 +286,8 @@ watch(selectedCategory, () => {
       </Transition>
     </div>
 
-    <!-- Technical Archive & Articles Showcase Slider (matching Curated Deployments in Projects) -->
-    <div class="flex flex-col gap-6">
+    <!-- Technical Archive & Articles Showcase Slider with Special Reveal Animation -->
+    <div v-reveal:blogs class="flex flex-col gap-6">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div class="flex items-center gap-3">
           <h3 class="font-display text-2xl font-bold text-on-surface">Technical Archive & Notes</h3>
@@ -303,7 +306,7 @@ watch(selectedCategory, () => {
             <button
               type="button"
               @click="isBlogsMenuOpen = !isBlogsMenuOpen"
-              class="w-full sm:w-auto min-w-[190px] sm:min-w-[210px] flex items-center justify-between gap-3 px-4 py-2 sm:py-2.5 rounded-xl bg-surface-container-low/90 hover:bg-surface-container-high/90 backdrop-blur-xl border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 shadow-sm font-mono text-xs text-on-surface transition-all duration-200 cursor-pointer select-none"
+              class="w-full sm:w-auto min-w-[190px] sm:min-w-[210px] flex items-center justify-between gap-3 px-4 py-2 sm:py-2.5 rounded-xl bg-surface-container-low/90 hover:bg-surface-container-high/90 backdrop-blur-xl border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 shadow-sm font-mono text-xs text-on-surface transition-all duration-300 ease-out hover:scale-[1.02] active:scale-95 cursor-pointer select-none"
             >
               <div class="flex items-center gap-2 min-w-0">
                 <span class="material-symbols-outlined text-primary text-[18px] shrink-0">
@@ -341,7 +344,7 @@ watch(selectedCategory, () => {
                   type="button"
                   @click="selectBlogCategory(cat.id)"
                   :class="[
-                    'w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-mono text-xs transition-all cursor-pointer',
+                    'w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-mono text-xs transition-all duration-200 ease-out cursor-pointer',
                     selectedCategory === cat.id
                       ? 'bg-primary-container text-white font-semibold shadow-sm'
                       : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high',
@@ -370,7 +373,7 @@ watch(selectedCategory, () => {
               type="button"
               @click="scrollSlider(-390)"
               aria-label="Previous article"
-              class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-surface-container-low hover:bg-surface-container-high border border-black/[0.06] dark:border-white/[0.08] text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-all active:scale-95 shadow-sm cursor-pointer"
+              class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-surface-container-low hover:bg-surface-container-high border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 text-on-surface-variant hover:text-primary flex items-center justify-center transition-all duration-300 ease-out hover:scale-110 active:scale-95 shadow-sm cursor-pointer"
             >
               <span class="material-symbols-outlined text-[16px] sm:text-[18px]">chevron_left</span>
             </button>
@@ -378,7 +381,7 @@ watch(selectedCategory, () => {
               type="button"
               @click="scrollSlider(390)"
               aria-label="Next article"
-              class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-surface-container-low hover:bg-surface-container-high border border-black/[0.06] dark:border-white/[0.08] text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-all active:scale-95 shadow-sm cursor-pointer"
+              class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-surface-container-low hover:bg-surface-container-high border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 text-on-surface-variant hover:text-primary flex items-center justify-center transition-all duration-300 ease-out hover:scale-110 active:scale-95 shadow-sm cursor-pointer"
             >
               <span class="material-symbols-outlined text-[16px] sm:text-[18px]"
                 >chevron_right</span
@@ -400,9 +403,9 @@ watch(selectedCategory, () => {
             <article
               v-for="(blog, idx) in otherBlogs"
               :key="blog.id"
-              class="w-[320px] sm:w-[370px] shrink-0 snap-start flex flex-col justify-between rounded-2xl overflow-hidden bg-surface-container-low/80 backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 transition-all duration-300 hover:-translate-y-1.5 shadow-xl group"
+              class="blog-slider-item w-[320px] sm:w-[370px] shrink-0 snap-start flex flex-col justify-between rounded-2xl overflow-hidden bg-surface-container-low/80 backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] shadow-xl group cursor-pointer"
               :style="{
-                animation: `blogCardIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 45}ms both`,
+                '--stagger': idx,
               }"
             >
               <div>
@@ -460,7 +463,7 @@ watch(selectedCategory, () => {
                   <!-- Center Stylized Architectural Emblem -->
                   <div class="flex items-center gap-3.5 z-10">
                     <div
-                      class="w-12 h-12 rounded-xl bg-surface-container-highest/90 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary-container group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-md group-hover:rotate-3"
+                      class="w-12 h-12 rounded-xl bg-surface-container-highest/90 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary-container group-hover:text-white group-hover:scale-110 transition-all duration-400 ease-out shadow-md group-hover:rotate-3"
                     >
                       <span class="material-symbols-outlined text-[22px]">{{
                         getBlogIcon(blog)
@@ -480,7 +483,7 @@ watch(selectedCategory, () => {
                 <!-- Card Body -->
                 <div class="p-6 flex flex-col gap-2.5">
                   <h4
-                    class="font-display text-lg font-bold text-on-surface group-hover:text-primary transition-colors line-clamp-2 leading-snug"
+                    class="font-display text-lg font-bold text-on-surface group-hover:text-primary transition-colors duration-300 line-clamp-2 leading-snug"
                   >
                     {{ blog.title }}
                   </h4>
@@ -499,7 +502,7 @@ watch(selectedCategory, () => {
                   <span
                     v-for="tag in blog.tags.slice(0, 3)"
                     :key="tag"
-                    class="font-mono text-[10px] text-outline bg-surface-container-high px-2 py-0.5 rounded"
+                    class="font-mono text-[10px] text-outline bg-surface-container-high px-2 py-0.5 rounded transition-colors group-hover:text-on-surface"
                   >
                     {{ tag }}
                   </span>
@@ -514,10 +517,13 @@ watch(selectedCategory, () => {
                     :href="blog.link"
                     target="_blank"
                     rel="noreferrer"
-                    class="font-mono text-xs text-primary hover:underline flex items-center gap-1 font-medium"
+                    class="font-mono text-xs text-primary hover:underline flex items-center gap-1 font-medium group/link"
                   >
                     <span>Read Article</span>
-                    <span class="material-symbols-outlined text-xs">arrow_outward</span>
+                    <span
+                      class="material-symbols-outlined text-xs group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-200"
+                      >arrow_outward</span
+                    >
                   </a>
                 </div>
               </div>
@@ -554,7 +560,7 @@ watch(selectedCategory, () => {
       <div class="flex items-center gap-4 z-10 w-full md:w-auto justify-center md:justify-end">
         <a
           href="#contact"
-          class="w-full sm:w-auto flex items-center justify-center gap-3 bg-primary-container hover:bg-blue-600 text-white font-medium text-sm px-6 py-3.5 rounded-xl transition-all shadow-md hover:shadow-[0_0_25px_rgba(45,104,255,0.35)]"
+          class="w-full sm:w-auto flex items-center justify-center gap-3 bg-primary-container hover:bg-blue-600 text-white font-medium text-sm px-6 py-3.5 rounded-xl transition-all duration-300 ease-out hover:scale-105 active:scale-95 shadow-md hover:shadow-[0_0_25px_rgba(45,104,255,0.45)] cursor-pointer"
         >
           <span class="material-symbols-outlined text-[20px]">mail</span>
           <span>Send Message</span>

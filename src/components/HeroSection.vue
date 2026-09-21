@@ -14,17 +14,20 @@ const { displayText } = useTypewriter(profileData.typewriterRoles);
     id="home"
     class="relative pt-28 pb-16 md:py-24 min-h-[85vh] flex flex-col justify-center"
   >
-    <div class="max-w-4xl mx-auto w-full flex flex-col justify-center items-start text-left">
+    <div
+      v-reveal:base
+      class="max-w-4xl mx-auto w-full flex flex-col justify-center items-start text-left"
+    >
       <!-- Greeting Row: Squarish Profile Avatar & Cultural Location Badge -->
       <div class="flex items-center gap-4 mb-8">
         <div class="relative group shrink-0">
           <div
-            class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_25px_rgba(45,104,255,0.2)] bg-surface-container-high transition-transform duration-300 group-hover:scale-105"
+            class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_25px_rgba(45,104,255,0.2)] bg-surface-container-high transition-all duration-500 ease-out group-hover:scale-108 group-hover:rotate-1 group-hover:border-primary/60 group-hover:shadow-[0_0_30px_rgba(45,104,255,0.4)]"
           >
             <img
               src="/pfp.webp"
               alt="Shashank Raj"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
               loading="eager"
             />
           </div>
@@ -100,11 +103,11 @@ const { displayText } = useTypewriter(profileData.typewriterRoles);
         <button
           type="button"
           @click="emit('navigate', 'projects')"
-          class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary-container hover:bg-blue-600 text-white font-medium text-sm shadow-md hover:shadow-[0_0_25px_rgba(45,104,255,0.4)] transition-all duration-200"
+          class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary-container hover:bg-blue-600 text-white font-medium text-sm shadow-md hover:shadow-[0_0_25px_rgba(45,104,255,0.4)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95 cursor-pointer"
         >
           <span>Explore Projects</span>
           <span
-            class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform"
+            class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform duration-300 ease-out"
           >
             arrow_forward
           </span>
@@ -112,7 +115,7 @@ const { displayText } = useTypewriter(profileData.typewriterRoles);
         <button
           type="button"
           @click="emit('navigate', 'contact')"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container-high/70 hover:bg-surface-bright text-on-surface font-medium text-sm hover:border-white/10 transition-all duration-200 border border-black/[0.04] dark:border-white/[0.05]"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container-high/70 hover:bg-surface-bright text-on-surface font-medium text-sm hover:border-primary/40 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95 border border-black/[0.04] dark:border-white/[0.05] cursor-pointer"
         >
           <span>Get in Touch</span>
         </button>
@@ -126,7 +129,7 @@ const { displayText } = useTypewriter(profileData.typewriterRoles);
           v-for="(metric, idx) in profileData.metrics"
           :key="metric.value"
           :class="[
-            'flex flex-col gap-1',
+            'flex flex-col gap-1 rounded-xl p-2 -m-2 transition-all duration-300 ease-out hover:bg-surface-container/50 hover:-translate-y-0.5',
             idx > 0 ? 'sm:border-l sm:border-black/[0.06] sm:dark:border-white/[0.08] sm:pl-6' : '',
           ]"
         >

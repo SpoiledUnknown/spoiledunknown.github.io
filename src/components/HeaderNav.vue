@@ -41,7 +41,7 @@ function handleNavClick(id: string) {
         class="flex items-center gap-3 group select-none z-10"
       >
         <div
-          class="w-9 h-9 rounded-full bg-gradient-to-tr from-primary-container to-sky-400 p-[1.5px] flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform"
+          class="w-9 h-9 rounded-full bg-gradient-to-tr from-primary-container to-sky-400 p-[1.5px] flex items-center justify-center shrink-0 shadow-md group-hover:scale-108 transition-transform duration-300 ease-out"
         >
           <div
             class="w-full h-full rounded-full bg-surface-obsidian flex items-center justify-center"
@@ -51,7 +51,7 @@ function handleNavClick(id: string) {
         </div>
         <div class="flex flex-col">
           <span
-            class="font-display text-sm font-semibold tracking-tight text-on-surface group-hover:text-primary transition-colors"
+            class="font-display text-sm font-semibold tracking-tight text-on-surface group-hover:text-primary transition-colors duration-300"
           >
             {{ profileData.name }}
           </span>
@@ -71,7 +71,7 @@ function handleNavClick(id: string) {
           type="button"
           @click="handleNavClick(item.id)"
           :class="[
-            'px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 select-none cursor-pointer',
+            'px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-300 ease-out select-none cursor-pointer hover:scale-105 active:scale-95',
             activeSection === item.id
               ? 'bg-primary-container text-white shadow-md'
               : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high',
@@ -90,7 +90,7 @@ function handleNavClick(id: string) {
           rel="noreferrer"
           aria-label="View Resume"
           title="View Resume"
-          class="hidden md:flex w-9 h-9 rounded-full items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all border border-black/[0.04] dark:border-white/[0.06] hover:border-primary/40 hover:text-primary cursor-pointer shadow-sm"
+          class="hidden md:flex w-9 h-9 rounded-full items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-300 ease-out hover:scale-110 active:scale-95 border border-black/[0.04] dark:border-white/[0.06] hover:border-primary/40 cursor-pointer shadow-sm"
         >
           <span class="material-symbols-outlined text-[18px]">description</span>
         </a>
@@ -100,10 +100,12 @@ function handleNavClick(id: string) {
           type="button"
           @click="toggleTheme"
           :aria-label="isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme'"
-          class="hidden md:flex w-9 h-9 rounded-full items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all border border-black/[0.04] dark:border-white/[0.06] cursor-pointer"
+          class="group/theme hidden md:flex w-9 h-9 rounded-full items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-300 ease-out hover:scale-110 active:scale-95 border border-black/[0.04] dark:border-white/[0.06] hover:border-primary/40 cursor-pointer shadow-sm"
           :title="isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
         >
-          <span class="material-symbols-outlined text-[18px]">
+          <span
+            class="material-symbols-outlined text-[18px] transition-transform duration-500 ease-out group-hover/theme:rotate-45"
+          >
             {{ isDark ? "light_mode" : "dark_mode" }}
           </span>
         </button>
@@ -112,7 +114,7 @@ function handleNavClick(id: string) {
         <button
           type="button"
           @click="isMobileMenuOpen = !isMobileMenuOpen"
-          class="md:hidden w-9 h-9 rounded-full flex items-center justify-center bg-surface-container-high/80 text-on-surface hover:bg-surface-bright transition-all border border-black/[0.04] dark:border-white/[0.06] shadow-sm cursor-pointer active:scale-95"
+          class="md:hidden w-9 h-9 rounded-full flex items-center justify-center bg-surface-container-high/80 text-on-surface hover:bg-surface-bright transition-all duration-300 ease-out hover:scale-105 active:scale-95 border border-black/[0.04] dark:border-white/[0.06] shadow-sm cursor-pointer"
           aria-label="Toggle navigation menu"
         >
           <span class="material-symbols-outlined text-[20px]">
@@ -124,12 +126,12 @@ function handleNavClick(id: string) {
 
     <!-- Mobile Dropdown Menu -->
     <transition
-      enter-active-class="transition duration-200 ease-out"
-      enter-from-class="opacity-0 -translate-y-2 scale-95"
-      enter-to-class="opacity-100 translate-y-0 scale-100"
-      leave-active-class="transition duration-150 ease-in"
-      leave-from-class="opacity-100 translate-y-0 scale-100"
-      leave-to-class="opacity-0 -translate-y-2 scale-95"
+      enter-active-class="transition-all duration-300 cubic-bezier(0.16, 1, 0.3, 1)"
+      enter-from-class="opacity-0 -translate-y-3 scale-95 blur-sm"
+      enter-to-class="opacity-100 translate-y-0 scale-100 blur-0"
+      leave-active-class="transition-all duration-200 cubic-bezier(0.16, 1, 0.3, 1)"
+      leave-from-class="opacity-100 translate-y-0 scale-100 blur-0"
+      leave-to-class="opacity-0 -translate-y-3 scale-95 blur-sm"
     >
       <div
         v-if="isMobileMenuOpen"
@@ -142,7 +144,7 @@ function handleNavClick(id: string) {
           type="button"
           @click="handleNavClick(item.id)"
           :class="[
-            'w-full text-left px-4 py-2.5 rounded-xl font-medium text-sm transition-all',
+            'w-full text-left px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 ease-out hover:translate-x-1',
             activeSection === item.id
               ? 'bg-primary-container text-white font-semibold shadow-md'
               : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high',
@@ -158,7 +160,7 @@ function handleNavClick(id: string) {
         <button
           type="button"
           @click="toggleTheme"
-          class="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-on-surface hover:bg-surface-container-high transition-all text-sm font-medium cursor-pointer"
+          class="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-on-surface hover:bg-surface-container-high transition-all duration-200 ease-out hover:translate-x-1 text-sm font-medium cursor-pointer"
         >
           <div class="flex items-center gap-2.5">
             <span class="material-symbols-outlined text-primary text-[20px]">
@@ -177,7 +179,7 @@ function handleNavClick(id: string) {
           target="_blank"
           rel="noreferrer"
           @click="isMobileMenuOpen = false"
-          class="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-primary font-medium text-sm hover:bg-surface-container-high transition-all"
+          class="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-primary font-medium text-sm hover:bg-surface-container-high transition-all duration-200 ease-out hover:translate-x-1"
         >
           <div class="flex items-center gap-2.5">
             <span class="material-symbols-outlined text-[20px]">description</span>

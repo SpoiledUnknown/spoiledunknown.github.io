@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted } from "vue";
 import { profileData } from "../data/profile";
 import { useTheme } from "../composables/useTheme";
 
@@ -45,16 +45,6 @@ function renderHCaptcha() {
 
 onMounted(() => {
   renderHCaptcha();
-});
-
-watch(isDark, () => {
-  const hcaptcha = (window as unknown as { hcaptcha?: { reset: (id?: string | number) => void } })
-    .hcaptcha;
-  if (captchaWidgetId !== null && hcaptcha?.reset) {
-    try {
-      hcaptcha.reset(captchaWidgetId);
-    } catch {}
-  }
 });
 
 function copyEmailAddress() {
@@ -142,7 +132,7 @@ async function handleSubmit(event: Event) {
 <template>
   <section id="contact" class="py-16 md:py-24 max-w-5xl mx-auto w-full flex flex-col gap-10">
     <!-- Header -->
-    <div class="flex flex-col items-center text-center max-w-2xl mx-auto">
+    <div v-reveal:base class="flex flex-col items-center text-center max-w-2xl mx-auto">
       <div
         class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high/60 backdrop-blur-md shadow-sm mb-4 border border-black/[0.04] dark:border-white/[0.05]"
       >
@@ -169,6 +159,7 @@ async function handleSubmit(event: Event) {
 
     <!-- Main Glass Container -->
     <div
+      v-reveal:base
       class="rounded-3xl bg-surface-container-low/90 backdrop-blur-xl border border-black/[0.06] dark:border-white/[0.08] p-4 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden max-w-full"
     >
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-stretch">
@@ -188,14 +179,17 @@ async function handleSubmit(event: Event) {
                 href="https://github.com/spoiledunknown"
                 target="_blank"
                 rel="noreferrer"
-                class="group bg-surface-container hover:bg-surface-container-high border border-black/[0.04] dark:border-white/[0.06] rounded-2xl p-5 flex flex-col items-center justify-center gap-2.5 transition-all duration-300 hover:shadow-lg hover:border-primary/40"
+                class="group bg-surface-container hover:bg-surface-container-high border border-black/[0.04] dark:border-white/[0.06] rounded-2xl p-5 flex flex-col items-center justify-center gap-2.5 transition-all duration-400 ease-out hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-xl hover:border-primary/40 active:scale-95 cursor-pointer"
               >
                 <img
                   src="/links/github.svg"
                   alt="GitHub"
-                  class="w-8 h-8 group-hover:scale-110 transition-transform"
+                  class="w-8 h-8 transition-transform duration-400 ease-out group-hover:scale-115 group-hover:-rotate-3"
                 />
-                <span class="font-mono text-xs text-on-surface font-medium">GitHub</span>
+                <span
+                  class="font-mono text-xs text-on-surface font-medium transition-colors duration-300 group-hover:text-primary"
+                  >GitHub</span
+                >
               </a>
 
               <!-- YouTube -->
@@ -203,14 +197,17 @@ async function handleSubmit(event: Event) {
                 href="https://www.youtube.com/c/SpoiledUnknown"
                 target="_blank"
                 rel="noreferrer"
-                class="group bg-surface-container hover:bg-surface-container-high border border-black/[0.04] dark:border-white/[0.06] rounded-2xl p-5 flex flex-col items-center justify-center gap-2.5 transition-all duration-300 hover:shadow-lg hover:border-red-500/40"
+                class="group bg-surface-container hover:bg-surface-container-high border border-black/[0.04] dark:border-white/[0.06] rounded-2xl p-5 flex flex-col items-center justify-center gap-2.5 transition-all duration-400 ease-out hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-xl hover:border-red-500/40 active:scale-95 cursor-pointer"
               >
                 <img
                   src="/links/youtube.svg"
                   alt="YouTube"
-                  class="w-8 h-8 group-hover:scale-110 transition-transform"
+                  class="w-8 h-8 transition-transform duration-400 ease-out group-hover:scale-115 group-hover:-rotate-3"
                 />
-                <span class="font-mono text-xs text-on-surface font-medium">YouTube</span>
+                <span
+                  class="font-mono text-xs text-on-surface font-medium transition-colors duration-300 group-hover:text-red-400"
+                  >YouTube</span
+                >
               </a>
 
               <!-- Discord -->
@@ -218,14 +215,17 @@ async function handleSubmit(event: Event) {
                 href="https://discord.gg/YykdmCjzmQ"
                 target="_blank"
                 rel="noreferrer"
-                class="group bg-surface-container hover:bg-surface-container-high border border-black/[0.04] dark:border-white/[0.06] rounded-2xl p-5 flex flex-col items-center justify-center gap-2.5 transition-all duration-300 hover:shadow-lg hover:border-[#5865F2]/40"
+                class="group bg-surface-container hover:bg-surface-container-high border border-black/[0.04] dark:border-white/[0.06] rounded-2xl p-5 flex flex-col items-center justify-center gap-2.5 transition-all duration-400 ease-out hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-xl hover:border-[#5865F2]/40 active:scale-95 cursor-pointer"
               >
                 <img
                   src="/links/discord.svg"
                   alt="Discord"
-                  class="w-8 h-8 group-hover:scale-110 transition-transform"
+                  class="w-8 h-8 transition-transform duration-400 ease-out group-hover:scale-115 group-hover:-rotate-3"
                 />
-                <span class="font-mono text-xs text-on-surface font-medium">Discord</span>
+                <span
+                  class="font-mono text-xs text-on-surface font-medium transition-colors duration-300 group-hover:text-[#8891f7]"
+                  >Discord</span
+                >
               </a>
 
               <!-- LinkedIn -->
@@ -233,14 +233,17 @@ async function handleSubmit(event: Event) {
                 href="https://www.linkedin.com/in/shashank-raj-4a028540b"
                 target="_blank"
                 rel="noreferrer"
-                class="group bg-surface-container hover:bg-surface-container-high border border-black/[0.04] dark:border-white/[0.06] rounded-2xl p-5 flex flex-col items-center justify-center gap-2.5 transition-all duration-300 hover:shadow-lg hover:border-[#0077b5]/40"
+                class="group bg-surface-container hover:bg-surface-container-high border border-black/[0.04] dark:border-white/[0.06] rounded-2xl p-5 flex flex-col items-center justify-center gap-2.5 transition-all duration-400 ease-out hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-xl hover:border-[#0077b5]/40 active:scale-95 cursor-pointer"
               >
                 <img
                   src="/links/linkedin.svg"
                   alt="LinkedIn"
-                  class="w-8 h-8 group-hover:scale-110 transition-transform"
+                  class="w-8 h-8 transition-transform duration-400 ease-out group-hover:scale-115 group-hover:-rotate-3"
                 />
-                <span class="font-mono text-xs text-on-surface font-medium">LinkedIn</span>
+                <span
+                  class="font-mono text-xs text-on-surface font-medium transition-colors duration-300 group-hover:text-[#38a9e6]"
+                  >LinkedIn</span
+                >
               </a>
 
               <!-- Instagram -->
@@ -248,27 +251,33 @@ async function handleSubmit(event: Event) {
                 href="https://instagram.com/spoiledunknown"
                 target="_blank"
                 rel="noreferrer"
-                class="group bg-surface-container hover:bg-surface-container-high border border-black/[0.04] dark:border-white/[0.06] rounded-2xl p-5 flex flex-col items-center justify-center gap-2.5 transition-all duration-300 hover:shadow-lg hover:border-pink-500/40"
+                class="group bg-surface-container hover:bg-surface-container-high border border-black/[0.04] dark:border-white/[0.06] rounded-2xl p-5 flex flex-col items-center justify-center gap-2.5 transition-all duration-400 ease-out hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-xl hover:border-pink-500/40 active:scale-95 cursor-pointer"
               >
                 <img
                   src="/links/instagram.svg"
                   alt="Instagram"
-                  class="w-8 h-8 group-hover:scale-110 transition-transform"
+                  class="w-8 h-8 transition-transform duration-400 ease-out group-hover:scale-115 group-hover:-rotate-3"
                 />
-                <span class="font-mono text-xs text-on-surface font-medium">Instagram</span>
+                <span
+                  class="font-mono text-xs text-on-surface font-medium transition-colors duration-300 group-hover:text-pink-400"
+                  >Instagram</span
+                >
               </a>
 
               <!-- Direct Mail Link -->
               <a
                 :href="'mailto:' + profileData.email"
-                class="group bg-surface-container hover:bg-surface-container-high border border-black/[0.04] dark:border-white/[0.06] rounded-2xl p-5 flex flex-col items-center justify-center gap-2.5 transition-all duration-300 hover:shadow-lg hover:border-amber-500/40"
+                class="group bg-surface-container hover:bg-surface-container-high border border-black/[0.04] dark:border-white/[0.06] rounded-2xl p-5 flex flex-col items-center justify-center gap-2.5 transition-all duration-400 ease-out hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-xl hover:border-amber-500/40 active:scale-95 cursor-pointer"
               >
                 <img
                   src="/links/email.svg"
                   alt="Email"
-                  class="w-8 h-8 group-hover:scale-110 transition-transform"
+                  class="w-8 h-8 transition-transform duration-400 ease-out group-hover:scale-115 group-hover:-rotate-3"
                 />
-                <span class="font-mono text-xs text-on-surface font-medium">Mail Client</span>
+                <span
+                  class="font-mono text-xs text-on-surface font-medium transition-colors duration-300 group-hover:text-amber-400"
+                  >Mail Client</span
+                >
               </a>
             </div>
           </div>
@@ -278,10 +287,13 @@ async function handleSubmit(event: Event) {
             @click="copyEmailAddress"
             role="button"
             tabindex="0"
-            class="p-4 rounded-2xl bg-surface-container border border-black/[0.04] dark:border-white/[0.06] flex items-center justify-between cursor-pointer hover:border-primary/50 transition-all group select-none"
+            class="p-4 rounded-2xl bg-surface-container border border-black/[0.04] dark:border-white/[0.06] flex items-center justify-between cursor-pointer hover:border-primary/50 hover:bg-surface-container-high hover:-translate-y-0.5 hover:shadow-md active:scale-[0.99] transition-all duration-300 ease-out group select-none"
           >
             <div class="flex items-center gap-3">
-              <span class="text-2xl group-hover:scale-110 transition-transform">💌</span>
+              <span
+                class="text-2xl transition-transform duration-300 ease-out group-hover:scale-115 group-hover:rotate-6"
+                >💌</span
+              >
               <div class="flex flex-col">
                 <span class="font-mono text-xs font-semibold text-on-surface">
                   {{ emailCopied ? "Copied to clipboard!" : profileData.email }}
@@ -290,7 +302,7 @@ async function handleSubmit(event: Event) {
               </div>
             </div>
             <span
-              class="hidden sm:inline-flex material-symbols-outlined text-sm text-outline group-hover:text-primary transition-colors shrink-0"
+              class="hidden sm:inline-flex material-symbols-outlined text-sm text-outline group-hover:text-primary transition-all duration-300 ease-out group-hover:scale-110 shrink-0"
             >
               {{ emailCopied ? "done" : "content_copy" }}
             </span>
@@ -401,9 +413,12 @@ async function handleSubmit(event: Event) {
                     type="submit"
                     id="submit_button"
                     :disabled="formStatus.type === 'loading'"
-                    class="w-full sm:w-auto px-8 py-3 rounded-xl bg-primary-container hover:bg-blue-600 disabled:opacity-50 text-white font-display text-sm font-semibold tracking-wide transition-all shadow-md hover:shadow-[0_0_20px_rgba(45,104,255,0.4)] cursor-pointer flex items-center justify-center gap-2"
+                    class="w-full sm:w-auto px-8 py-3 rounded-xl bg-primary-container hover:bg-blue-600 disabled:opacity-50 text-white font-display text-sm font-semibold tracking-wide transition-all duration-300 ease-out hover:scale-105 active:scale-95 shadow-md hover:shadow-[0_0_25px_rgba(45,104,255,0.45)] cursor-pointer flex items-center justify-center gap-2 group"
                   >
-                    <span class="material-symbols-outlined text-sm">send</span>
+                    <span
+                      class="material-symbols-outlined text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 ease-out"
+                      >send</span
+                    >
                     <span>{{
                       formStatus.type === "loading" ? "Transmitting..." : "Submit Message"
                     }}</span>
@@ -413,7 +428,7 @@ async function handleSubmit(event: Event) {
                   <p
                     v-if="formStatus.message"
                     :class="[
-                      'font-mono text-xs transition-all text-center sm:text-left',
+                      'font-mono text-xs transition-all duration-300 ease-out text-center sm:text-left',
                       formStatus.type === 'success' ? 'text-emerald-400 font-semibold' : '',
                       formStatus.type === 'error' ? 'text-rose-400 font-semibold' : '',
                       formStatus.type === 'loading' ? 'text-primary animate-pulse' : '',

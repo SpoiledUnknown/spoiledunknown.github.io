@@ -13,63 +13,105 @@ const fadeDurationSec = computed(() => `${THEME_TRANSITION_TIMINGS.FADE_OUT_DURA
 </script>
 
 <template>
-  <div
-    v-if="isTransitioning"
-    class="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none overflow-hidden"
-    :class="{
-      'opacity-100': transitionStage === 'expanding' || transitionStage === 'swapping',
-      'opacity-0': transitionStage === 'fading',
-    }"
-    :style="{
-      transition: `opacity ${fadeDurationSec} cubic-bezier(0.16, 1, 0.3, 1)`,
-    }"
-  >
-    <!-- Expanding Radial Veil: Grows until full screen coverage, then theme swaps -->
+  <Transition name="theme-panel-fade">
     <div
-      :class="[
-        'absolute rounded-full shadow-2xl transition-transform ease-out',
-        transitionTargetIsDark
-          ? 'bg-[#0D0F14] ring-4 ring-[#2D68FF]/50'
-          : 'bg-[#F8FAFC] ring-4 ring-blue-500/40',
-        transitionStage === 'expanding' ||
-        transitionStage === 'swapping' ||
-        transitionStage === 'fading'
-          ? 'scale-[80]'
-          : 'scale-0',
-      ]"
-      :style="{
-        width: '120px',
-        height: '120px',
-        transitionDuration: expandDurationSec,
-        transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)',
-      }"
-    ></div>
-
-    <!-- Center Celestial Glyph Indicator -->
-    <div
-      class="relative z-10 flex flex-col items-center gap-3 transition-all duration-300"
+      v-if="isTransitioning"
+      class="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none overflow-hidden"
       :class="{
-        'scale-100 opacity-100': transitionStage === 'expanding' || transitionStage === 'swapping',
-        'scale-110 opacity-0': transitionStage === 'fading',
+        'opacity-100': transitionStage === 'expanding' || transitionStage === 'swapping',
+        'opacity-0': transitionStage === 'fading',
+      }"
+      :style="{
+        transition: `opacity ${fadeDurationSec} cubic-bezier(0.16, 1, 0.3, 1)`,
       }"
     >
+      <!-- Soft Ambient Backdrop Scrim with Fade-In / Fade-Out -->
       <div
-        class="w-16 h-16 rounded-full bg-surface-container/90 backdrop-blur-xl border border-white/20 flex items-center justify-center shadow-2xl"
+        class="absolute inset-0 bg-black/30 dark:bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-out"
+        :class="{
+          'opacity-100': transitionStage === 'expanding' || transitionStage === 'swapping',
+          'opacity-0': transitionStage === 'fading',
+        }"
+      ></div>
+
+      <!-- Expanding Radial Veil: Grows until full screen coverage, then theme swaps -->
+      <div
+        :class="[
+          'absolute rounded-full shadow-2xl transition-transform ease-out',
+          transitionTargetIsDark
+            ? 'bg-[#0D0F14] ring-4 ring-[#2D68FF]/50'
+            : 'bg-[#F8FAFC] ring-4 ring-blue-500/40',
+          transitionStage === 'expanding' ||
+          transitionStage === 'swapping' ||
+          transitionStage === 'fading'
+            ? 'scale-[80]'
+            : 'scale-0',
+        ]"
+        :style="{
+          width: '120px',
+          height: '120px',
+          transitionDuration: expandDurationSec,
+          transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        }"
+      ></div>
+
+      <!-- Center Celestial Glyph Indicator with Entry Spring & Exit Fade -->
+      <div
+        class="theme-glyph-card relative z-10 flex flex-col items-center gap-3 transition-all duration-300"
+        :class="{
+          'scale-100 opacity-100 filter-none':
+            transitionStage === 'expanding' || transitionStage === 'swapping',
+          'scale-110 opacity-0 blur-sm': transitionStage === 'fading',
+        }"
       >
-        <span class="material-symbols-outlined text-2xl text-primary animate-spin-slow">
-          {{ transitionTargetIsDark ? "dark_mode" : "light_mode" }}
+        <div
+          class="w-16 h-16 rounded-full bg-surface-container/90 backdrop-blur-xl border border-white/20 flex items-center justify-center shadow-2xl"
+        >
+          <span class="material-symbols-outlined text-2xl text-primary animate-spin-slow">
+            {{ transitionTargetIsDark ? "dark_mode" : "light_mode" }}
+          </span>
+        </div>
+        <span
+          class="font-mono text-xs text-primary/90 uppercase tracking-widest font-semibold drop-shadow-md"
+        >
+          {{ transitionTargetIsDark ? "Obsidian Mode" : "Light Mode" }}
         </span>
       </div>
-      <span
-        class="font-mono text-xs text-primary/90 uppercase tracking-widest font-semibold drop-shadow-md"
-      >
-        {{ transitionTargetIsDark ? "Obsidian Mode" : "Light Mode" }}
-      </span>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <style scoped>
+/* Outer panel fade-in and fade-out */
+.theme-panel-fade-enter-active {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-panel-fade-leave-active {
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-panel-fade-enter-from,
+.theme-panel-fade-leave-to {
+  opacity: 0;
+}
+
+/* Center glyph card spring on open */
+.theme-glyph-card {
+  animation: glyphAppear 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes glyphAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.75) translateY(12px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px);
+  }
+}
+
 @keyframes spinSlow {
   from {
     transform: rotate(0deg);

@@ -2,12 +2,29 @@ import { ref } from "vue";
 import type { ThemeMode } from "../types";
 
 const STORAGE_KEY = "spoiledunknown-theme";
-const isDark = ref(true);
+
+function detectInitialTheme(): boolean {
+  if (typeof document !== "undefined") {
+    if (document.documentElement.classList.contains("light")) return false;
+    if (document.documentElement.classList.contains("dark")) return true;
+  }
+  if (typeof window !== "undefined") {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved === "light") return false;
+      if (saved === "dark") return true;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    } catch {}
+  }
+  return true;
+}
+
+const isDark = ref(detectInitialTheme());
 const isUserPinned = ref(false);
 
 export const isTransitioning = ref(false);
 export const transitionStage = ref<"idle" | "expanding" | "swapping" | "fading">("idle");
-export const transitionTargetIsDark = ref(true);
+export const transitionTargetIsDark = ref(isDark.value);
 
 // =============================================================================
 // THEME SWITCH TRANSITION TIMINGS (in milliseconds):
@@ -70,6 +87,9 @@ export function useTheme() {
     // Prevent overlapping transitions while one is already active
     if (isTransitioning.value) return;
 
+    // Capture current scroll position so viewport never jumps during theme change
+    const preservedScrollY = typeof window !== "undefined" ? window.scrollY : 0;
+
     const target = !isDark.value;
     isUserPinned.value = true;
     localStorage.setItem(STORAGE_KEY, target ? "dark" : "light");
@@ -87,6 +107,11 @@ export function useTheme() {
     transitionStage.value = "swapping";
     applyTheme(target);
 
+    // Ensure scroll position remains locked exactly where the user is
+    if (typeof window !== "undefined" && window.scrollY !== preservedScrollY) {
+      window.scrollTo({ top: preservedScrollY, behavior: "instant" });
+    }
+
     await new Promise((resolve) => setTimeout(resolve, THEME_TRANSITION_TIMINGS.SWAP_PAUSE_MS));
 
     // Stage 3: Smoothly fade out the veil to reveal the rendered theme
@@ -99,6 +124,11 @@ export function useTheme() {
     // Stage 4: Reset state completely
     isTransitioning.value = false;
     transitionStage.value = "idle";
+
+    // Final check to guarantee scroll position remains undisturbed
+    if (typeof window !== "undefined" && window.scrollY !== preservedScrollY) {
+      window.scrollTo({ top: preservedScrollY, behavior: "instant" });
+    }
   }
 
   function setSystemTheme() {

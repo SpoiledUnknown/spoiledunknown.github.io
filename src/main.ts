@@ -1,5 +1,8 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import "./assets/main.css";
+import { vReveal } from "./directives/vReveal";
 
-createApp(App).mount("#app");
+const app = createApp(App);
+app.directive("reveal", vReveal);
+app.mount("#app");

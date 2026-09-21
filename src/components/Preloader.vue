@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
+import { useTheme } from "../composables/useTheme";
+
+const { isDark } = useTheme();
 
 // =============================================================================
 // PRELOADER CONFIGURATION:
@@ -65,9 +68,12 @@ function finishPreloader() {
   isClosing.value = true;
   document.body.style.overflow = "";
 
-  setTimeout(() => {
-    isVisible.value = false;
-  }, 650);
+  // Smooth cinematic exit transition handled by Vue <Transition>
+  isVisible.value = false;
+}
+
+function onPreloaderAfterLeave() {
+  if (animationFrameId) cancelAnimationFrame(animationFrameId);
 }
 
 function checkCanDismiss() {
@@ -122,127 +128,212 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div
-    v-if="isVisible"
-    class="fixed inset-0 z-[120] bg-[#0D0F14] text-[#E2E2E9] flex flex-col items-center justify-between p-8 select-none transition-all duration-600 ease-out"
-    :class="{
-      'opacity-0 scale-105 pointer-events-none': isClosing,
-      'opacity-100 scale-100': !isClosing,
-    }"
-  >
-    <!-- Top Branding Telemetry -->
-    <div class="w-full max-w-4xl flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div
-          class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#2D68FF] to-[#60A5FA] p-[1.5px] flex items-center justify-center"
-        >
-          <div class="w-full h-full rounded-full bg-[#0D0F14] flex items-center justify-center">
-            <span class="font-display font-bold text-xs text-[#B5C4FF]">SR</span>
+  <Transition name="preloader-fade" @after-leave="onPreloaderAfterLeave">
+    <div
+      v-if="isVisible"
+      :class="[
+        'fixed inset-0 z-[120] flex flex-col items-center justify-between p-6 sm:p-8 select-none transition-colors duration-400',
+        isDark ? 'bg-[#0D0F14] text-[#E2E2E9]' : 'bg-[#F8FAFC] text-[#0F172A]',
+      ]"
+    >
+      <!-- Top Branding Telemetry -->
+      <div class="w-full max-w-4xl flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#2D68FF] to-[#60A5FA] p-[1.5px] flex items-center justify-center shadow-sm"
+          >
+            <div
+              :class="[
+                'w-full h-full rounded-full flex items-center justify-center transition-colors duration-400',
+                isDark ? 'bg-[#0D0F14]' : 'bg-white',
+              ]"
+            >
+              <span class="font-display font-bold text-xs text-[#2D68FF]">SR</span>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span
+              :class="[
+                'font-display text-sm font-semibold tracking-tight transition-colors duration-400',
+                isDark ? 'text-white' : 'text-slate-900',
+              ]"
+            >
+              Shashank Raj
+            </span>
+            <span
+              :class="[
+                'font-mono text-[10px] transition-colors duration-400',
+                isDark ? 'text-gray-400' : 'text-slate-500',
+              ]"
+            >
+              @spoiledunknown
+            </span>
           </div>
         </div>
-        <div class="flex flex-col">
-          <span class="font-display text-sm font-semibold text-white tracking-tight"
-            >Shashank Raj</span
-          >
-          <span class="font-mono text-[10px] text-gray-400">@spoiledunknown</span>
+
+        <div
+          :class="[
+            'inline-flex items-center gap-2 px-3 py-1 rounded-full backdrop-blur-md border shadow-sm transition-colors duration-400',
+            isDark
+              ? 'bg-white/[0.04] border-white/[0.08] text-gray-300'
+              : 'bg-black/[0.04] border-black/[0.08] text-slate-700',
+          ]"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-[#2D68FF] animate-ping"></span>
+          <span class="font-mono text-xs font-medium">System Initializing</span>
         </div>
       </div>
 
+      <!-- Center: Interactive Gyroscopic Fidget Spinner -->
       <div
-        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md"
+        class="flex flex-col items-center gap-8 cursor-grab active:cursor-grabbing"
+        @mousedown="onPointerDown"
+        @mousemove="onPointerMove"
+        @touchstart="onPointerDown"
+        @touchmove="onPointerMove"
+        @click="triggerFidgetBoost"
       >
-        <span class="w-1.5 h-1.5 rounded-full bg-[#2D68FF] animate-ping"></span>
-        <span class="font-mono text-xs text-gray-300">System Initializing</span>
-      </div>
-    </div>
-
-    <!-- Center: Interactive Gyroscopic Fidget Spinner -->
-    <div
-      class="flex flex-col items-center gap-8 cursor-grab active:cursor-grabbing"
-      @mousedown="onPointerDown"
-      @mousemove="onPointerMove"
-      @touchstart="onPointerDown"
-      @touchmove="onPointerMove"
-      @click="triggerFidgetBoost"
-    >
-      <div class="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center group">
-        <!-- Ambient Glow Bloom -->
-        <div
-          class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2D68FF]/20 to-[#FF2A55]/15 blur-3xl group-hover:scale-110 transition-transform duration-500"
-        ></div>
-
-        <!-- Outer Ring -->
-        <div
-          class="absolute inset-2 rounded-full border border-dashed border-[#2D68FF]/40"
-          :style="{ transform: `rotate(${fidgetRotation}deg)` }"
-        ></div>
-
-        <!-- Middle Counter-Rotating Ring -->
-        <div
-          class="absolute inset-8 rounded-full border border-white/15"
-          :style="{ transform: `rotate(${-fidgetRotation * 1.4}deg)` }"
-        >
-          <!-- Orbital Satellite nodes -->
+        <div class="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center group">
+          <!-- Ambient Glow Bloom -->
           <div
-            class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#60A5FA] shadow-[0_0_12px_#60A5FA]"
+            :class="[
+              'absolute inset-0 rounded-full blur-3xl group-hover:scale-110 transition-all duration-500',
+              isDark
+                ? 'bg-gradient-to-tr from-[#2D68FF]/20 to-[#FF2A55]/15'
+                : 'bg-gradient-to-tr from-[#2D68FF]/15 to-[#FF2A55]/10',
+            ]"
           ></div>
+
+          <!-- Outer Ring -->
           <div
-            class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3 h-3 rounded-full bg-[#FF2A55] shadow-[0_0_12px_#FF2A55]"
+            class="absolute inset-2 rounded-full border border-dashed border-[#2D68FF]/40"
+            :style="{ transform: `rotate(${fidgetRotation}deg)` }"
           ></div>
-        </div>
 
-        <!-- Inner Gyroscope Ring -->
-        <div
-          class="absolute inset-16 rounded-full border-2 border-[#B5C4FF]/30"
-          :style="{ transform: `rotate(${fidgetRotation * 2.2}deg)` }"
-        >
+          <!-- Middle Counter-Rotating Ring -->
           <div
-            class="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34D399]"
-          ></div>
-        </div>
-
-        <!-- Core Interactive Fidget Hub -->
-        <div
-          class="w-24 h-24 rounded-full bg-[#141B2D]/90 backdrop-blur-xl border border-white/20 flex flex-col items-center justify-center shadow-[0_0_35px_rgba(45,104,255,0.35)] group-hover:scale-105 transition-transform"
-        >
-          <span class="font-display font-bold text-lg text-white">
-            {{ isClosing ? "100%" : `${progressPercent}%` }}
-          </span>
-          <span class="font-mono text-[9px] text-[#B5C4FF] uppercase tracking-wider">
-            {{ isClosing ? "Ready" : "Loaded" }}
-          </span>
-        </div>
-      </div>
-
-      <!-- Playful Fidget Prompt -->
-      <div class="flex flex-col items-center gap-1.5 text-center">
-        <span class="font-mono text-xs text-gray-300 flex items-center gap-2">
-          <span class="material-symbols-outlined text-sm text-[#2D68FF] animate-pulse"
-            >touch_app</span
+            :class="[
+              'absolute inset-8 rounded-full border transition-colors duration-400',
+              isDark ? 'border-white/15' : 'border-black/15',
+            ]"
+            :style="{ transform: `rotate(${-fidgetRotation * 1.4}deg)` }"
           >
-          <span>Click, drag, or flick the gyroscope to spin</span>
-        </span>
-        <span v-if="spinCount > 0" class="font-mono text-[11px] text-[#2D68FF] font-semibold">
-          Fidget Energy: +{{ spinCount * 12 }} RPM
-        </span>
-      </div>
-    </div>
+            <!-- Orbital Satellite nodes -->
+            <div
+              class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#60A5FA] shadow-[0_0_12px_#60A5FA]"
+            ></div>
+            <div
+              class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3 h-3 rounded-full bg-[#FF2A55] shadow-[0_0_12px_#FF2A55]"
+            ></div>
+          </div>
 
-    <!-- Bottom: Progress Bar & Verification Info -->
-    <div class="w-full max-w-md flex flex-col gap-3">
-      <div class="flex items-center justify-between font-mono text-xs text-gray-400">
-        <span>Asset Pipeline</span>
-        <span>{{ isClosing ? "100%" : `${progressPercent}%` }}</span>
+          <!-- Inner Gyroscope Ring -->
+          <div
+            :class="[
+              'absolute inset-16 rounded-full border-2 transition-colors duration-400',
+              isDark ? 'border-[#B5C4FF]/30' : 'border-[#2D68FF]/30',
+            ]"
+            :style="{ transform: `rotate(${fidgetRotation * 2.2}deg)` }"
+          >
+            <div
+              class="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34D399]"
+            ></div>
+          </div>
+
+          <!-- Core Interactive Fidget Hub -->
+          <div
+            :class="[
+              'w-24 h-24 rounded-full backdrop-blur-xl border flex flex-col items-center justify-center transition-all duration-300 group-hover:scale-105 shadow-2xl',
+              isDark
+                ? 'bg-[#141B2D]/90 border-white/20 shadow-[0_0_35px_rgba(45,104,255,0.35)]'
+                : 'bg-white/95 border-black/10 shadow-[0_10px_30px_rgba(45,104,255,0.2)]',
+            ]"
+          >
+            <span
+              :class="[
+                'font-display font-bold text-lg transition-colors duration-400',
+                isDark ? 'text-white' : 'text-slate-900',
+              ]"
+            >
+              {{ isClosing ? "100%" : `${progressPercent}%` }}
+            </span>
+            <span
+              :class="[
+                'font-mono text-[9px] uppercase tracking-wider font-semibold transition-colors duration-400',
+                isDark ? 'text-[#B5C4FF]' : 'text-primary-container',
+              ]"
+            >
+              {{ isClosing ? "Ready" : "Loaded" }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Playful Fidget Prompt -->
+        <div class="flex flex-col items-center gap-1.5 text-center">
+          <span
+            :class="[
+              'font-mono text-xs flex items-center gap-2 transition-colors duration-400',
+              isDark ? 'text-gray-300' : 'text-slate-600',
+            ]"
+          >
+            <span class="material-symbols-outlined text-sm text-[#2D68FF] animate-pulse"
+              >touch_app</span
+            >
+            <span>Click, drag, or flick the gyroscope to spin</span>
+          </span>
+          <span v-if="spinCount > 0" class="font-mono text-[11px] text-[#2D68FF] font-semibold">
+            Fidget Energy: +{{ spinCount * 12 }} RPM
+          </span>
+        </div>
       </div>
-      <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+
+      <!-- Bottom: Progress Bar & Verification Info -->
+      <div class="w-full max-w-md flex flex-col gap-3">
         <div
-          class="h-full bg-gradient-to-r from-[#2D68FF] via-[#60A5FA] to-emerald-400 rounded-full transition-all duration-100 ease-out shadow-[0_0_10px_rgba(45,104,255,0.8)]"
-          :style="{ width: isClosing ? '100%' : `${progressPercent}%` }"
-        ></div>
+          :class="[
+            'flex items-center justify-between font-mono text-xs transition-colors duration-400',
+            isDark ? 'text-gray-400' : 'text-slate-500',
+          ]"
+        >
+          <span>Asset Pipeline</span>
+          <span>{{ isClosing ? "100%" : `${progressPercent}%` }}</span>
+        </div>
+        <div
+          :class="[
+            'w-full h-1.5 rounded-full overflow-hidden transition-colors duration-400',
+            isDark ? 'bg-white/10' : 'bg-black/10',
+          ]"
+        >
+          <div
+            class="h-full bg-gradient-to-r from-[#2D68FF] via-[#60A5FA] to-emerald-400 rounded-full transition-all duration-100 ease-out shadow-[0_0_10px_rgba(45,104,255,0.8)]"
+            :style="{ width: isClosing ? '100%' : `${progressPercent}%` }"
+          ></div>
+        </div>
+        <span
+          :class="[
+            'font-mono text-[10px] text-center transition-colors duration-400',
+            isDark ? 'text-gray-500' : 'text-slate-400',
+          ]"
+        >
+          Enforcing 5s asset verification & hydration window
+        </span>
       </div>
-      <span class="font-mono text-[10px] text-gray-500 text-center">
-        Enforcing 5s asset verification & hydration window
-      </span>
     </div>
-  </div>
+  </Transition>
 </template>
+
+<style scoped>
+.preloader-fade-leave-active {
+  transition:
+    opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.preloader-fade-leave-to {
+  opacity: 0;
+  transform: scale(1.04);
+  filter: blur(10px);
+}
+</style>

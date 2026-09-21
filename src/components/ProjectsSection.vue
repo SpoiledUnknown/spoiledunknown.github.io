@@ -64,7 +64,7 @@ function onSliderScroll() {
 <template>
   <section id="projects" class="py-16 md:py-24 max-w-6xl mx-auto w-full flex flex-col gap-14">
     <!-- Section Header -->
-    <div class="flex flex-col gap-3">
+    <div v-reveal:base class="flex flex-col gap-3">
       <div class="flex items-center gap-2">
         <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
         <span class="font-mono text-xs text-primary uppercase tracking-widest font-semibold"
@@ -80,9 +80,10 @@ function onSliderScroll() {
       </p>
     </div>
 
-    <!-- Featured Hero Billboard (Netflix Billboard Format) -->
+    <!-- Featured Hero Billboard (Netflix Billboard Format with Special 3D Perspective Reveal) -->
     <div
-      class="group relative w-full rounded-3xl bg-surface-container-low/90 overflow-hidden shadow-2xl transition-all duration-500 border border-black/[0.06] dark:border-white/[0.08] hover:shadow-[0_24px_50px_rgba(45,104,255,0.18)]"
+      v-reveal:projects
+      class="group relative w-full rounded-3xl bg-surface-container-low/90 overflow-hidden shadow-2xl transition-all duration-700 ease-out border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 hover:shadow-[0_28px_60px_rgba(45,104,255,0.22)] hover:-translate-y-1"
       @mouseenter="emit('set-ambient', featuredProject.ambientColor)"
       @mouseleave="emit('reset-ambient')"
     >
@@ -93,7 +94,7 @@ function onSliderScroll() {
         <img
           :src="featuredProject.image"
           :alt="featuredProject.title"
-          class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+          class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           loading="lazy"
         />
 
@@ -162,7 +163,7 @@ function onSliderScroll() {
             :href="featuredProject.links.store"
             target="_blank"
             rel="noreferrer"
-            class="flex items-center gap-2 bg-primary-container hover:bg-blue-600 text-white px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all shadow-[0_0_20px_rgba(45,104,255,0.4)]"
+            class="flex items-center gap-2 bg-primary-container hover:bg-blue-600 text-white px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 ease-out hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(45,104,255,0.4)] hover:shadow-[0_0_30px_rgba(45,104,255,0.6)]"
           >
             <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
             <span>Get on Unity Store</span>
@@ -173,7 +174,7 @@ function onSliderScroll() {
             :href="featuredProject.links.github"
             target="_blank"
             rel="noreferrer"
-            class="flex items-center gap-2 bg-surface-container-high hover:bg-surface-bright text-on-surface px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all border border-white/[0.06]"
+            class="flex items-center gap-2 bg-surface-container-high hover:bg-surface-bright text-on-surface px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 ease-out hover:scale-105 active:scale-95 border border-white/[0.06] hover:border-primary/40"
           >
             <span class="material-symbols-outlined text-[18px]">code</span>
             <span>Browse Repository</span>
@@ -185,8 +186,8 @@ function onSliderScroll() {
       </div>
     </div>
 
-    <!-- Curated Deployments Showcase Grid & Slider -->
-    <div class="flex flex-col gap-6">
+    <!-- Curated Deployments Showcase Grid & Slider with Special Reveal Animation -->
+    <div v-reveal:projects class="flex flex-col gap-6">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div class="flex items-center gap-3">
           <h3 class="font-display text-2xl font-bold text-on-surface">Curated Deployments</h3>
@@ -230,9 +231,10 @@ function onSliderScroll() {
         class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 pt-2 scroll-smooth no-scrollbar -mx-2 px-2"
       >
         <div
-          v-for="project in otherProjects"
+          v-for="(project, idx) in otherProjects"
           :key="project.id"
-          class="w-[320px] sm:w-[370px] shrink-0 snap-start flex flex-col justify-between rounded-2xl overflow-hidden bg-surface-container-low/80 backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 transition-all duration-300 hover:-translate-y-1.5 shadow-xl group"
+          class="project-card-item w-[320px] sm:w-[370px] shrink-0 snap-start flex flex-col justify-between rounded-2xl overflow-hidden bg-surface-container-low/80 backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 transition-all duration-300 hover:-translate-y-1.5 shadow-xl group"
+          :style="{ '--stagger': idx }"
           @mouseenter="emit('set-ambient', project.ambientColor)"
           @mouseleave="emit('reset-ambient')"
         >
@@ -382,7 +384,7 @@ function onSliderScroll() {
           <span class="font-mono text-[10px] text-outline uppercase tracking-wider"
             >TOTAL REPOSITORIES</span
           >
-          <span class="font-display text-xl text-on-surface font-bold">24+ Repos</span>
+          <span class="font-display text-xl text-on-surface font-bold">17+ Repos</span>
         </div>
         <a
           href="https://github.com/spoiledunknown"
