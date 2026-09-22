@@ -156,7 +156,7 @@ watch(selectedCategory, () => {
       <Transition name="blogs-spotlight" mode="out-in">
         <div
           :key="spotlightArticle.id"
-          class="blog-spotlight-item group relative w-full rounded-3xl bg-surface-container-low/90 overflow-hidden shadow-2xl transition-all duration-700 ease-out border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 hover:shadow-[0_28px_60px_rgba(45,104,255,0.22)] hover:-translate-y-1"
+          class="blog-spotlight-item group relative w-full rounded-3xl bg-surface-container-low/90 overflow-hidden shadow-2xl transition-all duration-700 ease-out border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 hover:shadow-[0_28px_60px_rgba(45,104,255,0.22)]"
         >
           <!-- Media Aspect Container -->
           <div

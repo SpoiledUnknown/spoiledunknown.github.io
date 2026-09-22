@@ -46,70 +46,19 @@ import { profileData } from "../data/profile";
             <h2 class="font-display text-2xl sm:text-3xl font-bold text-on-surface tracking-tight">
               {{ profileData.name }}
             </h2>
-            <div class="flex items-center gap-2 mt-1">
-              <span class="font-mono text-xs sm:text-sm text-primary font-medium">{{
-                profileData.handle
-              }}</span>
-              <span class="text-outline text-xs">/</span>
-              <span
-                class="font-mono text-xs sm:text-sm text-on-surface-variant flex items-center gap-1"
-              >
-                <span class="material-symbols-outlined text-[15px] text-tertiary">location_on</span>
-                {{ profileData.location }}
-              </span>
-            </div>
+            <span class="font-mono text-xs sm:text-sm text-primary font-medium">{{
+              profileData.handle
+            }}</span>
           </div>
 
           <!-- Primary Focus Badge -->
           <div
             class="bg-surface-container-high/60 rounded-xl p-3.5 flex flex-col gap-1 border border-black/[0.03] dark:border-white/[0.04] transition-all duration-300 ease-out group-hover:bg-surface-container-high/80"
           >
-            <span class="font-mono text-[10px] text-outline uppercase tracking-wider"
-              >Current Focus</span
-            >
             <span class="font-mono text-sm text-on-surface flex items-center gap-2 font-medium">
               <span class="material-symbols-outlined text-[16px] text-primary">terminal</span>
               MEVN Stack & Unity Engine
             </span>
-          </div>
-
-          <!-- Quick Telemetry Information -->
-          <div class="flex flex-col gap-2 pt-2">
-            <div
-              class="flex items-start gap-3 text-on-surface-variant transition-all duration-300 ease-out hover:translate-x-1 hover:text-on-surface p-1 rounded-lg"
-            >
-              <span class="material-symbols-outlined text-[18px] text-primary mt-0.5"
-                >calendar_month</span
-              >
-              <div class="flex flex-col">
-                <span class="text-xs font-semibold text-on-surface">Started in 2019</span>
-                <span class="text-[11px] text-outline">Began out of spontaneous curiosity</span>
-              </div>
-            </div>
-
-            <div
-              class="flex items-start gap-3 text-on-surface-variant transition-all duration-300 ease-out hover:translate-x-1 hover:text-on-surface p-1 rounded-lg"
-            >
-              <span class="material-symbols-outlined text-[18px] text-primary mt-0.5">school</span>
-              <div class="flex flex-col">
-                <span class="text-xs font-semibold text-on-surface">Self-Taught Engineer</span>
-                <span class="text-[11px] text-outline"
-                  >Autonomous discovery & systems architecture</span
-                >
-              </div>
-            </div>
-
-            <div
-              class="flex items-start gap-3 text-on-surface-variant transition-all duration-300 ease-out hover:translate-x-1 hover:text-on-surface p-1 rounded-lg"
-            >
-              <span class="material-symbols-outlined text-[18px] text-primary mt-0.5"
-                >handshake</span
-              >
-              <div class="flex flex-col">
-                <span class="text-xs font-semibold text-on-surface">Open for Opportunities</span>
-                <span class="text-[11px] text-outline">Full-stack web, tooling & game dev</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>

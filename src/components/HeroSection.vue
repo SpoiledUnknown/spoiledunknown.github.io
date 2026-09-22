@@ -85,7 +85,7 @@ const { displayText } = useTypewriter(profileData.typewriterRoles);
         >
         <span
           class="font-display text-2xl sm:text-4xl text-on-surface font-light transition-all duration-200"
-        >
+          >
           {{ displayText }}
         </span>
         <span class="inline-block w-0.5 h-7 bg-primary animate-pulse ml-0.5 self-center"></span>

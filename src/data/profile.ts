@@ -11,10 +11,9 @@ export const profileData = {
   bioShort:
     "I build high-performance web applications, games, and developer tooling with a focus on craft, ergonomics, and clean systems architecture.",
   bioParagraphs: [
-    "I'm Shashank Raj (also known online as Spoiled Unknown).",
-    "I'm a self-taught software developer from India. I started programming in 2019 out of curiosity, without expecting it to become such a big part of my life. Since then, it's grown from a hobby into something I genuinely enjoy. I like building things that are useful, interesting, or simply fun to create—especially tools and projects that solve real problems or make someone's life a little easier.",
-    "My journey began with small web games and gradually expanded into different areas, including web development, game development, graphics programming, and software projects. These days I mainly work with the MEVN stack for web applications and Unity for game development, though I still enjoy exploring new technologies whenever something catches my interest.",
-    "Outside of programming, I enjoy exploring things beyond software as well. I occasionally spend time on video editing, graphic design, photo editing, hardware tinkering, and experimenting with random ideas that seem interesting. I enjoy learning new things, even when they're completely unrelated to programming.",
+    "I'm Shashank Raj, also known online as Spoiled Unknown. I'm a self-taught software developer from India who started programming in 2019 out of curiosity and gradually turned it into something I genuinely enjoy.",
+    "I build useful, interesting, and sometimes just fun things. I mainly work with the MEVN stack for web development and Unity for game development, while also exploring areas like graphics programming and other software projects.",
+    "Outside of programming, I enjoy experimenting with video editing, graphic and photo editing, hardware tinkering, and random ideas that catch my interest. I like learning and exploring new things, even when they have nothing to do with software.",
   ],
   typewriterRoles: [
     "Web Architect",
