@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onUnmounted } from "vue";
 import { projectsData } from "../data/projects";
 import type { Project } from "../types";
 
@@ -59,6 +59,13 @@ function onSliderScroll() {
     targetLeft = sliderRef.value.scrollLeft;
   }
 }
+
+onUnmounted(() => {
+  if (scrollResetTimer) {
+    clearTimeout(scrollResetTimer);
+    scrollResetTimer = null;
+  }
+});
 </script>
 
 <template>

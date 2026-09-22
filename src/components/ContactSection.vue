@@ -1,7 +1,13 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { profileData } from "../data/profile";
 import { useTheme } from "../composables/useTheme";
+
+interface HCaptchaAPI {
+  render: (el: HTMLElement, opt: Record<string, unknown>) => string | number;
+  reset: (id?: string | number) => void;
+  getResponse: (id?: string | number) => string;
+}
 
 const { isDark } = useTheme();
 
@@ -14,19 +20,16 @@ const formStatus = ref<{ message: string; type: "idle" | "loading" | "success" |
 const formRef = ref<HTMLFormElement | null>(null);
 const captchaContainerRef = ref<HTMLDivElement | null>(null);
 let captchaWidgetId: string | number | null = null;
+let hcaptchaRetryTimer: ReturnType<typeof setTimeout> | null = null;
+let copyTimer: ReturnType<typeof setTimeout> | null = null;
+let statusTimer: ReturnType<typeof setTimeout> | null = null;
+let hcaptchaRetryCount = 0;
+const MAX_HCAPTCHA_RETRIES = 20;
 
 function renderHCaptcha() {
   if (typeof window === "undefined" || !captchaContainerRef.value) return;
 
-  const hcaptcha = (
-    window as unknown as {
-      hcaptcha?: {
-        render: (el: HTMLElement, opt: Record<string, unknown>) => string | number;
-        reset: (id?: string | number) => void;
-        getResponse: (id?: string | number) => string;
-      };
-    }
-  ).hcaptcha;
+  const hcaptcha = (window as unknown as { hcaptcha?: HCaptchaAPI }).hcaptcha;
 
   if (hcaptcha && typeof hcaptcha.render === "function") {
     if (captchaWidgetId !== null) return;
@@ -38,8 +41,10 @@ function renderHCaptcha() {
     } catch (e) {
       console.warn("hCaptcha render notice:", e);
     }
-  } else {
-    setTimeout(renderHCaptcha, 300);
+  } else if (hcaptchaRetryCount < MAX_HCAPTCHA_RETRIES) {
+    hcaptchaRetryCount++;
+    if (hcaptchaRetryTimer) clearTimeout(hcaptchaRetryTimer);
+    hcaptchaRetryTimer = setTimeout(renderHCaptcha, 300);
   }
 }
 
@@ -47,11 +52,19 @@ onMounted(() => {
   renderHCaptcha();
 });
 
+onUnmounted(() => {
+  if (hcaptchaRetryTimer) clearTimeout(hcaptchaRetryTimer);
+  if (copyTimer) clearTimeout(copyTimer);
+  if (statusTimer) clearTimeout(statusTimer);
+});
+
 function copyEmailAddress() {
   navigator.clipboard.writeText(profileData.email).then(() => {
     emailCopied.value = true;
-    setTimeout(() => {
+    if (copyTimer) clearTimeout(copyTimer);
+    copyTimer = setTimeout(() => {
       emailCopied.value = false;
+      copyTimer = null;
     }, 2500);
   });
 }
@@ -111,8 +124,10 @@ async function handleSubmit(event: Event) {
       if (hcaptcha && typeof hcaptcha.reset === "function") {
         hcaptcha.reset(captchaWidgetId ?? undefined);
       }
-      setTimeout(() => {
+      if (statusTimer) clearTimeout(statusTimer);
+      statusTimer = setTimeout(() => {
         formStatus.value = { message: "", type: "idle" };
+        statusTimer = null;
       }, 6000);
     } else {
       formStatus.value = {

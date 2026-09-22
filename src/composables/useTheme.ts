@@ -3,6 +3,9 @@ import type { ThemeMode } from "../types";
 
 const STORAGE_KEY = "spoiledunknown-theme";
 
+/**
+ * Resolves the initial theme state from DOM classes, localStorage, or system media query.
+ */
 function detectInitialTheme(): boolean {
   if (typeof document !== "undefined") {
     if (document.documentElement.classList.contains("light")) return false;
@@ -14,34 +17,39 @@ function detectInitialTheme(): boolean {
       if (saved === "light") return false;
       if (saved === "dark") return true;
       return window.matchMedia("(prefers-color-scheme: dark)").matches;
-    } catch {}
+    } catch {
+      // SecurityError / QuotaExceededError in restricted iframe or private mode
+    }
   }
   return true;
 }
 
 const isDark = ref(detectInitialTheme());
 const isUserPinned = ref(false);
+let isInitialized = false;
 
 export const isTransitioning = ref(false);
 export const transitionStage = ref<"idle" | "expanding" | "swapping" | "fading">("idle");
 export const transitionTargetIsDark = ref(isDark.value);
 
-// =============================================================================
-// THEME SWITCH TRANSITION TIMINGS (in milliseconds):
-// Edit these arbitrary timing limits to tune the smoothness and pacing.
-// Default: 5000ms (5 seconds) as requested for a smooth, visible circle fill
-// =============================================================================
+/**
+ * Pacing configuration for the expanding circle theme transition (in milliseconds).
+ */
 export const THEME_TRANSITION_TIMINGS = {
-  // Time for the expanding circular veil to completely engulf the viewport
+  // Time for the circular veil to expand from center and engulf the viewport
   EXPAND_DURATION_MS: 3000,
 
-  // Brief pause at full coverage to ensure new theme DOM paint completes cleanly
+  // Pause at 100% coverage to allow the DOM class switch and layout to paint cleanly
   SWAP_PAUSE_MS: 150,
 
-  // Time for the overlay to dissolve and reveal the newly applied theme
+  // Fade-out duration for the transition overlay veil
   FADE_OUT_DURATION_MS: 500,
 };
 
+/**
+ * Application-wide theme controller managing dark/light modes,
+ * persistent storage, system media query synchronization, and animated transitions.
+ */
 export function useTheme() {
   function getSystemPreference(): boolean {
     if (typeof window === "undefined") return true;
@@ -64,14 +72,19 @@ export function useTheme() {
     }
   }
 
+  /**
+   * Initializes theme on mount, restoring saved preferences and listening for OS changes.
+   * Guarded to prevent duplicate event listener bindings on remounts.
+   */
   function initTheme() {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || isInitialized) return;
+    isInitialized = true;
 
     let saved: ThemeMode | null = null;
     try {
       saved = localStorage.getItem(STORAGE_KEY) as ThemeMode | null;
     } catch {
-      // Safe fallback if private browsing blocks storage access
+      // Safe fallback if storage access is restricted
     }
 
     if (saved === "dark" || saved === "light") {
@@ -90,11 +103,13 @@ export function useTheme() {
     });
   }
 
+  /**
+   * Initiates the expanding circular theme transition. Locks scroll and overflow
+   * in both directions until the transition finishes and the DOM paints the new theme.
+   */
   async function toggleTheme() {
-    // Prevent overlapping transitions while one is already active
     if (isTransitioning.value) return;
 
-    // Capture current scroll position so viewport never jumps during theme change
     const preservedScrollY = typeof window !== "undefined" ? window.scrollY : 0;
     const preservedScrollX = typeof window !== "undefined" ? window.scrollX : 0;
 
@@ -126,7 +141,6 @@ export function useTheme() {
       transitionStage.value = "swapping";
       applyTheme(target);
 
-      // Ensure scroll position remains locked exactly where the user is
       if (typeof window !== "undefined") {
         window.scrollTo({ left: preservedScrollX, top: preservedScrollY, behavior: "instant" });
       }
@@ -150,7 +164,6 @@ export function useTheme() {
         document.body.style.overflow = "";
       }
 
-      // Final check to guarantee scroll position remains undisturbed
       if (typeof window !== "undefined") {
         window.scrollTo({ left: preservedScrollX, top: preservedScrollY, behavior: "instant" });
       }

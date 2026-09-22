@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import { skillsData, skillsCategories } from "../data/skills";
 
 const selectedCategory = ref<string>(skillsCategories[0].id);
 const isSkillsMenuOpen = ref(false);
+const skillsMenuContainerRef = ref<HTMLDivElement | null>(null);
 
 const filteredSkills = computed(() => {
   return skillsData.filter((s) => s.category === selectedCategory.value);
@@ -13,6 +14,20 @@ function selectSkillCategory(id: string) {
   selectedCategory.value = id;
   isSkillsMenuOpen.value = false;
 }
+
+function onDocumentClick(e: MouseEvent) {
+  if (skillsMenuContainerRef.value && !skillsMenuContainerRef.value.contains(e.target as Node)) {
+    isSkillsMenuOpen.value = false;
+  }
+}
+
+onMounted(() => {
+  document.addEventListener("click", onDocumentClick);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", onDocumentClick);
+});
 </script>
 
 <template>
@@ -65,7 +80,7 @@ function selectSkillCategory(id: string) {
     <!-- Skills Content Area with Special Reveal Animation -->
     <div v-reveal:skills class="flex flex-col gap-6">
       <!-- Mobile Category Hamburger Nav (sm:hidden) -->
-      <div class="sm:hidden relative w-full">
+      <div ref="skillsMenuContainerRef" class="sm:hidden relative w-full">
         <button
           type="button"
           @click="isSkillsMenuOpen = !isSkillsMenuOpen"

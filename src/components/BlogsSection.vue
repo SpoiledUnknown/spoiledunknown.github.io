@@ -45,6 +45,10 @@ onMounted(() => {
 
 onUnmounted(() => {
   document.removeEventListener("click", onDocumentClick);
+  if (scrollResetTimer) {
+    clearTimeout(scrollResetTimer);
+    scrollResetTimer = null;
+  }
 });
 
 const spotlightArticle = computed(() => {

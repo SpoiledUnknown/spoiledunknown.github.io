@@ -25,6 +25,9 @@ const isDragging = ref(false);
 let lastPointerX = 0;
 let animationFrameId: number | null = null;
 let rotationalVelocity = 1.2; // Ambient base rotation speed
+let progressInterval: ReturnType<typeof setInterval> | null = null;
+let dismissTimer: ReturnType<typeof setTimeout> | null = null;
+let isDestroyed = false;
 
 function onPointerDown(e: MouseEvent | TouchEvent) {
   isDragging.value = true;
@@ -58,13 +61,13 @@ function animationLoop() {
     rotationalVelocity = rotationalVelocity >= 0 ? 0.8 : -0.8; // Ambient rotation floor
   }
 
-  if (isVisible.value) {
+  if (isVisible.value && !isDestroyed) {
     animationFrameId = requestAnimationFrame(animationLoop);
   }
 }
 
 function finishPreloader() {
-  if (isClosing.value) return;
+  if (isClosing.value || isDestroyed) return;
   isClosing.value = true;
   document.body.style.overflow = "";
 
@@ -77,9 +80,11 @@ function onPreloaderAfterLeave() {
 }
 
 function checkCanDismiss() {
+  if (isDestroyed) return;
   if (pageFullyLoaded.value && minTimerElapsed.value) {
     progressPercent.value = 100;
-    setTimeout(finishPreloader, 350);
+    if (dismissTimer) clearTimeout(dismissTimer);
+    dismissTimer = setTimeout(finishPreloader, 350);
   }
 }
 
@@ -98,20 +103,25 @@ onMounted(() => {
     if ("fonts" in document) {
       await document.fonts.ready;
     }
-    pageFullyLoaded.value = true;
-    checkCanDismiss();
+    if (!isDestroyed) {
+      pageFullyLoaded.value = true;
+      checkCanDismiss();
+    }
   };
   checkAssetsLoaded();
 
   // 2. Track smooth progress toward the arbitrary 5s limit
   const startTime = Date.now();
-  const interval = window.setInterval(() => {
+  progressInterval = setInterval(() => {
     const elapsed = Date.now() - startTime;
     const progress = Math.min(99, Math.floor((elapsed / PRELOADER_MIN_DURATION_MS) * 100));
     progressPercent.value = progress;
 
     if (elapsed >= PRELOADER_MIN_DURATION_MS) {
-      clearInterval(interval);
+      if (progressInterval) {
+        clearInterval(progressInterval);
+        progressInterval = null;
+      }
       minTimerElapsed.value = true;
       checkCanDismiss();
     }
@@ -121,7 +131,19 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  if (animationFrameId) cancelAnimationFrame(animationFrameId);
+  isDestroyed = true;
+  if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId);
+    animationFrameId = null;
+  }
+  if (progressInterval) {
+    clearInterval(progressInterval);
+    progressInterval = null;
+  }
+  if (dismissTimer) {
+    clearTimeout(dismissTimer);
+    dismissTimer = null;
+  }
   window.removeEventListener("pointerup", onPointerUp);
   document.body.style.overflow = "";
 });

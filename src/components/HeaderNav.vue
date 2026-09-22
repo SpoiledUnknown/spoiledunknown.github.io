@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { profileData } from "../data/profile";
 import { useTheme } from "../composables/useTheme";
 
@@ -13,6 +13,7 @@ const emit = defineEmits<{
 
 const { isDark, toggleTheme } = useTheme();
 const isMobileMenuOpen = ref(false);
+const headerContainerRef = ref<HTMLElement | null>(null);
 
 const navItems = [
   { id: "home", label: "Home" },
@@ -32,10 +33,39 @@ function handleMobileThemeToggle() {
   isMobileMenuOpen.value = false;
   toggleTheme();
 }
+
+function onDocumentClick(e: MouseEvent) {
+  if (
+    isMobileMenuOpen.value &&
+    headerContainerRef.value &&
+    !headerContainerRef.value.contains(e.target as Node)
+  ) {
+    isMobileMenuOpen.value = false;
+  }
+}
+
+function onKeydown(e: KeyboardEvent) {
+  if (e.key === "Escape" && isMobileMenuOpen.value) {
+    isMobileMenuOpen.value = false;
+  }
+}
+
+onMounted(() => {
+  document.addEventListener("click", onDocumentClick);
+  document.addEventListener("keydown", onKeydown);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", onDocumentClick);
+  document.removeEventListener("keydown", onKeydown);
+});
 </script>
 
 <template>
-  <header class="fixed top-0 w-full z-50 flex justify-center px-4 pt-4 md:pt-6 pointer-events-none">
+  <header
+    ref="headerContainerRef"
+    class="fixed top-0 w-full z-50 flex justify-center px-4 pt-4 md:pt-6 pointer-events-none"
+  >
     <div
       class="pointer-events-auto h-16 max-w-5xl w-full bg-surface-container/70 dark:bg-surface-container/60 backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] rounded-full px-4 sm:px-6 flex items-center justify-between shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] relative transition-all duration-300"
     >
