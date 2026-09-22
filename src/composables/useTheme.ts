@@ -29,16 +29,17 @@ export const transitionTargetIsDark = ref(isDark.value);
 // =============================================================================
 // THEME SWITCH TRANSITION TIMINGS (in milliseconds):
 // Edit these arbitrary timing limits to tune the smoothness and pacing.
+// Default: 5000ms (5 seconds) as requested for a smooth, visible circle fill
 // =============================================================================
 export const THEME_TRANSITION_TIMINGS = {
   // Time for the expanding circular veil to completely engulf the viewport
-  EXPAND_DURATION_MS: 550,
+  EXPAND_DURATION_MS: 3000,
 
   // Brief pause at full coverage to ensure new theme DOM paint completes cleanly
-  SWAP_PAUSE_MS: 80,
+  SWAP_PAUSE_MS: 150,
 
   // Time for the overlay to dissolve and reveal the newly applied theme
-  FADE_OUT_DURATION_MS: 400,
+  FADE_OUT_DURATION_MS: 500,
 };
 
 export function useTheme() {
@@ -66,7 +67,13 @@ export function useTheme() {
   function initTheme() {
     if (typeof window === "undefined") return;
 
-    const saved = localStorage.getItem(STORAGE_KEY) as ThemeMode | null;
+    let saved: ThemeMode | null = null;
+    try {
+      saved = localStorage.getItem(STORAGE_KEY) as ThemeMode | null;
+    } catch {
+      // Safe fallback if private browsing blocks storage access
+    }
+
     if (saved === "dark" || saved === "light") {
       isUserPinned.value = true;
       applyTheme(saved === "dark");
@@ -89,51 +96,72 @@ export function useTheme() {
 
     // Capture current scroll position so viewport never jumps during theme change
     const preservedScrollY = typeof window !== "undefined" ? window.scrollY : 0;
+    const preservedScrollX = typeof window !== "undefined" ? window.scrollX : 0;
 
     const target = !isDark.value;
     isUserPinned.value = true;
-    localStorage.setItem(STORAGE_KEY, target ? "dark" : "light");
-
-    // Stage 1: Begin animation and wait for expanding veil to cover viewport
-    transitionTargetIsDark.value = target;
-    transitionStage.value = "expanding";
-    isTransitioning.value = true;
-
-    await new Promise((resolve) =>
-      setTimeout(resolve, THEME_TRANSITION_TIMINGS.EXPAND_DURATION_MS)
-    );
-
-    // Stage 2: Screen is 100% covered — execute the theme change now
-    transitionStage.value = "swapping";
-    applyTheme(target);
-
-    // Ensure scroll position remains locked exactly where the user is
-    if (typeof window !== "undefined" && window.scrollY !== preservedScrollY) {
-      window.scrollTo({ top: preservedScrollY, behavior: "instant" });
+    try {
+      localStorage.setItem(STORAGE_KEY, target ? "dark" : "light");
+    } catch {
+      // Ignore storage write failure on private browsing
     }
 
-    await new Promise((resolve) => setTimeout(resolve, THEME_TRANSITION_TIMINGS.SWAP_PAUSE_MS));
+    // Lock overflow in both directions (X & Y) while the theme transition panel is active
+    if (typeof document !== "undefined") {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    }
 
-    // Stage 3: Smoothly fade out the veil to reveal the rendered theme
-    transitionStage.value = "fading";
+    try {
+      // Stage 1: Begin animation and wait for expanding veil to cover viewport
+      transitionTargetIsDark.value = target;
+      transitionStage.value = "expanding";
+      isTransitioning.value = true;
 
-    await new Promise((resolve) =>
-      setTimeout(resolve, THEME_TRANSITION_TIMINGS.FADE_OUT_DURATION_MS)
-    );
+      await new Promise((resolve) =>
+        setTimeout(resolve, THEME_TRANSITION_TIMINGS.EXPAND_DURATION_MS)
+      );
 
-    // Stage 4: Reset state completely
-    isTransitioning.value = false;
-    transitionStage.value = "idle";
+      // Stage 2: Screen is 100% covered — execute the theme change now
+      transitionStage.value = "swapping";
+      applyTheme(target);
 
-    // Final check to guarantee scroll position remains undisturbed
-    if (typeof window !== "undefined" && window.scrollY !== preservedScrollY) {
-      window.scrollTo({ top: preservedScrollY, behavior: "instant" });
+      // Ensure scroll position remains locked exactly where the user is
+      if (typeof window !== "undefined") {
+        window.scrollTo({ left: preservedScrollX, top: preservedScrollY, behavior: "instant" });
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, THEME_TRANSITION_TIMINGS.SWAP_PAUSE_MS));
+
+      // Stage 3: Smoothly fade out the veil to reveal the rendered theme
+      transitionStage.value = "fading";
+
+      await new Promise((resolve) =>
+        setTimeout(resolve, THEME_TRANSITION_TIMINGS.FADE_OUT_DURATION_MS)
+      );
+
+      // Stage 4: Reset state completely
+      isTransitioning.value = false;
+      transitionStage.value = "idle";
+    } finally {
+      // Restore overflow in both directions back to normal once the theme is changed
+      if (typeof document !== "undefined") {
+        document.documentElement.style.overflow = "";
+        document.body.style.overflow = "";
+      }
+
+      // Final check to guarantee scroll position remains undisturbed
+      if (typeof window !== "undefined") {
+        window.scrollTo({ left: preservedScrollX, top: preservedScrollY, behavior: "instant" });
+      }
     }
   }
 
   function setSystemTheme() {
     isUserPinned.value = false;
-    localStorage.removeItem(STORAGE_KEY);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch {}
     applyTheme(getSystemPreference());
   }
 

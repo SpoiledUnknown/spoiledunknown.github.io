@@ -76,19 +76,22 @@ const { displayText } = useTypewriter(profileData.typewriterRoles);
       </div>
 
       <!-- Typewriter Headline -->
-      <div class="flex items-center gap-2 mb-6 min-h-[3rem] overflow-hidden flex-wrap">
+      <div class="flex items-center gap-2 mb-6 min-h-[5.5rem] min-[900px]:min-h-[3rem] flex-wrap">
         <span class="font-display text-2xl sm:text-4xl text-primary font-semibold">
           Full-Stack Developer
         </span>
-        <span class="font-display text-2xl sm:text-4xl text-outline/40 font-light hidden sm:inline"
-          >/</span
-        >
-        <span
-          class="font-display text-2xl sm:text-4xl text-on-surface font-light transition-all duration-200"
+        <span class="font-display text-2xl sm:text-4xl text-outline/40 font-light">/</span>
+        <div class="basis-full h-0 min-[900px]:hidden"></div>
+        <div class="inline-flex items-center min-h-[2.5rem] min-[900px]:min-h-[3rem]">
+          <span
+            class="font-display text-2xl sm:text-4xl text-on-surface font-light transition-all duration-200"
           >
-          {{ displayText }}
-        </span>
-        <span class="inline-block w-0.5 h-7 bg-primary animate-pulse ml-0.5 self-center"></span>
+            {{ displayText }}
+          </span>
+          <span
+            class="inline-block w-0.5 h-6 min-[900px]:h-7 bg-primary animate-pulse ml-1 shrink-0"
+          ></span>
+        </div>
       </div>
 
       <!-- Short Bio Summary -->

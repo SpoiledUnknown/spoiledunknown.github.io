@@ -1,108 +1,130 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import {
-  useTheme,
   isTransitioning,
   transitionStage,
   transitionTargetIsDark,
   THEME_TRANSITION_TIMINGS,
 } from "../composables/useTheme";
 
-const expandDurationSec = computed(() => `${THEME_TRANSITION_TIMINGS.EXPAND_DURATION_MS}ms`);
 const fadeDurationSec = computed(() => `${THEME_TRANSITION_TIMINGS.FADE_OUT_DURATION_MS}ms`);
+const expandDurationSec = computed(() => `${THEME_TRANSITION_TIMINGS.EXPAND_DURATION_MS}ms`);
 </script>
 
 <template>
   <Transition name="theme-panel-fade">
     <div
       v-if="isTransitioning"
-      class="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none overflow-hidden"
-      :class="{
-        'opacity-100': transitionStage === 'expanding' || transitionStage === 'swapping',
-        'opacity-0': transitionStage === 'fading',
-      }"
+      class="fixed inset-0 z-[100] flex items-center justify-center pointer-events-auto select-none overflow-hidden"
+      :class="[
+        transitionTargetIsDark ? 'bg-[#F8FAFC]' : 'bg-[#0D0F14]',
+        transitionStage === 'fading' ? 'opacity-0' : 'opacity-100',
+      ]"
       :style="{
         transition: `opacity ${fadeDurationSec} cubic-bezier(0.16, 1, 0.3, 1)`,
       }"
     >
-      <!-- Soft Ambient Backdrop Scrim with Fade-In / Fade-Out -->
+      <!-- Growing Circle Emerging from Behind the Icon -->
+      <!-- Expands smoothly over the arbitrary delay (5 seconds default) covering the entire viewport -->
       <div
-        class="absolute inset-0 bg-black/30 dark:bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-out"
-        :class="{
-          'opacity-100': transitionStage === 'expanding' || transitionStage === 'swapping',
-          'opacity-0': transitionStage === 'fading',
-        }"
-      ></div>
-
-      <!-- Expanding Radial Veil: Grows until full screen coverage, then theme swaps -->
-      <div
+        class="theme-circle-expanding absolute rounded-full pointer-events-none"
         :class="[
-          'absolute rounded-full shadow-2xl transition-transform ease-out',
           transitionTargetIsDark
-            ? 'bg-[#0D0F14] ring-4 ring-[#2D68FF]/50'
-            : 'bg-[#F8FAFC] ring-4 ring-blue-500/40',
-          transitionStage === 'expanding' ||
-          transitionStage === 'swapping' ||
-          transitionStage === 'fading'
-            ? 'scale-[80]'
-            : 'scale-0',
+            ? 'bg-[#0D0F14] ring-4 ring-[#2D68FF]/40 shadow-[0_0_120px_rgba(0,0,0,0.85)]'
+            : 'bg-[#F8FAFC] ring-4 ring-blue-400/50 shadow-[0_0_100px_rgba(45,104,255,0.45)]',
         ]"
         :style="{
           width: '120px',
           height: '120px',
-          transitionDuration: expandDurationSec,
-          transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)',
+          animationDuration: expandDurationSec,
         }"
       ></div>
 
-      <!-- Center Celestial Glyph Indicator with Entry Spring & Exit Fade -->
+      <!-- Center Icon Glyph Indicator sitting in front of the growing circle -->
       <div
-        class="theme-glyph-card relative z-10 flex flex-col items-center gap-3 transition-all duration-300"
+        class="theme-glyph-card relative z-10 flex flex-col items-center gap-3.5 transition-all duration-300"
         :class="{
-          'scale-100 opacity-100 filter-none':
+          'scale-100 opacity-100':
             transitionStage === 'expanding' || transitionStage === 'swapping',
-          'scale-110 opacity-0 blur-sm': transitionStage === 'fading',
+          'scale-105 opacity-0 blur-sm': transitionStage === 'fading',
         }"
       >
         <div
-          class="w-16 h-16 rounded-full bg-surface-container/90 backdrop-blur-xl border border-white/20 flex items-center justify-center shadow-2xl"
+          class="w-18 h-18 rounded-full flex items-center justify-center shadow-2xl transition-colors duration-300 border backdrop-blur-md"
+          :class="[
+            transitionTargetIsDark
+              ? 'bg-white/95 text-amber-500 border-amber-300/50 shadow-amber-500/25'
+              : 'bg-[#1a1b21]/95 text-sky-400 border-sky-400/40 shadow-blue-500/30',
+          ]"
         >
-          <span class="material-symbols-outlined text-2xl text-primary animate-spin-slow">
-            {{ transitionTargetIsDark ? "dark_mode" : "light_mode" }}
+          <span class="material-symbols-outlined text-3xl animate-spin-slow select-none">
+            {{ transitionTargetIsDark ? "light_mode" : "dark_mode" }}
           </span>
         </div>
-        <span
-          class="font-mono text-xs text-primary/90 uppercase tracking-widest font-semibold drop-shadow-md"
-        >
-          {{ transitionTargetIsDark ? "Obsidian Mode" : "Light Mode" }}
-        </span>
+
+        <div class="flex flex-col items-center gap-1">
+          <span
+            class="font-mono text-xs uppercase tracking-widest font-semibold drop-shadow-md"
+            :class="transitionTargetIsDark ? 'text-slate-800' : 'text-primary'"
+          >
+            {{ transitionTargetIsDark ? "Entering Obsidian" : "Entering Light" }}
+          </span>
+          <span
+            class="font-mono text-[10px] tracking-wide"
+            :class="transitionTargetIsDark ? 'text-slate-500' : 'text-outline'"
+          >
+            Adapting visual canvas...
+          </span>
+        </div>
       </div>
     </div>
   </Transition>
 </template>
 
 <style scoped>
-/* Outer panel fade-in and fade-out */
+/* Outer panel fade on mount & unmount */
 .theme-panel-fade-enter-active {
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .theme-panel-fade-leave-active {
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .theme-panel-fade-enter-from,
 .theme-panel-fade-leave-to {
   opacity: 0;
 }
 
+/* Progressive, multi-stage growth curve:
+   Starts tucked behind icon, gently emerges, swells smoothly, and fills screen */
+.theme-circle-expanding {
+  animation-name: circleGrow;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
+  animation-fill-mode: forwards;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@keyframes circleGrow {
+  0% {
+    transform: scale(0);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(65);
+    opacity: 1;
+  }
+}
+
 /* Center glyph card spring on open */
 .theme-glyph-card {
-  animation: glyphAppear 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation: glyphAppear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 @keyframes glyphAppear {
   from {
     opacity: 0;
-    transform: scale(0.75) translateY(12px);
+    transform: scale(0.7) translateY(10px);
     filter: blur(6px);
   }
   to {
@@ -122,6 +144,6 @@ const fadeDurationSec = computed(() => `${THEME_TRANSITION_TIMINGS.FADE_OUT_DURA
 }
 
 .animate-spin-slow {
-  animation: spinSlow 1.4s linear infinite;
+  animation: spinSlow 6s linear infinite;
 }
 </style>

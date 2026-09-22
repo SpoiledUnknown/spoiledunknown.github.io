@@ -3,6 +3,11 @@ import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import { blogsData, blogCategories } from "../data/blogs";
 import type { BlogArticle } from "../types";
 
+const emit = defineEmits<{
+  (e: "set-ambient", color: string): void;
+  (e: "reset-ambient"): void;
+}>();
+
 const selectedCategory = ref<string>("all");
 const isBlogsMenuOpen = ref(false);
 const sliderRef = ref<HTMLDivElement | null>(null);
@@ -157,6 +162,8 @@ watch(selectedCategory, () => {
         <div
           :key="spotlightArticle.id"
           class="blog-spotlight-item group relative w-full rounded-3xl bg-surface-container-low/90 overflow-hidden shadow-2xl transition-all duration-700 ease-out border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 hover:shadow-[0_28px_60px_rgba(45,104,255,0.22)]"
+          @mouseenter="emit('set-ambient', spotlightArticle.ambientColor || '#2d68ff')"
+          @mouseleave="emit('reset-ambient')"
         >
           <!-- Media Aspect Container -->
           <div
@@ -403,10 +410,12 @@ watch(selectedCategory, () => {
             <article
               v-for="(blog, idx) in otherBlogs"
               :key="blog.id"
-              class="blog-slider-item w-[320px] sm:w-[370px] shrink-0 snap-start flex flex-col justify-between rounded-2xl overflow-hidden bg-surface-container-low/80 backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] shadow-xl group cursor-pointer"
+              class="blog-slider-item w-[320px] sm:w-[370px] shrink-0 snap-start flex flex-col justify-between rounded-2xl overflow-hidden bg-surface-container-low/80 backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] hover:border-primary/40 shadow-xl group cursor-pointer"
               :style="{
                 '--stagger': idx,
               }"
+              @mouseenter="emit('set-ambient', blog.ambientColor || '#2d68ff')"
+              @mouseleave="emit('reset-ambient')"
             >
               <div>
                 <!-- Header Media Area -->

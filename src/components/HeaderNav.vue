@@ -27,6 +27,11 @@ function handleNavClick(id: string) {
   isMobileMenuOpen.value = false;
   emit("navigate", id);
 }
+
+function handleMobileThemeToggle() {
+  isMobileMenuOpen.value = false;
+  toggleTheme();
+}
 </script>
 
 <template>
@@ -159,7 +164,7 @@ function handleNavClick(id: string) {
         <!-- Theme Toggle in Mobile Menu -->
         <button
           type="button"
-          @click="toggleTheme"
+          @click="handleMobileThemeToggle"
           class="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-on-surface hover:bg-surface-container-high transition-all duration-200 ease-out hover:translate-x-1 text-sm font-medium cursor-pointer"
         >
           <div class="flex items-center gap-2.5">

@@ -71,7 +71,7 @@ onMounted(() => {
       <AboutSection />
       <SkillsSection />
       <ProjectsSection @set-ambient="handleSetAmbient" @reset-ambient="handleResetAmbient" />
-      <BlogsSection />
+      <BlogsSection @set-ambient="handleSetAmbient" @reset-ambient="handleResetAmbient" />
       <ContactSection />
     </main>
 

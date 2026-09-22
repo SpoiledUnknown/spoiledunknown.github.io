@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-surface: #111318;
   --color-surface-dim: #111318;
@@ -175,22 +177,50 @@ html:not(.dark) .backdrop-blur-xl {
   filter: blur(0px);
 }
 
-/* 2. Special Projects Scroll Reveal: 3D Perspective horizon tilt & cinematic expand */
+/* 2. Special Projects Scroll Reveal: Cinematic expand */
 .reveal-projects {
   opacity: 0;
-  transform: perspective(1200px) rotateX(7deg) translateY(45px) scale(0.94);
-  filter: blur(6px);
+  transform: translateY(32px) scale(0.97);
+  filter: blur(5px);
   transition:
-    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform, filter;
 }
 
 .reveal-projects.is-revealed {
   opacity: 1;
-  transform: perspective(1200px) rotateX(0deg) translateY(0) scale(1);
+  transform: translateY(0) scale(1);
   filter: blur(0px);
+  transition:
+    border-color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Silky smooth hover & glow for Featured Project Showcase */
+.project-featured-item {
+  transition:
+    border-color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.project-featured-item:hover {
+  border-color: rgba(45, 104, 255, 0.45) !important;
+  box-shadow: 0 28px 60px rgba(45, 104, 255, 0.24) !important;
+  transition:
+    border-color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.project-featured-item:not(:hover) {
+  transition:
+    border-color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .reveal-projects .project-card-item {
@@ -334,6 +364,12 @@ html:not(.dark) .backdrop-blur-xl {
   opacity: 1;
   transform: translateX(0) scale(1);
   filter: blur(0px);
+  transition:
+    border-color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .reveal-blogs .blog-slider-item {

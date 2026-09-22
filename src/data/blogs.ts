@@ -20,6 +20,7 @@ export const blogsData: BlogArticle[] = [
     category: "game-arch",
     categoryLabel: "Game Architecture",
     image: "./XtremeFPS.webp",
+    ambientColor: "#2d68ff",
     tags: ["Unity 3D", "Kinematics", "C# Engine", "Physics"],
     codeTelemetry: {
       file: "XtremeFPS :: KinematicKernel.cs",
@@ -38,6 +39,7 @@ export const blogsData: BlogArticle[] = [
     category: "full-stack",
     categoryLabel: "Vanilla JS",
     icon: "javascript",
+    ambientColor: "#eab308",
     tags: ["JavaScript", "ES Modules", "Architecture", "No-Build"],
     link: "https://github.com/SpoiledUnknown",
   },

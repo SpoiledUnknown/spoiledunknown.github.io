@@ -65,4 +65,5 @@ export interface BlogArticle {
     revision: string;
   };
   link?: string;
+  ambientColor?: string;
 }
