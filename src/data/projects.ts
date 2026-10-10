@@ -41,8 +41,26 @@ export const projectsData: Project[] = [
     },
   },
   {
+    id: "richcordly",
+    title: "Richcordly",
+    tagline:
+      "A lightweight desktop GUI for Richcord that lets you manage your Discord Rich Presence without using the CLI.",
+    description:
+      "Richcordly is a lightweight desktop application that brings Richcord's Discord Rich Presence capabilities to a graphical interface. Easily configure and manage your presence without relying on the command line, with a simple interface built for convenience and ease of use.",
+    version: "v1.0.0",
+    featured: false,
+    platform: "Vue.ts // Cross-Platform",
+    image: "./Richcordly.webp",
+    ambientColor: "#60a5fa",
+    tags: ["Electron", "Richcord", "GUI", "MIT"],
+    links: {
+      website: "https://spoiledunknown.github.io/Richcordly/",
+      github: "https://github.com/SpoiledUnknown/Richcordly/",
+    },
+  },
+  {
     id: "richcord",
-    title: "Richcord Presence",
+    title: "Richcord",
     tagline:
       "Customizable Discord Rich Presence manager with fine-grained state control without bloat.",
     description:

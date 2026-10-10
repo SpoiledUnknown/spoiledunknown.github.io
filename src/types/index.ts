@@ -41,6 +41,7 @@ export interface Project {
     npm?: string;
     github?: string;
     demo?: string;
+    website?: string;
   };
   metrics?: {
     label: string;

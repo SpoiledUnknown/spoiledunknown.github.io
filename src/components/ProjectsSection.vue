@@ -333,6 +333,16 @@ onUnmounted(() => {
                 <span class="material-symbols-outlined text-xs">arrow_outward</span>
               </a>
               <a
+                v-if="project.links.website"
+                :href="project.links.website"
+                target="_blank"
+                rel="noreferrer"
+                class="font-mono text-xs text-primary hover:underline flex items-center gap-1 font-medium"
+              >
+                <span>Website</span>
+                <span class="material-symbols-outlined text-xs">arrow_outward</span>
+              </a>
+              <a
                 v-else-if="project.links.demo"
                 :href="project.links.demo"
                 target="_blank"
@@ -342,8 +352,6 @@ onUnmounted(() => {
                 <span>Live Demo</span>
                 <span class="material-symbols-outlined text-xs">arrow_outward</span>
               </a>
-              <span v-else class="text-xs text-outline font-mono">Completed</span>
-
               <a
                 v-if="project.links.github"
                 :href="project.links.github"
